@@ -2,9 +2,10 @@
 	import { Typography } from '..';
     export let buttonLabel: string;
     export let type : "primary" | "secondary" = "primary"
+    export let onClick: () => void;
 
 </script>
- <button class ="button primary" class:secondary={type === "secondary"}> <Typography type="impact" _fontweight= "700">{buttonLabel}</Typography> </button>
+ <button on:click={onClick} class ="button primary" class:secondary={type === "secondary"}> <Typography type="impact" _fontweight= "700">{buttonLabel}</Typography> </button>
 
 <style lang="scss">
     .primary {

@@ -12,6 +12,6 @@
     <Button {...args} />
   </Template>
   
-  <Story name="primary" args={{type: "primary" ,buttonLabel : "GETTING STARTED"}} />
+  <Story name="primary" args={{type: "primary" ,buttonLabel : "GETTING STARTED" , onClick: () => alert("button clicked")}} />
   <Story name="secondary" args={{type: "secondary",buttonLabel : "CONFIGURE"}} />
   
