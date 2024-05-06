@@ -3,7 +3,7 @@
   import { Typography } from "..";
 
   export const meta = {
-    title: "Typography",
+    title: "Components/UI/Typography",
     component: Typography,
   };
 </script>

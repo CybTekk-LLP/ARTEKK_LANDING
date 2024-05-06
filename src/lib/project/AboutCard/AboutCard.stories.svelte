@@ -3,7 +3,7 @@
   import { AboutCard } from "..";
 
   export const meta = {
-    title: "AboutCard",
+    title: "Components/Project/AboutCard",
     component: AboutCard,
   };
 </script>

@@ -3,7 +3,7 @@
   import { Navbar } from "..";
 
   export const meta = {
-    title: "Navbar",
+    title: "Components/UI/Navbar",
     component: Navbar,
   };
 </script>
