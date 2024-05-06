@@ -23,5 +23,6 @@
 <Story name="Heading" args={{ type: "heading" }} />
 <Story name="Caption" args={{ type: "caption" }} />
 <Story name="Body" args={{ type: "body" }} />
+<Story name="Impact" args={{ type: "impact" }} />
 <Story name="Subtext" args={{ type: "subtext" }} />
 <Story name="Disabled" args={{ type: "disabled" }} />

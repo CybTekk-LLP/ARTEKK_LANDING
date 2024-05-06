@@ -1,6 +1,11 @@
 <script lang="ts">
-  export let type: "heading" | "caption" | "body" | "disabled" | string =
-    "body";
+  export let type:
+    | "heading"
+    | "caption"
+    | "body"
+    | "impact"
+    | "disabled"
+    | string = "body";
   export let renderInline = false;
   export let disabled = false;
   export let _color: string | undefined = undefined;
@@ -35,6 +40,11 @@
     }
     &.body {
       font-size: 1.25rem;
+      font-weight: 400;
+    }
+
+    &.impact {
+      font-size: 1rem;
       font-weight: 400;
     }
     &.subtext {
