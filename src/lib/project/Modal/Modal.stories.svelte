@@ -10,7 +10,7 @@
 </script>
 
 <Template let:args>
-  <Modal {...args}>
+  <Modal {...args} showBackdrop={true}>
     <Typography type="heading">This is Modal</Typography>
     <br />
     <Button type="primary" buttonLabel="Buy" onClick={() => alert("sdafg")} />

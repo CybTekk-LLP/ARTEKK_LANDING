@@ -27,7 +27,7 @@
     position: fixed;
     display: none;
     block-size: 100%;
-    z-index: 2;
+    z-index: 4;
     inset-inline-start: 0;
     inset-block-start: 0;
     inline-size: 100%;
@@ -51,5 +51,6 @@
     max-inline-size: 414px;
     background-color: var(--transparent);
     padding: 20px;
+    z-index: 5;
   }
 </style>
