@@ -48,7 +48,6 @@
     max-inline-size: 1280px;
     margin-inline: auto;
     & > .about {
-      margin-block-start: 3rem;
       padding: 2rem;
       & > .content {
         display: flex;

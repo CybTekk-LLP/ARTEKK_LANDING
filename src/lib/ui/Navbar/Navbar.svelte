@@ -72,6 +72,7 @@
     gap: 50px;
     padding-inline: 30px;
     padding-block: 20px;
+    margin-block-end: 4rem;
     & > a {
       & > .logo {
         position: relative;
