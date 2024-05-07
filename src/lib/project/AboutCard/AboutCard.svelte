@@ -5,8 +5,11 @@
 </script>
 
 <div class="card">
-  <Typography type="heading" _color="var(--secondary-500)">{heading}</Typography
-  >
+  <h1 class="heading">
+    <Typography type="heading" _color="var(--secondary-500)"
+      >{heading}</Typography
+    >
+  </h1>
   <Typography type="body" _color="var(--primary-500)">
     {description}
   </Typography>
@@ -18,6 +21,13 @@
     grid-template-columns: 40% auto;
     align-items: center;
     gap: 20px;
+    & > .heading {
+      &:hover {
+        :global(.typography) {
+          color: var(--primary-900) !important;
+        }
+      }
+    }
     @media screen and (width <= 768px) {
       grid-template-columns: 100%;
       gap: 10px;
