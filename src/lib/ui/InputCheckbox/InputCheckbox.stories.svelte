@@ -1,15 +1,15 @@
 <script context="module" lang="ts">
   import { Template, Story } from "@storybook/addon-svelte-csf";
-  import { InputRadio } from "..";
+  import { InputCheckbox } from "..";
 
   export const meta = {
-    title: "Components/UI/InputRadio",
-    component: InputRadio,
+    title: "Components/UI/InputCheckbox",
+    component: InputCheckbox,
   };
 </script>
 
 <Template let:args>
-  <InputRadio {...args} />
+  <InputCheckbox {...args} />
 </Template>
 
 <Story

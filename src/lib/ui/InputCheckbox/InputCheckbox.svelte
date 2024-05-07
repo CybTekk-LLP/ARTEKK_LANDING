@@ -2,20 +2,22 @@
   import { Typography } from "..";
   export let value: string[] = [];
   export let content: any;
-  let uniqueId = "inputRadio" + Math.random().toString().split(".")[1];
+  let uniqueId = "inputCheckbox" + Math.random().toString().split(".")[1];
+
+  $: console.log(value);
 </script>
 
-<div class="radio-group">
+<div class="checkbox-group">
   {#each content ?? [] as option, i}
     <input
       type="checkbox"
-      name={uniqueId + i}
-      id={uniqueId + i}
+      name={uniqueId}
+      id={option.title}
       value={option.title}
       multiple
       bind:group={value}
     />
-    <label class="custom-radio" for={uniqueId + i}>
+    <label class="custom-checkbox" for={option.title}>
       <img src={option.imgSrc} alt={option.title} />
       <Typography type="impact" _color="var(--outline)" _fontweight="400"
         >{option.title}</Typography
@@ -25,7 +27,7 @@
 </div>
 
 <style lang="scss">
-  .radio-group {
+  .checkbox-group {
     display: flex;
     inline-size: 100%;
     flex-wrap: wrap;
@@ -47,8 +49,9 @@
       border: 1px solid transparent;
       & > img {
         inline-size: 40px;
-        block-size: 24px;
+        block-size: 30px;
         border-radius: 2px;
+        object-fit: cover;
       }
     }
     & > input[type="checkbox"]:checked + label {
