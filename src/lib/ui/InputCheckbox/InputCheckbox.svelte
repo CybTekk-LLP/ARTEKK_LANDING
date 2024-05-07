@@ -36,7 +36,10 @@
     & > label {
       background-color: var(--secondary-700);
       max-inline-size: 100%;
-      min-inline-size: 300px;
+      inline-size: 350px;
+      @media screen and (width < 768px) {
+        inline-size: 100%;
+      }
       padding: 8px;
       display: flex;
       align-items: center;

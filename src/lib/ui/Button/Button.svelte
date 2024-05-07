@@ -23,7 +23,7 @@
     font-weight: 700;
     background-color: #6200ee;
     background-image: linear-gradient(to right, #0a0030, #2a002e);
-    padding: 1rem;
+    padding: 15px 20px;
     outline: 0;
     border: 0;
     border-radius: 0.25rem;
@@ -40,6 +40,9 @@
       box-shadow: unset;
       border: 1px solid var(--primary-900);
       border-radius: 4px;
+    }
+    & :global(.impact) {
+      font-size: clamp(0.75rem, 0.6786rem + 0.3571vw, 1rem);
     }
   }
 </style>

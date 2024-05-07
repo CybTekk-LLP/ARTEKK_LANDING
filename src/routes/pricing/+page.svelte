@@ -73,32 +73,29 @@
     min-block-size: 80vh;
     inline-size: 100vw;
     margin-inline: auto;
-    padding-inline: 2rem;
+    padding-inline: 20px;
     & > .pricing-box {
-      margin-block-end: 2rem;
+      margin-block-end: 4rem;
       & > .pricing-list {
         display: grid;
-        grid-template-columns: repeat(3, auto);
-        gap: 20px;
-        margin-block-start: 1rem;
-        @media screen and (width <= 1200px) {
-          grid-template-columns: 50%;
-          justify-content: center;
-        }
-        @media screen and (width <= 768px) {
-          grid-template-columns: 100%;
-          justify-content: center;
-        }
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 25px;
+        margin-block-start: 2rem;
       }
     }
     & > .plan-box {
       & > .plan-option {
-        margin-block-start: 1rem;
+        margin-block-start: 2rem;
+        inline-size: 100%;
       }
     }
     & > .btn {
-      margin-block-start: 2rem;
-      inline-size: 300px;
+      margin-block-start: 15px;
+      inline-size: 100%;
+      max-inline-size: 350px;
+      @media screen and (width < 768px) {
+        max-inline-size: 100%;
+      }
     }
   }
 </style>

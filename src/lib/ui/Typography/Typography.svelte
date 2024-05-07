@@ -35,7 +35,7 @@
       font-weight: 700;
     }
     &.cardTitle {
-      font-size: 2.5rem;
+      font-size: clamp(1.5rem, 0.5714rem + 2.1429vw, 2.5rem);
       font-weight: 700;
     }
     &.caption {
