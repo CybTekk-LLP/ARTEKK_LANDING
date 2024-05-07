@@ -9,7 +9,7 @@
       <Typography type="impact">{faq.title}</Typography>
     </summary>
     <p>
-      <Typography type="impact" _color="var(--secondary-500)"
+      <Typography type="impact" _color="var(--primary-700)"
         >{faq.description}</Typography
       >
     </p>
@@ -34,6 +34,9 @@
       }
       & > summary {
         border: 1px solid var(--transparent);
+        & :global(.impact) {
+          color: #924df3;
+        }
       }
     }
     &::after {
