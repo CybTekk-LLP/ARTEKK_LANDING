@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Typography, Button } from "$lib/ui";
+  import { Typography, Button } from "./../../ui";
   export let cardHeading: string;
   export let imgSrc: string;
   export let buttonLabel: string;
