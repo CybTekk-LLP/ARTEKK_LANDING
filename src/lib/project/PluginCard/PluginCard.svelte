@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Typography } from "$lib/ui";
+  import { Typography, Button } from "$lib/ui";
 </script>
 
 <article>
@@ -8,19 +8,31 @@
   <img height="196px" src="https://picsum.photos/200/300" alt="" />
   <br />
   <br />
-  <button>Configure</button>
+  <div class="btn">
+    <Button
+      type="secondary"
+      buttonLabel="View in AR"
+      onClick={() => alert("adfgjs")}
+    />
+  </div>
 </article>
 
 <style lang="scss">
   article {
-    background-color: var(--secondary-500);
+    background-color: var(--secondary-700);
     padding: 20px;
     border-radius: 16px;
+
     & > img {
       inline-size: 100%;
       object-fit: cover;
       image-rendering: optimizeSpeed;
       border-radius: 6px;
+    }
+    & > .btn {
+      inline-size: 100%;
+      display: flex;
+      justify-content: center;
     }
   }
 </style>
