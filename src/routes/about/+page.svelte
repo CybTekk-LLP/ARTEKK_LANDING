@@ -35,6 +35,6 @@
     min-block-size: 80vh;
     inline-size: 100vw;
     margin-inline: auto;
-    padding-inline: 2rem;
+    padding-inline: 4rem;
   }
 </style>
