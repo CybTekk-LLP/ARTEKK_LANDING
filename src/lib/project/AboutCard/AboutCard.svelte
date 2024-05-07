@@ -5,8 +5,7 @@
 </script>
 
 <div class="card">
-  <Typography type="heading" _color="var(--secondary-500)">{heading}</Typography
-  >
+  <Typography type="heading" _color="var(--primary-900)">{heading}</Typography>
   <Typography type="body" _color="var(--primary-500)">
     {description}
   </Typography>
@@ -18,6 +17,11 @@
     grid-template-columns: 40% auto;
     align-items: center;
     gap: 20px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    &:hover {
+      opacity: 1;
+    }
     @media screen and (width <= 768px) {
       grid-template-columns: 100%;
       gap: 10px;

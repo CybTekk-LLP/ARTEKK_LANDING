@@ -12,4 +12,16 @@
   <Navbar {...args} />
 </Template>
 
-<Story name="main" args={{}} />
+<Story
+  name="main"
+  args={{
+    logo: "/images/Logo.svg",
+    navOptions: [
+      { name: "About", href: "/about", target: "" },
+      { name: "Collections", href: "/collections", target: "" },
+      { name: "Pricing", href: "/pricing", target: "" },
+      { name: "Contact", href: "/contact", target: "" },
+      { name: "FAQ", href: "/faq", target: "" },
+    ],
+  }}
+/>
