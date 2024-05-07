@@ -19,6 +19,7 @@
       </p>
       <button class="getstarted">Get Started</button>
     </div>
+    <br />
     <div class="section-image">
       <img
         class="banner"
