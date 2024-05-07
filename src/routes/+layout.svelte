@@ -20,7 +20,7 @@
   <slot />
   <footer>
     <Typography type="subtext" _fontweight="400" _color="var(--primary-500)"
-      >Copyright © {year} ARTEKK</Typography
+      >Copyright © {year} ARTEKK, all rights reserved</Typography
     >
   </footer>
 </main>
