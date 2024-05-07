@@ -128,10 +128,10 @@
         -o-transition: 0.25s ease-in-out;
         transition: 0.25s ease-in-out;
         &:nth-child(1) {
-          inset-block-start: 10px;
+          inset-block-start: 0;
         }
         &:nth-child(2) {
-          inset-block-start: 20px;
+          inset-block-start: 10px;
         }
       }
       &.open {
