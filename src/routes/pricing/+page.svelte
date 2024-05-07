@@ -1,8 +1,14 @@
 <script lang="ts">
+  import Modal from "$lib/project/Modal/Modal.svelte";
   import PricingCard from "$lib/project/PricingCard/PricingCard.svelte";
   import Button from "$lib/ui/Button/Button.svelte";
   import InputCheckbox from "$lib/ui/InputCheckbox/InputCheckbox.svelte";
   import Typography from "$lib/ui/Typography/Typography.svelte";
+  let dialog: HTMLDialogElement;
+  let showBackdrop: boolean;
+  let heading: string;
+  let pluginsValue: any;
+  let value: any;
   let content = [
     {
       imgSrc: "./images/InputRadio/Shoes.svg",
@@ -35,7 +41,11 @@
         planLabel="Starter"
         amount="₹4Lakhs"
         description="Choose any 3 AR models "
-        onClick={() => alert("Button clicked")}
+        onClick={() => {
+          heading = "Choose 3 plugins";
+          dialog.showModal();
+          showBackdrop = true;
+        }}
         buttonType="secondary"
       />
 
@@ -43,7 +53,11 @@
         planLabel="Basic"
         amount="₹6Lakhs"
         description="Choose any 5 AR models "
-        onClick={() => alert("Button clicked")}
+        onClick={() => {
+          heading = "Choose 5 plugins";
+          dialog.showModal();
+          showBackdrop = true;
+        }}
         buttonType="secondary"
       />
 
@@ -51,21 +65,27 @@
         planLabel="Pro"
         amount="₹9Lakhs"
         description="Get full access to all the AR models "
-        onClick={() => alert("Button clicked")}
+        onClick={() => {}}
         buttonType="primary"
       />
     </div>
   </div>
   <div class="plan-box">
-    <Typography type="cardTitle">Buy Individual Plans(2Lakhs each)</Typography>
+    <Typography type="cardTitle">Buy Individual Plans (2Lakhs each)</Typography>
     <div class="plan-option">
-      <InputCheckbox {content} />
+      <InputCheckbox {content} bind:value />
     </div>
   </div>
   <div class="btn">
     <Button buttonLabel="BUY" onClick={() => null} />
   </div>
 </main>
+<Modal bind:dialog bind:showBackdrop>
+  <Typography type="cardTitle">{heading}</Typography><InputCheckbox
+    bind:value={pluginsValue}
+    {content}
+  /></Modal
+>
 
 <style lang="scss">
   main {
