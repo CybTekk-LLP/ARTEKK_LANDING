@@ -35,7 +35,6 @@
       >
     </p>
     <br />
-    <br />
     <TextArea placeholder="Please Enter your message" bind:value={message} />
   </form>
   <br />
