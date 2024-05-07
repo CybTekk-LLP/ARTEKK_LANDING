@@ -3,8 +3,6 @@
   export let value: string[] = [];
   export let content: any;
   let uniqueId = "inputCheckbox" + Math.random().toString().split(".")[1];
-
-  $: console.log(value);
 </script>
 
 <div class="checkbox-group">
