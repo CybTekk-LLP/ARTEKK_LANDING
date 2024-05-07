@@ -1,9 +1,9 @@
 <script lang="ts">
-  import Typography from "$lib/ui/Typography/Typography.svelte";
+  import { Typography } from "$lib/ui";
   export let content: any;
 </script>
 
-{#each content ?? [] as faq, i}
+{#each content ?? [] as faq}
   <details>
     <summary>
       <Typography type="impact">{faq.title}</Typography>
@@ -20,7 +20,8 @@
   details {
     position: relative;
     margin-inline: 1rem;
-    border: 1px solid transparent;
+    border: 1px solid var(--transparent);
+    margin-block: 0.8rem;
     &[open] {
       padding-bottom: 1em;
       border: 1px solid var(--primary-300);
