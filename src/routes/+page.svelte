@@ -44,7 +44,6 @@
 
 <style lang="scss">
   main {
-    min-block-size: 100vh;
     inline-size: 100vw;
     max-inline-size: 1280px;
     margin-inline: auto;
