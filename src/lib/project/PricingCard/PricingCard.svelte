@@ -11,11 +11,9 @@
   <div class="pricing">
     <Typography type="body">{planLabel}</Typography>
     <Typography type="heading">{amount}</Typography>
-
     <ul>
       <Typography type="impact"><li>{description}</li></Typography>
     </ul>
-
     <Button type="secondary" buttonLabel="CONFIGURE" {onClick}></Button>
   </div>
 </article>
@@ -24,16 +22,15 @@
   article {
     background: var(--secondary-600);
     border-radius: 16px;
-
     & > .pricing {
       padding: 20px;
       inline-size: 90%;
       margin-inline: auto;
       display: grid;
-      gap: 15px;
+      gap: 25px;
     }
     li {
-      list-style-image: url('data:image/svg+xml,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.52142 8.31994L6.5083 11.1999L12.4814 5.43994" stroke="%23D9D9D9" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+      list-style-image: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.52142 8.31994L6.5083 11.1999L12.4814 5.43994" stroke="%23D9D9D9" stroke-linecap="round" stroke-linejoin="round"/></svg>');
       list-style-position: inside;
     }
   }
