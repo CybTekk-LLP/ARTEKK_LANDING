@@ -15,7 +15,7 @@
     border: none;
     border-radius: 6px;
     font-size: 16px;
-    color: #828282;
+    color: var(--primary-900);
     font-family: var(--font);
     font-weight: 400;
     outline: var(--transparent);
