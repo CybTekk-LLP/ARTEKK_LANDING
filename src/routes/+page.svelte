@@ -23,19 +23,19 @@
       <img
         class="banner"
         height="756px"
-        src="/images/BannerOne.png"
+        src="/images/Home/BannerOne.png"
         alt="Banner"
       />
       <img
         class="banner"
         height="756px"
-        src="/images/BannerTwo.png"
+        src="/images/Home/BannerTwo.png"
         alt="Banner"
       />
       <img
         class="banner"
         height="756px"
-        src="/images/BannerThree.png"
+        src="/images/Home/BannerThree.png"
         alt="Banner"
       />
     </div>

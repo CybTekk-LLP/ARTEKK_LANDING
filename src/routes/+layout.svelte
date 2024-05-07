@@ -7,7 +7,7 @@
 <main>
   <Navbar
     bind:isOpen
-    logo={"/images/Logo.svg"}
+    logo={"/images/Home/Logo.svg"}
     navOptions={[
       { name: "About", href: "/about", target: "" },
       { name: "Collections", href: "/collections", target: "" },
