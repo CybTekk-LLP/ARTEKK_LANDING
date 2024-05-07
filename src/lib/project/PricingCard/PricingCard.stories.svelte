@@ -19,5 +19,6 @@
     amount: "₹4Lakhs",
     description: "Choose any 3 AR models ",
     onClick: () => alert("Button clicked"),
+    buttonType: "secondary",
   }}
 />

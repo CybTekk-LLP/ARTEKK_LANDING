@@ -23,7 +23,7 @@
     font-weight: 700;
     background-color: #6200ee;
     background-image: linear-gradient(to right, #0a0030, #2a002e);
-    padding: 1rem 5rem;
+    padding: 1rem;
     outline: 0;
     border: 0;
     border-radius: 0.25rem;

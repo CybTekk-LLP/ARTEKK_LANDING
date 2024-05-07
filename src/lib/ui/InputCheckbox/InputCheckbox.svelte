@@ -36,7 +36,7 @@
     & > label {
       background-color: var(--secondary-700);
       max-inline-size: 100%;
-      min-inline-size: 323px;
+      min-inline-size: 300px;
       padding: 8px;
       display: flex;
       align-items: center;
