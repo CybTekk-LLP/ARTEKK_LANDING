@@ -5,16 +5,22 @@
     alert("hii by shubhi");
   };
   export let pluginContent = [
-    { cardHeading: "Furniture", imgSrc: "https://picsum.photos/200/300" },
-    { cardHeading: "Shoes", imgSrc: "https://picsum.photos/200/300" },
-    { cardHeading: "Clothes", imgSrc: "https://picsum.photos/200/300" },
-    { cardHeading: "Watch", imgSrc: "https://picsum.photos/200/300" },
-    { cardHeading: "Gloves", imgSrc: "https://picsum.photos/200/300" },
-    { cardHeading: "Jewellery", imgSrc: "https://picsum.photos/200/300" },
-    { cardHeading: "Caps", imgSrc: "https://picsum.photos/200/300" },
-    { cardHeading: "Cars", imgSrc: "https://picsum.photos/200/300" },
-    { cardHeading: "Newspapers", imgSrc: "https://picsum.photos/200/300" },
-    { cardHeading: "Billboards", imgSrc: "https://picsum.photos/200/300" },
+    { cardHeading: "Furniture", imgSrc: "./images/Collections/Furniture.webp" },
+    { cardHeading: "Shoes", imgSrc: "./images/Collections/Shoes.webp" },
+    { cardHeading: "Clothes", imgSrc: "./images/Collections/Clothes.webp" },
+    { cardHeading: "Watch", imgSrc: "./images/Collections/Watch.webp" },
+    { cardHeading: "Gloves", imgSrc: "./images/Collections/Gloves.webp" },
+    { cardHeading: "Jewellery", imgSrc: "./images/Collections/Jewellery.webp" },
+    { cardHeading: "Caps", imgSrc: "./images/Collections/Caps.webp" },
+    { cardHeading: "Cars", imgSrc: "./images/Collections/Cars.webp" },
+    {
+      cardHeading: "Newspapers",
+      imgSrc: "./images/Collections/Newspapers.webp",
+    },
+    {
+      cardHeading: "Billboards",
+      imgSrc: "./images/Collections/Billboards.webp",
+    },
   ];
 </script>
 
@@ -42,7 +48,7 @@
     & > .plugin-cards {
       margin-block: 15px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 1.5rem;
     }
   }

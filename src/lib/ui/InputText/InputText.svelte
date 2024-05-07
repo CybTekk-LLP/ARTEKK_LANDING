@@ -5,20 +5,6 @@
   export let inputField: HTMLInputElement | undefined = undefined;
   export let value: string | undefined;
   export let uniqueId = "inputText" + Math.random().toString().split(".")[1];
-  export let handlers = {
-    validate: (_: string) => {
-      return true;
-    },
-  };
-
-  let error = false;
-
-  const handleValidate = (value: string | undefined) => {
-    if (!(value && handlers.validate)) {
-      return (error = false);
-    }
-    error = !handlers.validate(value.toString());
-  };
 
   const handleInput = (inputField: HTMLInputElement) => {
     if (inputField.value) {
@@ -41,7 +27,6 @@
         inputField && (inputField.inputMode = "text");
     }
   });
-  $: if (value) handleValidate(value);
 </script>
 
 <input
@@ -66,5 +51,11 @@
     font-family: var(--font);
     font-weight: 400;
     outline: var(--transparent);
+    &:focus {
+      outline: 1px solid var(--primary-900);
+    }
+    &:invalid {
+      outline: 1px solid var(--danger);
+    }
   }
 </style>
