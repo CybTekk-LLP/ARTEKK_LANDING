@@ -12,4 +12,12 @@
   <PluginCard {...args} />
 </Template>
 
-<Story name="main" args={{}} />
+<Story
+  name="main"
+  args={{
+    cardHeading: "Furniture",
+    imgSrc: "https://picsum.photos/200/300",
+    buttonLabel: "View in AR",
+    clickHandler: () => alert("asdfg"),
+  }}
+/>

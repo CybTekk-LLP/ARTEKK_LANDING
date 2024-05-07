@@ -1,19 +1,19 @@
 <script lang="ts">
   import { Typography, Button } from "$lib/ui";
+  export let cardHeading: string;
+  export let imgSrc: string;
+  export let buttonLabel: string;
+  export let clickHandler: () => void;
 </script>
 
 <article>
-  <Typography type="caption">Furniture</Typography>
+  <Typography type="caption">{cardHeading}</Typography>
   <br />
-  <img height="196px" src="https://picsum.photos/200/300" alt="" />
+  <img height="196px" src={imgSrc} alt="plugin" />
   <br />
   <br />
   <div class="btn">
-    <Button
-      type="secondary"
-      buttonLabel="View in AR"
-      onClick={() => alert("adfgjs")}
-    />
+    <Button type="secondary" {buttonLabel} onClick={clickHandler} />
   </div>
 </article>
 
