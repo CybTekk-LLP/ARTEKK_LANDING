@@ -22,7 +22,7 @@
 
 <style lang="scss">
   article {
-    background: var(--secondary-600);
+    background: var(--secondary-700);
     border-radius: 16px;
     & > .pricing {
       padding: 20px;
