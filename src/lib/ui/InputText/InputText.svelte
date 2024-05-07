@@ -62,8 +62,8 @@
     border-radius: 6px;
     padding-inline: 20px;
     font-size: 16px;
-    color: #828282;
-    font-family: var(font-family);
+    color: var(--primary-900);
+    font-family: var(--font);
     font-weight: 400;
     outline: var(--transparent);
   }
