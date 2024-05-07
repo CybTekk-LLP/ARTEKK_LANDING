@@ -14,7 +14,7 @@
 
 <main class="contact-us">
   <h1 class="heading">
-    <Typography type="heading">Contact Us</Typography>
+    <Typography type="cardTitle">Contact Us</Typography>
   </h1>
   <form>
     <InputText
