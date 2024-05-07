@@ -13,7 +13,7 @@
       { name: "Collections", href: "/collections", target: "" },
       { name: "Pricing", href: "/pricing", target: "" },
       { name: "Contact", href: "/contact", target: "" },
-      { name: "FAQ", href: "/faq", target: "" },
+      { name: "Documentation", href: "/docs", target: "" },
     ]}
   />
   <br /><br />
