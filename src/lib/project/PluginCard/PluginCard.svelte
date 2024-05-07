@@ -22,6 +22,9 @@
     background-color: var(--secondary-700);
     padding: 20px;
     border-radius: 16px;
+    & :global(.caption) {
+      line-height: 0.7;
+    }
 
     & > img {
       inline-size: 100%;

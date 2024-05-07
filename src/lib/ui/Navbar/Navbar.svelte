@@ -72,7 +72,7 @@
     gap: 50px;
     padding-inline: 30px;
     padding-block: 20px;
-    margin-block-end: 4rem;
+    margin-block-end: 2rem;
     & > a {
       & > .logo {
         position: relative;
@@ -128,10 +128,10 @@
         -o-transition: 0.25s ease-in-out;
         transition: 0.25s ease-in-out;
         &:nth-child(1) {
-          inset-block-start: 10px;
+          inset-block-start: 0;
         }
         &:nth-child(2) {
-          inset-block-start: 20px;
+          inset-block-start: 10px;
         }
       }
       &.open {
@@ -154,7 +154,7 @@
     position: absolute;
     inset-inline-end: 0;
     inset-block-start: 0;
-    inline-size: 20vw;
+    inline-size: 30vw;
     max-inline-size: 100vw;
     block-size: 100vh;
     padding-inline: 20px;
