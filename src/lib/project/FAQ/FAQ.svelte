@@ -6,10 +6,12 @@
 {#each content ?? [] as faq}
   <details>
     <summary>
-      <Typography type="impact">{faq.title}</Typography>
+      <Typography type="impact" _color="var(--primary-900)"
+        >{faq.title}</Typography
+      >
     </summary>
     <p>
-      <Typography type="impact" _color="var(--primary-700)"
+      <Typography type="impact" _color="var(--primary-300)"
         >{faq.description}</Typography
       >
     </p>
@@ -34,9 +36,6 @@
       }
       & > summary {
         border: 1px solid var(--transparent);
-        & :global(.impact) {
-          color: #924df3;
-        }
       }
     }
     &::after {
