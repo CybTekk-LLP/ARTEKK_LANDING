@@ -1,13 +1,28 @@
 <script lang="ts">
   import { Typography } from "..";
   import { fly } from "svelte/transition";
+  import { clickOutside } from "./../../utils";
+  import { onMount } from "svelte";
   export let isOpen = false;
   export let navOptions: { name: string; href: string; target?: string }[];
   export let logo: string;
+  let nav: HTMLElement;
+
+  const handleClickOutside = () => {
+    isOpen = false;
+  };
+
+  onMount(() => {
+    nav.addEventListener("click_outside", () => {
+      handleClickOutside();
+    });
+  });
 </script>
 
-<nav>
-  <img class="logo" src={logo} alt="logo" />
+<nav bind:this={nav} use:clickOutside>
+  <a href="/">
+    <img class="logo" src={logo} alt="logo" />
+  </a>
   <ul class="nav-options">
     {#each navOptions ?? [] as option}
       <li>
@@ -35,7 +50,10 @@
     <ul class="hamburger-menu">
       {#each navOptions ?? [] as option}
         <li>
-          <a href={option.href} target={option?.target}
+          <a
+            href={option.href}
+            on:click={() => (isOpen = false)}
+            target={option?.target}
             ><Typography type="impact" _fontweight="400"
               >{option.name}</Typography
             ></a
@@ -54,9 +72,11 @@
     gap: 50px;
     padding-inline: 30px;
     padding-block: 20px;
-    & > .logo {
-      position: relative;
-      z-index: 1;
+    & > a {
+      & > .logo {
+        position: relative;
+        z-index: 4;
+      }
     }
     & > .nav-options {
       list-style: none;
@@ -88,7 +108,7 @@
       -o-transition: 0.5s ease-in-out;
       transition: 0.5s ease-in-out;
       cursor: pointer;
-      z-index: 1;
+      z-index: 4;
       @media screen and (width <= 1020px) {
         display: block;
       }
@@ -140,6 +160,7 @@
     padding-block: 10px;
     background-color: var(--secondary-700);
     transition: opacity 1s ease;
+    z-index: 3;
     @media screen and (width <= 720px) {
       inline-size: 100vw;
     }
