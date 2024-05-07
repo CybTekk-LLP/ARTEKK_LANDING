@@ -21,19 +21,19 @@
         title: "Shoes",
       },
       {
-        imgSrc: "./images/InputRadio/Shoes.svg",
+        imgSrc: "./images/InputRadio/Clothes.svg",
         title: "Clothes",
       },
       {
-        imgSrc: "./images/InputRadio/Shoes.svg",
+        imgSrc: "./images/InputRadio/Gloves.svg",
         title: "Gloves",
       },
       {
-        imgSrc: "./images/InputRadio/Shoes.svg",
+        imgSrc: "./images/InputRadio/Car.svg",
         title: "Cars",
       },
       {
-        imgSrc: "./images/InputRadio/Shoes.svg",
+        imgSrc: "./images/InputRadio/Watches.svg",
         title: "Watches",
       },
     ],
