@@ -154,7 +154,7 @@
     position: absolute;
     inset-inline-end: 0;
     inset-block-start: 0;
-    inline-size: 20vw;
+    inline-size: 30vw;
     max-inline-size: 100vw;
     block-size: 100vh;
     padding-inline: 20px;
