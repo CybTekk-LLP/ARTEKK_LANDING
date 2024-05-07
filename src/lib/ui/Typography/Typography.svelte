@@ -35,7 +35,7 @@
       font-weight: 700;
     }
     &.cardTitle {
-      font-size: 2rem;
+      font-size: 2.5rem;
       font-weight: 700;
     }
     &.caption {
