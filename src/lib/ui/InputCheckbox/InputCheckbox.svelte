@@ -17,9 +17,7 @@
     />
     <label class="custom-checkbox" for={option.title}>
       <img src={option.imgSrc} alt={option.title} />
-      <Typography type="impact" _color="var(--outline)" _fontweight="400"
-        >{option.title}</Typography
-      >
+      <Typography type="impact">{option.title}</Typography>
     </label>
   {/each}
 </div>
