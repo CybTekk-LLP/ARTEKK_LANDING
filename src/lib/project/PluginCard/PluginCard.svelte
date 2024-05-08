@@ -22,6 +22,7 @@
     background-color: var(--secondary-700);
     padding: 20px;
     border-radius: 16px;
+    padding-block-start: 25px;
     & :global(.caption) {
       line-height: 0.7;
     }
