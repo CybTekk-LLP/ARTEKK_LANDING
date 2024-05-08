@@ -7,6 +7,7 @@
   export let description: string;
   export let img: string;
   export let onClick = () => null;
+  export let isAnimated: boolean;
 </script>
 
 <div class="featured-card" class:right={direction === "right"}>
@@ -22,7 +23,7 @@
       {onClick}
     />
   </div>
-  <div class="images">
+  <div class="images" class:animate={isAnimated}>
     <img src={img} alt={heading} height="360px" />
     <img src={img} alt={heading} height="360px" />
   </div>
@@ -60,23 +61,29 @@
         }
         &:first-of-type {
           rotate: 8deg;
-          animation: shuffle 1.3s ease;
         }
-        @keyframes shuffle {
-          0% {
-            rotate: 8deg;
+      }
+      &:is(.animate) {
+        & > img {
+          &:first-of-type {
+            animation: shuffle 1.3s ease;
           }
-          10% {
-            rotate: -4deg;
-          }
-          40% {
-            rotate: 8deg;
-          }
-          60% {
-            rotate: 0deg;
-          }
-          100% {
-            rotate: 8deg;
+          @keyframes shuffle {
+            0% {
+              rotate: 8deg;
+            }
+            10% {
+              rotate: -4deg;
+            }
+            40% {
+              rotate: 8deg;
+            }
+            60% {
+              rotate: 0deg;
+            }
+            100% {
+              rotate: 8deg;
+            }
           }
         }
       }
