@@ -34,7 +34,7 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 4rem;
+    gap: 5rem;
     margin: 10px;
     &.right {
       flex-direction: row-reverse;
