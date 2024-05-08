@@ -25,7 +25,7 @@
 </script>
 
 <main>
-  <Typography type="heading">My Plugins</Typography>
+  <Typography type="cardTitle">My Plugins</Typography>
   <br />
   <div class="plugin-cards">
     {#each pluginContent ?? [] as content}
