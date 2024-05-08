@@ -4,11 +4,13 @@
   import Button from "$lib/ui/Button/Button.svelte";
   import InputCheckbox from "$lib/ui/InputCheckbox/InputCheckbox.svelte";
   import Typography from "$lib/ui/Typography/Typography.svelte";
+
   let dialog: HTMLDialogElement;
   let showBackdrop: boolean;
   let heading: string;
   let pluginsValue: any;
   let value: any;
+  let buttonType: "primary" | "secondary";
   let content = [
     {
       imgSrc: "./images/InputRadio/Shoes.svg",
@@ -43,7 +45,7 @@
         description="Choose any 3 AR models "
         onClick={() => {
           heading = "Choose 3 plugins";
-          dialog.showModal();
+          dialog.show();
           showBackdrop = true;
         }}
         buttonType="secondary"
@@ -55,7 +57,7 @@
         description="Choose any 5 AR models "
         onClick={() => {
           heading = "Choose 5 plugins";
-          dialog.showModal();
+          dialog.show();
           showBackdrop = true;
         }}
         buttonType="secondary"
@@ -65,7 +67,11 @@
         planLabel="Pro"
         amount="₹9Lakhs"
         description="Get full access to all the AR models "
-        onClick={() => {}}
+        onClick={() => {
+          heading = "Choose 5 plugins";
+          dialog.show();
+          showBackdrop = true;
+        }}
         buttonType="primary"
       />
     </div>
@@ -81,17 +87,17 @@
   </div>
 </main>
 <Modal bind:dialog bind:showBackdrop>
-  <Typography type="cardTitle">{heading}</Typography><InputCheckbox
-    bind:value={pluginsValue}
-    {content}
-  /></Modal
+  <Typography type="cardTitle">{heading}</Typography>
+  <br />
+  <InputCheckbox bind:value={pluginsValue} {content} /> <br />
+  <Button buttonLabel="BUY" onClick={() => null} /></Modal
 >
 
 <style lang="scss">
   main {
     max-inline-size: 1280px;
     min-block-size: 80vh;
-    inline-size: 100vw;
+    inline-size: 90vw;
     margin-inline: auto;
     padding-inline: 20px;
     & > .pricing-box {

@@ -18,7 +18,7 @@
 </script>
 
 <div class="backdrop" class:show-filter={showBackdrop} />
-<dialog bind:this={dialog} use:clickOutside>
+<dialog open bind:this={dialog} use:clickOutside>
   <slot />
 </dialog>
 
@@ -49,7 +49,7 @@
     border-radius: 16px;
     inline-size: 90vw;
     max-inline-size: 414px;
-    background-color: var(--transparent);
+    background-color: var(--card-background);
     padding: 20px;
     z-index: 5;
   }
