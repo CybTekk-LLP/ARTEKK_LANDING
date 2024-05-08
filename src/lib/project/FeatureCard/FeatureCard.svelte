@@ -11,6 +11,10 @@
 </script>
 
 <div class="featured-card" class:right={direction === "right"}>
+  <div class="images" class:animate={isAnimated}>
+    <img src={img} alt={heading} height="360px" />
+    <img src={img} alt={heading} height="360px" />
+  </div>
   <div class="content">
     <Typography type="cardTitle">{heading}</Typography>
     <div aria-hidden="true"></div>
@@ -23,10 +27,6 @@
       {onClick}
     />
   </div>
-  <div class="images" class:animate={isAnimated}>
-    <img src={img} alt={heading} height="360px" />
-    <img src={img} alt={heading} height="360px" />
-  </div>
 </div>
 
 <style lang="scss">
@@ -34,6 +34,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
     flex-wrap: wrap;
     gap: 5rem;
     margin: 10px;
@@ -52,8 +53,10 @@
     & > .images {
       position: relative;
       & > img {
+        aspect-ratio: 483/360;
         @media screen and (width < 768px) {
-          max-inline-size: 100%;
+          max-inline-size: 90vw;
+          block-size: auto;
         }
         &:last-of-type {
           position: absolute;

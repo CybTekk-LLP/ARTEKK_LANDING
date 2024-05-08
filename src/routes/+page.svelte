@@ -46,7 +46,7 @@
 </script>
 
 <main>
-  <section class="about">
+  <section class="about" data-label="default">
     <div class="content">
       <h1 class="heading">
         <Typography type="heading"
@@ -128,7 +128,9 @@
     max-inline-size: 1280px;
     margin-inline: auto;
     & > .about {
-      padding: 2rem;
+      max-inline-size: 90vw;
+      margin-inline: auto;
+      // padding: 2rem;
       & > .content {
         display: flex;
         flex-direction: column;
@@ -150,7 +152,7 @@
           color: #fff;
           background-color: #6200ee;
           background-image: linear-gradient(to right, #0a0030, #2a002e);
-          padding: 1rem 5rem;
+          padding: 1rem 60px;
           font-family: "Space Grotesk", sans-serif;
           font-size: 1.5rem;
           outline: 0;
@@ -165,6 +167,8 @@
           white-space: nowrap;
           text-align: center;
           margin-block-end: 3rem;
+          max-inline-size: 90vw;
+          margin-inline: auto;
         }
       }
 
@@ -201,12 +205,14 @@
       }
     }
     & > .feature-card-section {
-      block-size: 100vh;
+      min-block-size: 100vh;
       display: grid;
       place-items: center;
-      padding-inline: 3vw;
       scroll-snap-align: center;
-      overflow-x: hidden;
+      overflow: visible;
+      @media screen and (orientation: portrait) and (width <= 568px) {
+        block-size: auto;
+      }
     }
   }
 </style>
