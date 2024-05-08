@@ -7,6 +7,7 @@
   export let description =
     "Explore our 3D watch feature and find the perfect timepiece that suits your style!";
   export let img = "./images/FeatureCard/cars.webp";
+  export let onClick = () => null;
 </script>
 
 <div class="featured-card" class:right={direction === "right"}>
@@ -19,7 +20,7 @@
       iconSrc="./images/Button/Icon.svg"
       buttonLabel="VIEW IN AR"
       type="secondary"
-      onClick={() => null}
+      {onClick}
     />
   </div>
   <div class="images">
