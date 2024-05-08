@@ -18,7 +18,7 @@
 </script>
 
 <div class="backdrop" class:show-filter={showBackdrop} />
-<dialog open bind:this={dialog} use:clickOutside>
+<dialog bind:this={dialog} use:clickOutside>
   <slot />
 </dialog>
 
