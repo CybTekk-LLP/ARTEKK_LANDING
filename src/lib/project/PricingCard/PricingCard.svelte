@@ -4,6 +4,7 @@
   export let planLabel: string;
   export let amount: string;
   export let description: string;
+  export let buttonLabel: string;
   export let buttonType: "secondary" | "primary";
   export let onClick = () => {};
 </script>
@@ -18,7 +19,7 @@
       ><li>{description}</li></Typography
     >
   </ul>
-  <Button type={buttonType} buttonLabel="CONFIGURE" {onClick}></Button>
+  <Button type={buttonType} {buttonLabel} {onClick}></Button>
 </div>
 
 <style lang="scss">

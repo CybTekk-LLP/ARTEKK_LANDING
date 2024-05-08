@@ -28,6 +28,26 @@
       imgSrc: "./images/InputRadio/Watches.svg",
       title: "Watches",
     },
+    {
+      imgSrc: "./images/InputRadio/Furniture.svg",
+      title: "Furniture",
+    },
+    {
+      imgSrc: "./images/InputRadio/Jewellery.svg",
+      title: "Jewellery",
+    },
+    {
+      imgSrc: "./images/InputRadio/Newspaper.svg",
+      title: "Newspaper",
+    },
+    {
+      imgSrc: "./images/InputRadio/Billboard.svg",
+      title: "Billboard",
+    },
+    {
+      imgSrc: "./images/InputRadio/Caps.svg",
+      title: "Caps",
+    },
   ];
 </script>
 
@@ -45,6 +65,7 @@
           showBackdrop = true;
         }}
         buttonType="secondary"
+        buttonLabel="Get this plan"
       />
 
       <PricingCard
@@ -57,6 +78,7 @@
           showBackdrop = true;
         }}
         buttonType="secondary"
+        buttonLabel="Get this plan"
       />
 
       <PricingCard
@@ -64,16 +86,16 @@
         amount="₹9Lakhs"
         description="Get full access to all the AR models "
         onClick={() => {
-          heading = "Choose 5 plugins";
-          dialog.show();
-          showBackdrop = true;
+          null;
         }}
         buttonType="primary"
+        buttonLabel="Get this plan"
       />
     </div>
   </div>
   <div class="plan-box">
-    <Typography type="cardTitle">Buy Individual Plans (2Lakhs each)</Typography>
+    <Typography type="cardTitle">Buy Individual Plans (₹2Lakhs each)</Typography
+    >
     <div class="plan-option">
       <InputCheckbox {content} bind:value />
     </div>
