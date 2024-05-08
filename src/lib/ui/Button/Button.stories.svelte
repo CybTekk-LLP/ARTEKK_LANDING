@@ -28,3 +28,12 @@
     onClick: () => alert("button clicked"),
   }}
 />
+<Story
+  name="secondary with icon"
+  args={{
+    iconSrc: "/images/Button/Icon.svg",
+    type: "secondary",
+    buttonLabel: "CONFIGURE",
+    onClick: () => alert("button clicked"),
+  }}
+/>

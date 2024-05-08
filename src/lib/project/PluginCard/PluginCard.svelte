@@ -4,6 +4,7 @@
   export let imgSrc: string;
   export let buttonLabel: string;
   export let clickHandler: () => void;
+  export let iconSrc: string;
 </script>
 
 <article>
@@ -13,7 +14,7 @@
   <br />
   <br />
   <div class="btn">
-    <Button type="secondary" {buttonLabel} onClick={clickHandler} />
+    <Button {iconSrc} type="secondary" {buttonLabel} onClick={clickHandler} />
   </div>
 </article>
 

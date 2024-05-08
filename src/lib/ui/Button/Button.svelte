@@ -3,6 +3,7 @@
   export let buttonLabel: string;
   export let type: "primary" | "secondary" = "primary";
   export let onClick: () => void;
+  export let iconSrc: string | undefined = undefined;
 </script>
 
 <button
@@ -10,6 +11,9 @@
   class="button primary"
   class:secondary={type === "secondary"}
 >
+  {#if iconSrc}
+    <img src={iconSrc} alt="icon" />
+  {/if}
   <Typography type="impact" _fontweight="700">{buttonLabel}</Typography>
 </button>
 
@@ -35,6 +39,10 @@
     cursor: pointer;
     white-space: nowrap;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
     &.secondary {
       background: var(--transparent);
       box-shadow: unset;

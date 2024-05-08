@@ -30,6 +30,7 @@
   <div class="plugin-cards">
     {#each pluginContent ?? [] as content}
       <PluginCard
+        iconSrc="/images/Button/Icon.svg"
         cardHeading={content.cardHeading}
         imgSrc={content.imgSrc}
         buttonLabel="View in AR"
