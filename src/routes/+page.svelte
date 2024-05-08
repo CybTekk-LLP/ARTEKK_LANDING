@@ -1,9 +1,52 @@
 <script lang="ts">
+  import FeatureCard from "$lib/project/FeatureCard/FeatureCard.svelte";
   import { Typography } from "$lib/ui";
+  import { onMount } from "svelte";
+  let animationData = [false, false, false, false];
+  const handleIntersection = (entries: any) => {
+    entries.forEach((entry: any) => {
+      if (entry.isIntersecting) {
+        currentSection = entry.target.getAttribute("data-label");
+      }
+    });
+  };
+  onMount(() => {
+    const observer = new IntersectionObserver(handleIntersection, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5, // Adjust threshold as needed
+    });
+    const sections = document.querySelectorAll("[data-label]");
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+    return () => {
+      sections.forEach((section) => {
+        observer.unobserve(section);
+      });
+    };
+  });
+  $: switch (currentSection) {
+    case "watches":
+      animationData = [true, false, false, false];
+      break;
+    case "shoes":
+      animationData = [false, true, false, false];
+      break;
+    case "jewellery":
+      animationData = [false, false, true, false];
+      break;
+    case "cars":
+      animationData = [false, false, false, true];
+      break;
+    default:
+      animationData = [false, false, false, false];
+  }
+  $: currentSection = "";
 </script>
 
 <main>
-  <section class="about">
+  <section class="about" data-label="default">
     <div class="content">
       <h1 class="heading">
         <Typography type="heading"
@@ -41,6 +84,42 @@
       />
     </div>
   </section>
+  <section class="feature-card-section" data-label="watches">
+    <FeatureCard
+      direction="left"
+      heading="Watches"
+      description="Explore our 3D watch feature and find the perfect timepiece that suits your style!"
+      img="./images/FeatureCard/watches.webp"
+      isAnimated={animationData[0]}
+    />
+  </section>
+  <section class="feature-card-section" data-label="shoes">
+    <FeatureCard
+      direction="right"
+      heading="Shoes"
+      description="Experience the ease of trying on shoes virtually with our 3D feature, making shopping a breeze."
+      img="./images/FeatureCard/footwear.webp"
+      isAnimated={animationData[1]}
+    />
+  </section>
+  <section class="feature-card-section" data-label="jewellery">
+    <FeatureCard
+      direction="left"
+      heading="Jewellery"
+      description="Choosing the best jewellery for you was never so easy! Make your online shopping a one-click tap! Adorn yourself with digital elegance – 3D jewellery!"
+      img="./images/FeatureCard/jwellery.webp"
+      isAnimated={animationData[2]}
+    />
+  </section>
+  <section class="feature-card-section" data-label="cars">
+    <FeatureCard
+      direction="right"
+      heading="Cars"
+      description="Drive into the virtual fast lane – 3D cars that put you in the driver's seat of innovation!"
+      img="./images/FeatureCard/cars.webp"
+      isAnimated={animationData[3]}
+    />
+  </section>
 </main>
 
 <style lang="scss">
@@ -49,7 +128,9 @@
     max-inline-size: 1280px;
     margin-inline: auto;
     & > .about {
-      padding: 2rem;
+      max-inline-size: 90vw;
+      margin-inline: auto;
+      // padding: 2rem;
       & > .content {
         display: flex;
         flex-direction: column;
@@ -71,7 +152,7 @@
           color: #fff;
           background-color: #6200ee;
           background-image: linear-gradient(to right, #0a0030, #2a002e);
-          padding: 1rem 5rem;
+          padding: 1rem 60px;
           font-family: "Space Grotesk", sans-serif;
           font-size: 1.5rem;
           outline: 0;
@@ -86,6 +167,8 @@
           white-space: nowrap;
           text-align: center;
           margin-block-end: 3rem;
+          max-inline-size: 90vw;
+          margin-inline: auto;
         }
       }
 
@@ -119,6 +202,16 @@
           block-size: auto;
           rotate: 6deg;
         }
+      }
+    }
+    & > .feature-card-section {
+      min-block-size: 100vh;
+      display: grid;
+      place-items: center;
+      scroll-snap-align: center;
+      overflow: visible;
+      @media screen and (orientation: portrait) and (width <= 568px) {
+        block-size: auto;
       }
     }
   }
