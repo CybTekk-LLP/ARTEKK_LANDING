@@ -117,12 +117,11 @@
     min-block-size: 80vh;
     inline-size: 90vw;
     margin-inline: auto;
-    padding-inline: 20px;
     & > .pricing-box {
       margin-block-end: 4rem;
       & > .pricing-list {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 25px;
         margin-block-start: 2rem;
       }
