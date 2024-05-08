@@ -10,12 +10,11 @@
     <input
       type="checkbox"
       name={uniqueId}
-      id={option.title}
+      id={uniqueId + option.title}
       value={option.title}
-      multiple
       bind:group={value}
     />
-    <label class="custom-checkbox" for={option.title}>
+    <label class="custom-checkbox" for={uniqueId + option.title}>
       <img src={option.imgSrc} alt={option.title} />
       <Typography type="impact">{option.title}</Typography>
     </label>

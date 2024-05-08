@@ -1,10 +1,6 @@
 <script lang="ts">
-  import Modal from "$lib/project/Modal/Modal.svelte";
-  import PricingCard from "$lib/project/PricingCard/PricingCard.svelte";
-  import Button from "$lib/ui/Button/Button.svelte";
-  import InputCheckbox from "$lib/ui/InputCheckbox/InputCheckbox.svelte";
-  import Typography from "$lib/ui/Typography/Typography.svelte";
-
+  import { Modal, PricingCard } from "$lib/project";
+  import { Button, InputCheckbox, Typography } from "$lib/ui";
   let dialog: HTMLDialogElement;
   let showBackdrop: boolean;
   let heading: string;
@@ -90,7 +86,7 @@
   <Typography type="cardTitle">{heading}</Typography>
   <br />
   <InputCheckbox bind:value={pluginsValue} {content} /> <br />
-  <Button buttonLabel="BUY" onClick={() => null} /></Modal
+  <Button buttonLabel="BUY" onClick={() => alert("asdfjkbs")} /></Modal
 >
 
 <style lang="scss">
