@@ -2,11 +2,10 @@
   import Button from "$lib/ui/Button/Button.svelte";
   import Typography from "$lib/ui/Typography/Typography.svelte";
 
-  let direction = "right";
-  export let heading = "Watches";
-  export let description =
-    "Explore our 3D watch feature and find the perfect timepiece that suits your style!";
-  export let img = "./images/FeatureCard/cars.webp";
+  export let direction: "left" | "right";
+  export let heading: string;
+  export let description: string;
+  export let img: string;
   export let onClick = () => null;
 </script>
 
