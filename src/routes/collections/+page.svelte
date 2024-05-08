@@ -25,7 +25,7 @@
 </script>
 
 <main>
-  <Typography type="cardTitle">My Plugins</Typography>
+  <Typography type="cardTitle">Collections</Typography>
   <br />
   <div class="plugin-cards">
     {#each pluginContent ?? [] as content}
@@ -41,10 +41,10 @@
 
 <style lang="scss">
   main {
-    inline-size: 100vw;
+    inline-size: 90vw;
     max-inline-size: 1280px;
     margin-inline: auto;
-    padding-inline: 2rem;
+    // padding-inline: 2rem;
     & > .plugin-cards {
       margin-block: 15px;
       display: grid;

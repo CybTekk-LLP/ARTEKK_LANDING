@@ -36,16 +36,17 @@
     </p>
     <br />
     <TextArea placeholder="Please Enter your message" bind:value={message} />
+    <br />
+    <br />
+    <div class="btn">
+      <Button
+        type="primary"
+        buttonLabel="Get in touch"
+        onClick={() => alert("sdgs")}
+      />
+    </div>
   </form>
-  <br />
-  <br />
-  <div class="btn">
-    <Button
-      type="primary"
-      buttonLabel="Submit Message"
-      onClick={() => alert("sdgs")}
-    />
-  </div>
+
 </main>
 
 <style lang="scss">
