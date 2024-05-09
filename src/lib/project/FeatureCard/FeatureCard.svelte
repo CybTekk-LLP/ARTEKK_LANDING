@@ -1,6 +1,5 @@
 <script lang="ts">
-  import Button from "$lib/ui/Button/Button.svelte";
-  import Typography from "$lib/ui/Typography/Typography.svelte";
+  import { Button, Typography } from "./../../ui";
 
   export let direction: "left" | "right";
   export let heading: string;

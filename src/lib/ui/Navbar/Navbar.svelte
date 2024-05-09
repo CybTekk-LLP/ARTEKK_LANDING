@@ -165,9 +165,6 @@
     @media screen and (width <= 720px) {
       inline-size: 100vw;
     }
-    &.ham-open {
-      display: block;
-    }
     & > .hamburger-menu {
       display: flex;
       flex-direction: column;
