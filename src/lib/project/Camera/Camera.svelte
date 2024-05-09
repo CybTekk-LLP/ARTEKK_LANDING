@@ -1,0 +1,615 @@
+<script lang="ts">
+  export const streamWebCamVideo = (isFrontCamera = true) => {
+    const video = document.getElementById("stream");
+    const constraints = {
+      video: {
+        facingMode: isFrontCamera ? "user" : "environment", // Toggle between front and rear cameras
+      },
+    };
+    window.navigator.mediaDevices
+      .getUserMedia(constraints)
+      .then((stream) => {
+        video.pause();
+        video.srcObject = stream;
+        video.onloadedmetadata = (e) => {
+          isFrontCamera && video.classList.add("flip");
+          !isFrontCamera && video.classList.remove("flip");
+          video.play();
+        };
+      })
+      .catch((e) => {
+        console.error(e);
+      });
+  };
+
+  export let mediaRecorder = null;
+  let chunks = [];
+  let startTime = null;
+  let timerInterval;
+  const recordingIndicator = document.createElement("div");
+
+  export const captureVideo = () => {
+    const videoButton = document.querySelector(".capture-button");
+    videoButton.addEventListener("click", () => {
+      const isVideoMode = document.querySelector(
+        ".switch-camera-video-photo-mode input[type='checkbox']"
+      ).checked;
+      if (!isVideoMode) return;
+      const facingModeButton = document.querySelector(
+        ".switch-camera-facing-mode"
+      );
+      recordVideo(facingModeButton);
+    });
+  };
+
+  export const changeFacingMode = () => {
+    let isFrontCamera = false;
+    const facingModeButton = document.querySelector(
+      ".switch-camera-facing-mode"
+    );
+    facingModeButton.addEventListener("click", () => {
+      facingModeButton.querySelector(".rotate").classList.add("rotating");
+      setTimeout(() => {
+        facingModeButton.querySelector(".rotate").classList.remove("rotating");
+      }, 1500);
+      streamWebCamVideo(isFrontCamera);
+      facingModeButton.dataset.facingMode = isFrontCamera ? "front" : "back";
+      isFrontCamera = !isFrontCamera;
+    });
+  };
+
+  export const capturePhoto = () => {
+    const photoButton = document.querySelector(".capture-button");
+    photoButton.addEventListener("click", () => {
+      const isVideoMode = document.querySelector(
+        ".switch-camera-video-photo-mode input[type='checkbox']"
+      ).checked;
+      if (isVideoMode) return;
+      const facingModeButton = document.querySelector(
+        ".switch-camera-facing-mode"
+      );
+      photoButton.classList.add("click");
+      setTimeout(() => {
+        photoButton.classList.remove("click");
+      }, 500);
+      drawOnCanvasAndSavePhoto(facingModeButton.dataset.facingMode === "front");
+    });
+  };
+
+  const drawOnCanvasAndSavePhoto = async (isMirrored = false) => {
+    const video = document.getElementById("stream");
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d");
+    const scaleFactor = 2;
+    canvas.width = video.videoWidth * scaleFactor;
+    canvas.height = video.videoHeight * scaleFactor;
+    if (isMirrored) {
+      context.translate(canvas.width, 0);
+      context.scale(-1, 1);
+    }
+    // Check for filters
+    if (video.dataset.lens === "monochrome") context.filter = "grayscale(1)";
+    if (video.dataset.lens.startsWith("gradient"))
+      context.filter = "saturate(0.1)";
+
+    const flashElement = document.createElement("div");
+    flashElement.style.position = "fixed";
+    flashElement.style.top = "0";
+    flashElement.style.left = "0";
+    flashElement.style.width = "100%";
+    flashElement.style.height = "calc(100vh - 220px)";
+    flashElement.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+    document.body.appendChild(flashElement);
+    setTimeout(() => {
+      flashElement.remove();
+    }, 200);
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+    // Apply gradient filters
+    addFiltersToPhoto(video.dataset.lens, context, canvas.width, canvas.height);
+
+    try {
+      const imageDataUrl = canvas.toDataURL("image/png", 0.9);
+      const link = document.createElement("a");
+      const timestamp = new Date().toISOString().replace(/[:.]/g, "");
+      link.href = imageDataUrl;
+      link.download = `photo_${timestamp}.png`;
+      link.click();
+    } catch (error) {
+      console.error("Error capturing photo:", error);
+    }
+  };
+
+  const recordVideo = async (facingModeButton) => {
+    const video = document.getElementById("stream");
+    if (mediaRecorder && mediaRecorder.state === "recording") {
+      mediaRecorder.stop();
+      clearInterval(timerInterval);
+      return;
+    }
+    try {
+      mediaRecorder = new MediaRecorder(video.srcObject);
+      startTime = Date.now();
+      mediaRecorder.start();
+      mediaRecorder.ondataavailable = (event) => {
+        const blob = new Blob([event.data], {
+          type: "video/mp4",
+        });
+        chunks.push(blob);
+      };
+
+      recordingIndicator.textContent = "00:00:00";
+      recordingIndicator.classList.add("record");
+      document.body.appendChild(recordingIndicator);
+
+      timerInterval = setInterval(() => {
+        const elapsedTime = Date.now() - startTime;
+        recordingIndicator.textContent = formatTime(elapsedTime);
+      }, 1000);
+
+      mediaRecorder.onstop = () => {
+        saveRecordedVideo();
+        clearInterval(timerInterval);
+      };
+
+      const toggle = document.querySelector(
+        ".switch-camera-video-photo-mode input[type='checkbox']"
+      );
+      toggle.addEventListener("change", () => {
+        if (mediaRecorder && mediaRecorder.state === "recording") {
+          mediaRecorder.stop();
+          clearInterval(timerInterval);
+        }
+      });
+
+      facingModeButton.addEventListener("click", () => {
+        if (mediaRecorder && mediaRecorder.state === "recording") {
+          mediaRecorder.stop();
+          clearInterval(timerInterval);
+        }
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const saveRecordedVideo = () => {
+    recordingIndicator.remove();
+    if (!chunks.length) {
+      console.error("No recorded video data available.");
+      return;
+    }
+    const blob = new Blob(chunks, { type: "video/mp4" });
+    const timestamp = new Date().toISOString().replace(/[:.]/g, "");
+    const filename = `video_${timestamp}.mp4`;
+    const videoUrl = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = videoUrl;
+    link.download = filename;
+    link.click();
+    chunks = [];
+  };
+
+  const formatTime = (milliseconds) => {
+    const totalSeconds = Math.floor(milliseconds / 1000);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+  };
+
+  const pad = (num) => {
+    return num.toString().padStart(2, "0");
+  };
+
+  streamWebCamVideo();
+  changeFacingMode();
+  capturePhoto();
+  captureVideo();
+  applyFilters();
+</script>
+
+<section id="camera">
+  <video id="stream" muted autoplay data-lens="none"></video>
+  <div class="controls" role="button" tabindex="0">
+    <div class="lenses">
+      <div class="filters">
+        <input type="checkbox" name="" id="filter-toggle" />
+        <label for="filter-toggle"></label>
+        <input type="radio" id="none" name="filters" value="none" checked />
+        <label for="none" class="lens"></label>
+        <input type="radio" id="monochrome" name="filters" value="monochrome" />
+        <label for="monochrome" class="lens"></label>
+        <input type="radio" id="gradient1" name="filters" value="gradient1" />
+        <label for="gradient1" class="lens"></label>
+        <input type="radio" id="gradient2" name="filters" value="gradient2" />
+        <label for="gradient2" class="lens"></label>
+        <input type="radio" id="gradient3" name="filters" value="gradient3" />
+        <label for="gradient3" class="lens"></label>
+        <input type="radio" id="gradient4" name="filters" value="gradient4" />
+        <label for="gradient4" class="lens"></label>
+      </div>
+      <img class="cancel" src="./assets/cancel.svg" alt="" height="20px" />
+    </div>
+    <div class="capture-button" role="button" tabindex="0">
+      <svg
+        width="72"
+        height="72"
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="32"
+          cy="32"
+          r="31.3333"
+          stroke="#2C2C2C"
+          stroke-width="1.33333"
+        />
+        <circle cx="32" cy="32" r="24" fill="white" class="capture-icon" />
+      </svg>
+    </div>
+    <div
+      class="switch-camera-facing-mode"
+      role="button"
+      tabindex="0"
+      data-facing-mode="front"
+    >
+      <svg
+        width="48"
+        height="48"
+        viewBox="0 0 48 48"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="24" cy="24" r="23.5" stroke="#2C2C2C" />
+        <mask
+          id="mask0_63_76"
+          style="mask-type: luminance"
+          maskUnits="userSpaceOnUse"
+          x="11"
+          y="11"
+          width="26"
+          height="26"
+        >
+          <path d="M11 11H37V37H11V11Z" fill="white" />
+        </mask>
+        <g mask="url(#mask0_63_76)">
+          <g class="rotate">
+            <path
+              d="M18.2887 26.8558V25.2241C18.2887 22.0719 20.8478 19.5129 23.9999 19.5129C25.5758 19.5129 27.0036 20.1525 28.0377 21.1863"
+              stroke="white"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M16.6572 25.2241L18.289 26.8558L19.9208 25.2241"
+              stroke="white"
+              stroke-width="1.52344"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M29.7113 23.592V25.2237C29.7113 28.3759 27.1522 30.9349 24.0001 30.9349C22.4242 30.9349 20.9964 30.2952 19.9623 29.2615"
+              stroke="white"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M31.3431 25.2236L29.7114 23.5919L28.0796 25.2236"
+              stroke="white"
+              stroke-width="1.52344"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </g>
+          <path
+            d="M11.7617 21.1445C11.7617 20.0627 12.1917 19.0249 12.9566 18.26C13.7215 17.4951 14.7593 17.0651 15.8411 17.0651H17.2804C17.8984 17.0651 18.4634 16.7159 18.74 16.1632C18.8273 15.9878 18.9223 15.7985 19.0186 15.6055C19.5714 14.5 20.7014 13.8016 21.9374 13.8016H26.0626C27.2986 13.8016 28.4286 14.5 28.9814 15.6055C29.0777 15.7985 29.1727 15.9878 29.26 16.1632C29.5366 16.7159 30.1016 17.0651 30.7196 17.0651H32.1589C33.2407 17.0651 34.2785 17.4951 35.0434 18.26C35.8083 19.0249 36.2383 20.0627 36.2383 21.1445V30.1193C36.2383 31.2012 35.8083 32.239 35.0434 33.0038C34.2785 33.7688 33.2407 34.1987 32.1589 34.1987H15.8411C14.7593 34.1987 13.7215 33.7688 12.9566 33.0038C12.1917 32.239 11.7617 31.2012 11.7617 30.1193V21.1445Z"
+            stroke="white"
+            stroke-miterlimit="10"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="switch-camera-video-photo-mode" role="button" tabindex="0">
+    <input type="checkbox" name="switch" id="switch" />
+    <label for="switch">
+      <div>
+        <span>Photo</span>
+        <span>Video</span>
+      </div>
+    </label>
+  </div>
+</section>
+
+<style lang="scss">
+  #camera {
+    position: relative;
+  }
+
+  /* Video Element */
+  video {
+    inline-size: 100vw;
+    block-size: calc(100vh - 220px);
+    object-fit: cover;
+    object-position: center;
+  }
+
+  video.flip {
+    scale: -1 1;
+  }
+
+  /* Video Controls */
+  .controls {
+    display: flex;
+    block-size: 100px;
+    inline-size: 90vw;
+    margin-inline: auto;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Video filters */
+
+  .lenses {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 2;
+  }
+
+  .filters {
+    position: relative;
+    inline-size: 50px;
+    block-size: 50px;
+    display: flex;
+    align-items: center;
+    padding-block-start: 0;
+    gap: 10px;
+    justify-content: center;
+    flex-direction: column;
+    border: 1.5px solid transparent;
+    background-color: rgba(0, 0, 0, 0.742);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border-radius: 48px;
+    overflow: hidden;
+    cursor: pointer;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+  }
+
+  .filters #filter-toggle:not(:checked) ~ input:not(:checked) + label {
+    display: none;
+  }
+
+  .filters #filter-toggle:not(:checked) ~ label {
+    pointer-events: none;
+  }
+
+  .filters #filter-toggle:not(:checked) + label {
+    display: none;
+  }
+
+  .filters:has(#filter-toggle:checked) {
+    block-size: 200px;
+    padding-block-start: 80px;
+    border: 1.5px solid white;
+    overflow: scroll;
+  }
+
+  .lenses .cancel {
+    cursor: pointer;
+  }
+
+  .lenses:has(.filters #filter-toggle:checked) {
+    translate: 0 -50px;
+  }
+
+  .lenses:has(.filters #filter-toggle:not(:checked)) .cancel {
+    display: none;
+  }
+
+  .filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filters input {
+    display: none;
+  }
+
+  .filters label {
+    inline-size: 48px;
+    min-block-size: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    aspect-ratio: 1/1;
+  }
+
+  .filters:has(#filter-toggle:checked) input:checked + label.lens {
+    border: 2px solid rgb(55, 55, 249);
+  }
+
+  .filters label[for="none"] {
+    background-image: linear-gradient(45deg, #111 48%, #171717 48%, #171717);
+  }
+
+  .filters label[for="monochrome"] {
+    background-image: linear-gradient(45deg, #080808 50%, white 45%, white);
+  }
+
+  .filters label[for="gradient1"] {
+    background-image: linear-gradient(pink 50%, blue);
+  }
+
+  .filters label[for="gradient2"] {
+    background-image: linear-gradient(purple 50%, blue);
+  }
+
+  .filters label[for="gradient3"] {
+    background-image: linear-gradient(lightgreen, royalblue);
+  }
+
+  .filters label[for="gradient4"] {
+    background-image: linear-gradient(yellow, white);
+  }
+
+  /* Switch between video and photo capture modes */
+  .switch-camera-video-photo-mode input[type="checkbox"] {
+    display: none;
+  }
+
+  .switch-camera-video-photo-mode label {
+    display: block;
+    inline-size: max-content;
+    margin-inline: auto;
+    border-radius: 40px;
+    padding: 0.6rem;
+    background-color: #171717;
+    cursor: pointer;
+  }
+
+  .switch-camera-video-photo-mode label span {
+    color: white;
+    padding-inline: 10px;
+    text-align: center;
+    mix-blend-mode: difference;
+  }
+
+  .switch-camera-video-photo-mode input[type="checkbox"] + label {
+    background-image: linear-gradient(to right, white 50%, #171717 50%);
+  }
+
+  .switch-camera-video-photo-mode input[type="checkbox"]:checked + label {
+    background-image: linear-gradient(to right, #171717 50%, white 50%);
+  }
+
+  /* Capture button */
+  #camera:has(.switch-camera-video-photo-mode input[type="checkbox"]:checked)
+    .capture-button
+    .capture-icon {
+    fill: red;
+  }
+
+  /* Switch between rear and front camera modes */
+  .switch-camera-facing-mode {
+    cursor: pointer;
+    pointer-events: all;
+  }
+
+  .switch-camera-facing-mode:has(.rotating) {
+    pointer-events: none;
+  }
+
+  .switch-camera-facing-mode .rotate {
+    cursor: pointer;
+  }
+
+  .switch-camera-facing-mode .rotate:is(.rotating) {
+    animation: rotate 1.5s both;
+    transform-origin: 50% calc(50% + 1.1px);
+  }
+
+  @keyframes rotate {
+    0% {
+      rotate: 0deg;
+    }
+
+    100% {
+      rotate: -180deg;
+    }
+  }
+
+  /* Capture button to click and take photos */
+  .capture-button {
+    cursor: pointer;
+  }
+
+  .capture-button:is(.click) .capture-icon {
+    animation: click 0.2s ease-in-out both;
+    transform-origin: center;
+  }
+
+  @keyframes click {
+    0% {
+      scale: 1;
+    }
+
+    50% {
+      scale: 0.85;
+    }
+
+    100% {
+      scale: 1;
+    }
+  }
+
+  .record {
+    display: block;
+    position: fixed;
+    inset-block-start: 10px;
+    inset-inline-start: 50%;
+    translate: -50% 0;
+    background-color: red;
+    min-inline-size: 9.5ch;
+    text-align: start;
+    padding: 10px;
+    color: white;
+    font-kerning: none;
+    letter-spacing: 0.1rem;
+    border-radius: 30px;
+  }
+
+  /* Filter lens effect on video (does not retain for camera pics or recordings for now */
+
+  video[data-lens="none"] {
+    filter: unset;
+  }
+
+  video[data-lens="monochrome"] {
+    filter: grayscale(1);
+  }
+
+  video[data-lens*="gradient"] {
+    filter: saturate(0.1);
+  }
+
+  .filterLens:is(.none, .monochrome) {
+    display: none;
+  }
+
+  .filterLens:is(.gradient1) {
+    background-image: linear-gradient(
+      rgba(255, 192, 203, 0.354) 50%,
+      rgba(0, 0, 255, 0.12)
+    );
+  }
+
+  .filterLens:is(.gradient2) {
+    background-image: linear-gradient(
+      rgba(128, 0, 128, 0.573) 50%,
+      rgba(0, 0, 255, 0.59)
+    );
+  }
+
+  .filterLens:is(.gradient3) {
+    background-image: linear-gradient(
+      rgba(147, 245, 139, 0.239),
+      rgba(65, 105, 225, 0.284)
+    );
+  }
+
+  .filterLens:is(.gradient4) {
+    background-image: linear-gradient(
+      rgba(255, 255, 0, 0.215),
+      rgba(255, 255, 255, 0.436)
+    );
+  }
+</style>
