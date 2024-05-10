@@ -1,11 +1,18 @@
 <script lang="ts">
   import { Button, InputText, Typography, TextArea } from "$lib/ui";
 
+  const emailRegex =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
   let name: string;
   let email: string;
   let company: string;
   let budget: string; //change it when input number is ready
   let comment: string;
+  let error = false;
+  let negotitaionStatus = false;
+
+  $: if (email) error = !emailRegex.test(email);
 </script>
 
 <main class="sales">
@@ -24,7 +31,11 @@
       variant="email"
       placeholder="Please enter your email"
     />
-    <br />
+    <p class="error-msg" class:show={error}>
+      <Typography type="subtext" _color="var(--danger)" _fontweight="400"
+        >{error ? "Please enter a valid email address" : ""}</Typography
+      >
+    </p>
     <br />
     <InputText
       bind:value={company}
@@ -46,6 +57,7 @@
         type="checkbox"
         name="Open for Negotitaion"
         id="checkbox"
+        bind:checked={negotitaionStatus}
       />
       <label for="checkbox"
         ><Typography type="subtext" _fontweight="400"
@@ -53,7 +65,6 @@
         ></label
       >
     </div>
-    <br />
     <br />
     <TextArea
       bind:value={comment}
@@ -76,6 +87,19 @@
       inline-size: 90vw;
       max-inline-size: 600px;
       margin-inline: auto;
+      & > .error-msg {
+        block-size: 5px;
+        margin-block-start: 5px;
+        margin-inline-start: 20px;
+        opacity: 0;
+        -webkit-transition: opacity 0.3s ease;
+        -moz-transition: opacity 0.3s ease;
+        -o-transition: opacity 0.3s ease;
+        transition: opacity 0.3s ease;
+        &.show {
+          opacity: 1;
+        }
+      }
       & > .optional {
         display: flex;
         align-items: center;
@@ -83,6 +107,7 @@
         & > .negotitaion {
           inline-size: 16px;
           block-size: 16px;
+          accent-color: var(--primary-900);
         }
       }
     }
