@@ -112,4 +112,12 @@
       }
     }
   }
+  .sales + :global(footer) {
+    @media screen and (width > 768px) and (height > 1024px) {
+      position: absolute;
+      inset-inline-start: 50%;
+      inset-block-end: 0;
+      translate: -50%;
+    }
+  }
 </style>
