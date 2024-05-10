@@ -46,7 +46,6 @@
       />
     </div>
   </form>
-
 </main>
 
 <style lang="scss">

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import FeatureCard from "$lib/project/FeatureCard/FeatureCard.svelte";
+  import { FeatureCard } from "$lib/project";
   import { Typography } from "$lib/ui";
   import { onMount } from "svelte";
   let animationData = [false, false, false, false];

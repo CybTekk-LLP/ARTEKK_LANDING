@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { goto } from "$app/navigation";
   import { Modal, PricingCard } from "$lib/project";
   import { Button, InputCheckbox, Typography } from "$lib/ui";
   let dialog: HTMLDialogElement;
@@ -101,14 +102,22 @@
     </div>
   </div>
   <div class="btn">
-    <Button buttonLabel="BUY" onClick={() => null} />
+    <Button
+      buttonLabel="Contact Sales"
+      type="primary"
+      onClick={() => goto("/sales")}
+    />
   </div>
 </main>
 <Modal bind:dialog bind:showBackdrop>
   <Typography type="cardTitle">{heading}</Typography>
   <br />
   <InputCheckbox bind:value={pluginsValue} {content} /> <br />
-  <Button buttonLabel="BUY" onClick={() => alert("asdfjkbs")} /></Modal
+  <Button
+    buttonLabel="Buy"
+    type="primary"
+    onClick={() => alert("ahsdjhab")}
+  /></Modal
 >
 
 <style lang="scss">
