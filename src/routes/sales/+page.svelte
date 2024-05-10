@@ -1,5 +1,11 @@
 <script lang="ts">
-  import { Button, InputText, Typography, TextArea } from "$lib/ui";
+  import {
+    Button,
+    InputText,
+    Typography,
+    TextArea,
+    InputNumber,
+  } from "$lib/ui";
 
   const emailRegex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -7,7 +13,7 @@
   let name: string;
   let email: string;
   let company: string;
-  let budget: string; //change it when input number is ready
+  let budget: number;
   let comment: string;
   let error = false;
   let negotitaionStatus = false;
@@ -17,7 +23,6 @@
 
 <main class="sales">
   <Typography type="cardTitle">Contact Sales</Typography>
-  <br /><br />
   <form>
     <InputText
       bind:value={name}
@@ -44,11 +49,7 @@
     />
     <br />
     <br />
-    <InputText
-      bind:value={budget}
-      variant="text"
-      placeholder="Please enter your name"
-    />
+    <InputNumber bind:value={budget} placeholder="Please enter your budget" />
     <br />
     <br />
     <div class="optional">
@@ -87,6 +88,7 @@
       inline-size: 90vw;
       max-inline-size: 600px;
       margin-inline: auto;
+      margin-block-start: 2rem;
       & > .error-msg {
         block-size: 5px;
         margin-block-start: 5px;
