@@ -1,212 +1,280 @@
 <script lang="ts">
-  export const streamWebCamVideo = (isFrontCamera = true) => {
-    const video = document.getElementById("stream");
-    const constraints = {
-      video: {
-        facingMode: isFrontCamera ? "user" : "environment", // Toggle between front and rear cameras
-      },
-    };
-    window.navigator.mediaDevices
-      .getUserMedia(constraints)
-      .then((stream) => {
-        video.pause();
-        video.srcObject = stream;
-        video.onloadedmetadata = (e) => {
-          isFrontCamera && video.classList.add("flip");
-          !isFrontCamera && video.classList.remove("flip");
-          video.play();
-        };
-      })
-      .catch((e) => {
-        console.error(e);
-      });
-  };
+  import { onMount } from "svelte";
 
-  export let mediaRecorder = null;
-  let chunks = [];
-  let startTime = null;
-  let timerInterval;
-  const recordingIndicator = document.createElement("div");
-
-  export const captureVideo = () => {
-    const videoButton = document.querySelector(".capture-button");
-    videoButton.addEventListener("click", () => {
-      const isVideoMode = document.querySelector(
-        ".switch-camera-video-photo-mode input[type='checkbox']"
-      ).checked;
-      if (!isVideoMode) return;
-      const facingModeButton = document.querySelector(
-        ".switch-camera-facing-mode"
-      );
-      recordVideo(facingModeButton);
-    });
-  };
-
-  export const changeFacingMode = () => {
-    let isFrontCamera = false;
-    const facingModeButton = document.querySelector(
-      ".switch-camera-facing-mode"
-    );
-    facingModeButton.addEventListener("click", () => {
-      facingModeButton.querySelector(".rotate").classList.add("rotating");
-      setTimeout(() => {
-        facingModeButton.querySelector(".rotate").classList.remove("rotating");
-      }, 1500);
-      streamWebCamVideo(isFrontCamera);
-      facingModeButton.dataset.facingMode = isFrontCamera ? "front" : "back";
-      isFrontCamera = !isFrontCamera;
-    });
-  };
-
-  export const capturePhoto = () => {
-    const photoButton = document.querySelector(".capture-button");
-    photoButton.addEventListener("click", () => {
-      const isVideoMode = document.querySelector(
-        ".switch-camera-video-photo-mode input[type='checkbox']"
-      ).checked;
-      if (isVideoMode) return;
-      const facingModeButton = document.querySelector(
-        ".switch-camera-facing-mode"
-      );
-      photoButton.classList.add("click");
-      setTimeout(() => {
-        photoButton.classList.remove("click");
-      }, 500);
-      drawOnCanvasAndSavePhoto(facingModeButton.dataset.facingMode === "front");
-    });
-  };
-
-  const drawOnCanvasAndSavePhoto = async (isMirrored = false) => {
-    const video = document.getElementById("stream");
-    const canvas = document.createElement("canvas");
-    const context = canvas.getContext("2d");
-    const scaleFactor = 2;
-    canvas.width = video.videoWidth * scaleFactor;
-    canvas.height = video.videoHeight * scaleFactor;
-    if (isMirrored) {
-      context.translate(canvas.width, 0);
-      context.scale(-1, 1);
-    }
-    // Check for filters
-    if (video.dataset.lens === "monochrome") context.filter = "grayscale(1)";
-    if (video.dataset.lens.startsWith("gradient"))
-      context.filter = "saturate(0.1)";
-
-    const flashElement = document.createElement("div");
-    flashElement.style.position = "fixed";
-    flashElement.style.top = "0";
-    flashElement.style.left = "0";
-    flashElement.style.width = "100%";
-    flashElement.style.height = "calc(100vh - 220px)";
-    flashElement.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
-    document.body.appendChild(flashElement);
-    setTimeout(() => {
-      flashElement.remove();
-    }, 200);
-    context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-    // Apply gradient filters
-    addFiltersToPhoto(video.dataset.lens, context, canvas.width, canvas.height);
-
-    try {
-      const imageDataUrl = canvas.toDataURL("image/png", 0.9);
-      const link = document.createElement("a");
-      const timestamp = new Date().toISOString().replace(/[:.]/g, "");
-      link.href = imageDataUrl;
-      link.download = `photo_${timestamp}.png`;
-      link.click();
-    } catch (error) {
-      console.error("Error capturing photo:", error);
-    }
-  };
-
-  const recordVideo = async (facingModeButton) => {
-    const video = document.getElementById("stream");
-    if (mediaRecorder && mediaRecorder.state === "recording") {
-      mediaRecorder.stop();
-      clearInterval(timerInterval);
-      return;
-    }
-    try {
-      mediaRecorder = new MediaRecorder(video.srcObject);
-      startTime = Date.now();
-      mediaRecorder.start();
-      mediaRecorder.ondataavailable = (event) => {
-        const blob = new Blob([event.data], {
-          type: "video/mp4",
+  onMount(() => {
+    const streamWebCamVideo = (isFrontCamera = true) => {
+      const video = document.getElementById("stream");
+      const constraints = {
+        video: {
+          facingMode: isFrontCamera ? "user" : "environment", // Toggle between front and rear cameras
+        },
+      };
+      window.navigator.mediaDevices
+        .getUserMedia(constraints)
+        .then((stream) => {
+          video?.pause();
+          video.srcObject = stream;
+          video.onloadedmetadata = (e) => {
+            isFrontCamera && video?.classList.add("flip");
+            !isFrontCamera && video?.classList.remove("flip");
+            video?.play();
+          };
+        })
+        .catch((e) => {
+          console.error(e);
         });
-        chunks.push(blob);
-      };
+    };
 
-      recordingIndicator.textContent = "00:00:00";
-      recordingIndicator.classList.add("record");
-      document.body.appendChild(recordingIndicator);
+    let mediaRecorder: MediaRecorder | null = null;
+    let chunks: BlobPart[] | undefined = [];
+    let startTime: number | null = null;
+    let timerInterval: string | number | NodeJS.Timeout | undefined;
 
-      timerInterval = setInterval(() => {
-        const elapsedTime = Date.now() - startTime;
-        recordingIndicator.textContent = formatTime(elapsedTime);
-      }, 1000);
+    const recordingIndicator = document.createElement("div");
 
-      mediaRecorder.onstop = () => {
-        saveRecordedVideo();
-        clearInterval(timerInterval);
-      };
+    const captureVideo = () => {
+      const videoButton = document.querySelector(".capture-button");
+      videoButton?.addEventListener("click", () => {
+        const isVideoMode = document.querySelector(
+          ".switch-camera-video-photo-mode input[type='checkbox']"
+        )?.checked;
+        if (!isVideoMode) return;
+        const facingModeButton = document.querySelector(
+          ".switch-camera-facing-mode"
+        );
+        recordVideo(facingModeButton);
+      });
+    };
 
-      const toggle = document.querySelector(
-        ".switch-camera-video-photo-mode input[type='checkbox']"
+    const changeFacingMode = () => {
+      let isFrontCamera = false;
+      const facingModeButton = document.querySelector(
+        ".switch-camera-facing-mode"
       );
-      toggle.addEventListener("change", () => {
-        if (mediaRecorder && mediaRecorder.state === "recording") {
-          mediaRecorder.stop();
+      facingModeButton?.addEventListener("click", () => {
+        facingModeButton.querySelector(".rotate")?.classList.add("rotating");
+        setTimeout(() => {
+          facingModeButton
+            .querySelector(".rotate")
+            ?.classList.remove("rotating");
+        }, 1500);
+        streamWebCamVideo(isFrontCamera);
+        facingModeButton.dataset.facingMode = isFrontCamera ? "front" : "back";
+        isFrontCamera = !isFrontCamera;
+      });
+    };
+
+    const capturePhoto = () => {
+      const photoButton = document.querySelector(".capture-button");
+      photoButton?.addEventListener("click", () => {
+        const isVideoMode = document.querySelector(
+          ".switch-camera-video-photo-mode input[type='checkbox']"
+        )?.checked;
+        if (isVideoMode) return;
+        const facingModeButton = document.querySelector(
+          ".switch-camera-facing-mode"
+        );
+        photoButton.classList.add("click");
+        setTimeout(() => {
+          photoButton.classList.remove("click");
+        }, 500);
+        drawOnCanvasAndSavePhoto(
+          facingModeButton?.dataset.facingMode === "front"
+        );
+      });
+    };
+
+    const drawOnCanvasAndSavePhoto = async (isMirrored = false) => {
+      const video = document.getElementById("stream") as HTMLVideoElement;
+      const canvas = document.createElement("canvas");
+      const context = canvas.getContext("2d");
+      const scaleFactor = 2;
+      canvas.width = video?.videoWidth * scaleFactor;
+      canvas.height = video?.videoHeight * scaleFactor;
+      if (isMirrored) {
+        context?.translate(canvas.width, 0);
+        context?.scale(-1, 1);
+      }
+      // Check for filters
+      if (video?.dataset.lens === "monochrome" && context)
+        context.filter = "grayscale(1)";
+      if (video.dataset.lens.startsWith("gradient") && context)
+        context.filter = "saturate(0.1)";
+
+      const flashElement = document.createElement("div");
+      flashElement.style.position = "fixed";
+      flashElement.style.top = "0";
+      flashElement.style.left = "0";
+      flashElement.style.width = "100%";
+      flashElement.style.height = "calc(100vh - 220px)";
+      flashElement.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+      document.body.appendChild(flashElement);
+      setTimeout(() => {
+        flashElement.remove();
+      }, 200);
+      context?.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+      // Apply gradient filters
+      addFiltersToPhoto(
+        video.dataset.lens,
+        context,
+        canvas.width,
+        canvas.height
+      );
+
+      try {
+        const imageDataUrl = canvas.toDataURL("image/png", 0.9);
+        const link = document.createElement("a");
+        const timestamp = new Date().toISOString().replace(/[:.]/g, "");
+        link.href = imageDataUrl;
+        link.download = `photo_${timestamp}.png`;
+        link.click();
+      } catch (error) {
+        console.error("Error capturing photo:", error);
+      }
+    };
+
+    const recordVideo = async (facingModeButton: Element | null) => {
+      const video = document.getElementById("stream");
+      if (mediaRecorder && mediaRecorder.state === "recording") {
+        mediaRecorder.stop();
+        clearInterval(timerInterval);
+        return;
+      }
+      try {
+        mediaRecorder = new MediaRecorder(video?.srcObject);
+        startTime = Date.now();
+        mediaRecorder.start();
+        mediaRecorder.ondataavailable = (event) => {
+          const blob = new Blob([event.data], {
+            type: "video/mp4",
+          });
+          chunks?.push(blob);
+        };
+
+        recordingIndicator.textContent = "00:00:00";
+        recordingIndicator.classList.add("record");
+        document.body.appendChild(recordingIndicator);
+
+        timerInterval = setInterval(() => {
+          const elapsedTime = Date.now() - startTime;
+          recordingIndicator.textContent = formatTime(elapsedTime);
+        }, 1000);
+
+        mediaRecorder.onstop = () => {
+          saveRecordedVideo();
           clearInterval(timerInterval);
+        };
+
+        const toggle = document.querySelector(
+          ".switch-camera-video-photo-mode input[type='checkbox']"
+        );
+        toggle?.addEventListener("change", () => {
+          if (mediaRecorder && mediaRecorder.state === "recording") {
+            mediaRecorder.stop();
+            clearInterval(timerInterval);
+          }
+        });
+
+        facingModeButton?.addEventListener("click", () => {
+          if (mediaRecorder && mediaRecorder.state === "recording") {
+            mediaRecorder.stop();
+            clearInterval(timerInterval);
+          }
+        });
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    const saveRecordedVideo = () => {
+      recordingIndicator.remove();
+      if (!chunks?.length) {
+        console.error("No recorded video data available.");
+        return;
+      }
+      const blob = new Blob(chunks, { type: "video/mp4" });
+      const timestamp = new Date().toISOString().replace(/[:.]/g, "");
+      const filename = `video_${timestamp}.mp4`;
+      const videoUrl = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = videoUrl;
+      link.download = filename;
+      link.click();
+      chunks = [];
+    };
+
+    const formatTime = (milliseconds: number) => {
+      const totalSeconds = Math.floor(milliseconds / 1000);
+      const hours = Math.floor(totalSeconds / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+      return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+    };
+
+    const pad = (num: number) => {
+      return num.toString().padStart(2, "0");
+    };
+
+    const applyFilters = () => {
+      let filterControls = document.querySelector(".filters");
+      let checkbox = document.getElementById(
+        "filter-toggle"
+      ) as HTMLInputElement;
+
+      document.body?.addEventListener("click", (e) => {
+        if (checkbox.checked === true) checkbox.checked = false;
+      });
+      filterControls?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (checkbox?.checked === false) {
+          checkbox.checked = true;
+        } else {
+          if (e.target.hasAttribute("name")) {
+            applyLensFilter(e.target.value);
+            // checkbox.checked = false;  this was for the no cancel button approach
+          }
         }
       });
+    };
 
-      facingModeButton.addEventListener("click", () => {
-        if (mediaRecorder && mediaRecorder.state === "recording") {
-          mediaRecorder.stop();
-          clearInterval(timerInterval);
-        }
-      });
-    } catch (e) {
-      console.error(e);
-    }
-  };
+    const applyLensFilter = (value: string | undefined) => {
+      const video = document.getElementById("stream");
+      video.dataset.lens = value;
+      document.querySelector(".filterLens")?.remove();
+      const filterElement = document.createElement("div");
+      filterElement.classList.add("filterLens");
+      filterElement.style.position = "fixed";
+      filterElement.style.top = "0";
+      filterElement.style.left = "0";
+      filterElement.style.width = "100%";
+      filterElement.style.height = "calc(100vh - 220px)";
+      filterElement.classList.add(value ?? "");
+      document.body.appendChild(filterElement);
+    };
 
-  const saveRecordedVideo = () => {
-    recordingIndicator.remove();
-    if (!chunks.length) {
-      console.error("No recorded video data available.");
-      return;
-    }
-    const blob = new Blob(chunks, { type: "video/mp4" });
-    const timestamp = new Date().toISOString().replace(/[:.]/g, "");
-    const filename = `video_${timestamp}.mp4`;
-    const videoUrl = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = videoUrl;
-    link.download = filename;
-    link.click();
-    chunks = [];
-  };
+    const addFiltersToPhoto = (
+      value: string | undefined,
+      ctx: CanvasRenderingContext2D | null,
+      width: number,
+      height: number
+    ) => {
+      if (value?.startsWith("gradient")) {
+        ctx.globalCompositeOperation = "destination-out";
+        const gradient = ctx?.createLinearGradient(0, 0, 0, height);
+        gradient?.addColorStop(0, "rgba(255, 192, 203, 0.6)");
+        gradient?.addColorStop(1, "rgba(0, 0, 255, 1)");
+        ctx.fillStyle = gradient;
+        ctx?.fillRect(0, 0, width, height);
+      }
+    };
 
-  const formatTime = (milliseconds) => {
-    const totalSeconds = Math.floor(milliseconds / 1000);
-    const hours = Math.floor(totalSeconds / 3600);
-    const minutes = Math.floor((totalSeconds % 3600) / 60);
-    const seconds = totalSeconds % 60;
-    return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
-  };
-
-  const pad = (num) => {
-    return num.toString().padStart(2, "0");
-  };
-
-  streamWebCamVideo();
-  changeFacingMode();
-  capturePhoto();
-  captureVideo();
-  applyFilters();
+    streamWebCamVideo();
+    changeFacingMode();
+    capturePhoto();
+    captureVideo();
+    applyFilters();
+  });
 </script>
 
 <section id="camera">
