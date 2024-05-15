@@ -9,7 +9,7 @@
 </script>
 
 <Template let:args>
-  <HealthBar {...args}></HealthBar>
+  <HealthBar {...args} progressValue="100"></HealthBar>
 </Template>
 
 <Story name="main" args={{}} />

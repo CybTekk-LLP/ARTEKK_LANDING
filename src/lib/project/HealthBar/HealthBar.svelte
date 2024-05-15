@@ -1,35 +1,32 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
+  export let progressValue;
   let progressBar: HTMLProgressElement;
-  let progressValue = 100;
 
-  const interval = setInterval(() => {
-    if (progressValue <= 0) {
-      clearInterval(interval);
+  onMount(() => {
+    progressBar.value = progressValue;
+
+    if (progressValue > 50) {
+      progressBar.style.setProperty(
+        "--progress-bar-bg",
+        "repeating-linear-gradient(45deg, #0000FF, #0000FF 10px, #1E90FF 10px, #1E90FF 20px)"
+      );
+    } else if (progressValue > 20) {
+      progressBar.style.setProperty(
+        "--progress-bar-bg",
+        "repeating-linear-gradient(45deg, #FFFF00, #FFFF00 10px, #FFD700 10px, #FFD700 20px)"
+      );
     } else {
-      progressValue--;
-      progressBar.value = progressValue;
-
-      if (progressValue > 50) {
-        progressBar.style.setProperty(
-          "--progress-bar-bg",
-          "repeating-linear-gradient(45deg, #0000FF, #0000FF 10px, #1E90FF 10px, #1E90FF 20px)"
-        );
-      } else if (progressValue > 20) {
-        progressBar.style.setProperty(
-          "--progress-bar-bg",
-          "repeating-linear-gradient(45deg, #FFFF00, #FFFF00 10px, #FFD700 10px, #FFD700 20px)"
-        );
-      } else {
-        progressBar.style.setProperty(
-          "--progress-bar-bg",
-          "repeating-linear-gradient(45deg, #FF0000, #FF0000 10px, #B22222 10px, #B22222 20px)"
-        );
-      }
+      progressBar.style.setProperty(
+        "--progress-bar-bg",
+        "repeating-linear-gradient(45deg, #FF0000, #FF0000 10px, #B22222 10px, #B22222 20px)"
+      );
     }
-  }, 100);
+  });
 </script>
 
-<progress id="bar" bind:this={progressBar} value="70" max="100"></progress>
+<progress id="bar" bind:this={progressBar} value="0" max="100"></progress>
 
 <style lang="scss">
   #bar {
