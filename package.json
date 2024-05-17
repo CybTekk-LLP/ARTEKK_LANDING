@@ -32,6 +32,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@snap/camera-kit": "^0.16.2",
     "@storybook/addon-svelte-csf": "^4.1.2",
     "@sveltejs/adapter-static": "^3.0.1",
     "sass": "^1.76.0",
