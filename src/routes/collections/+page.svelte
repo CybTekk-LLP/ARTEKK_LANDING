@@ -21,6 +21,10 @@
       cardHeading: "Billboards",
       imgSrc: "./images/Collections/Billboards.webp",
     },
+    {
+      cardHeading: "Makeup",
+      imgSrc: "./images/Collections/Makeup.webp",
+    },
   ];
 </script>
 
