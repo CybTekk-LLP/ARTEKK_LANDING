@@ -4,10 +4,46 @@
   export let type: "primary" | "secondary" = "primary";
   export let onClick: () => void;
   export let iconSrc: string | undefined = undefined;
+
+  let button: HTMLButtonElement;
+
+  function createRipple(
+    event: MouseEvent & { currentTarget: EventTarget & HTMLButtonElement }
+  ) {
+    const circle = document.createElement("span");
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
+    circle.classList.add("ripple");
+    circle.setAttribute(
+      "style",
+      `width:${diameter}px; height: ${diameter}px;left: ${event.clientX - button.offsetLeft - radius}px; top:${event.clientY - button.offsetTop - radius}px; position: absolute;display: inline-block;border-radius: 50%;transform: scale(0);background-color: rgba(255, 255, 255, 0.7);`
+    );
+    circle.animate(
+      [
+        { transform: "scale(0)", opacity: 0.7 },
+        { transform: "scale(4)", opacity: 0 },
+      ],
+      {
+        duration: 600,
+        iterations: 1,
+      }
+    );
+    const ripple = button.getElementsByClassName("ripple")[0];
+
+    if (ripple) {
+      ripple.remove();
+    }
+    //  @ts-ignore
+    button?.appendChild(circle);
+  }
 </script>
 
 <button
-  on:click={onClick}
+  bind:this={button}
+  on:click={(e) => {
+    onClick();
+    if (type === "primary") createRipple(e);
+  }}
   class="button primary"
   class:secondary={type === "secondary"}
 >
