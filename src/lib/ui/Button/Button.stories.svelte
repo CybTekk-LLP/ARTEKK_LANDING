@@ -17,7 +17,7 @@
   args={{
     type: "primary",
     buttonLabel: "GETTING STARTED",
-    onClick: () => alert("button clicked"),
+    onClick: () => alert("clicked"),
   }}
 />
 <Story
