@@ -1,4 +1,4 @@
-<script context="module" lang="ts">
+<script lang="ts">
   import { bootstrapCameraKit } from "@snap/camera-kit";
 
   (async function () {
@@ -19,7 +19,7 @@
     await session.play();
 
     const lens = await cameraKit.lensRepository.loadLens(
-      "324ffc1d-1407-45ce-b2c5-1fad38de7d18",
+      "1e54efe7-148c-4f74-a032-da5b3adef95b",
       "88100c29-c3e6-4deb-bce0-35e91383790e"
     );
     await session.applyLens(lens);
