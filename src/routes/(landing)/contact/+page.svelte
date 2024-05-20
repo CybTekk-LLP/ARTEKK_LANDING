@@ -16,7 +16,7 @@
   let budget: number;
   let comment: string;
   let error = false;
-  let negotitaionStatus = false;
+  let negotiationStatus = false;
 
   $: if (email) error = !emailRegex.test(email);
 </script>
@@ -54,15 +54,15 @@
     <br />
     <div class="optional">
       <input
-        class="negotitaion"
+        class="Negotiation"
         type="checkbox"
-        name="Open for Negotitaion"
+        name="Open for Negotiation"
         id="checkbox"
-        bind:checked={negotitaionStatus}
+        bind:checked={negotiationStatus}
       />
       <label for="checkbox"
         ><Typography type="subtext" _fontweight="400"
-          >Open For Negotitaion</Typography
+          >Open For Negotiation</Typography
         ></label
       >
     </div>
@@ -106,7 +106,7 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        & > .negotitaion {
+        & > .negotiation {
           inline-size: 16px;
           block-size: 16px;
           accent-color: var(--primary-900);
