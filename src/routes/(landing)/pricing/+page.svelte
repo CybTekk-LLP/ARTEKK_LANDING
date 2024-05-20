@@ -10,44 +10,48 @@
   let buttonType: "primary" | "secondary";
   let content = [
     {
-      imgSrc: "./images/InputRadio/Shoes.svg",
+      imgSrc: "./images/Collections/Shoes.webp",
       title: "Shoes",
     },
     {
-      imgSrc: "./images/InputRadio/Clothes.svg",
+      imgSrc: "./images/Collections/Clothes.webp",
       title: "Clothes",
     },
     {
-      imgSrc: "./images/InputRadio/Gloves.svg",
+      imgSrc: "./images/Collections/Gloves.webp",
       title: "Gloves",
     },
     {
-      imgSrc: "./images/InputRadio/Car.svg",
+      imgSrc: "./images/Collections/Cars.webp",
       title: "Cars",
     },
     {
-      imgSrc: "./images/InputRadio/Watches.svg",
+      imgSrc: "./images/Collections/Watch.webp",
       title: "Watches",
     },
     {
-      imgSrc: "./images/InputRadio/Furniture.svg",
+      imgSrc: "./images/Collections/Furniture.webp",
       title: "Furniture",
     },
     {
-      imgSrc: "./images/InputRadio/Jewellery.svg",
+      imgSrc: "./images/Collections/Jewellery.webp",
       title: "Jewellery",
     },
     {
-      imgSrc: "./images/InputRadio/Newspaper.svg",
+      imgSrc: "./images/Collections/Newspapers.webp",
       title: "Newspaper",
     },
     {
-      imgSrc: "./images/InputRadio/Billboard.svg",
+      imgSrc: "./images/Collections/Billboards.webp",
       title: "Billboard",
     },
     {
-      imgSrc: "./images/InputRadio/Caps.svg",
+      imgSrc: "./images/Collections/Caps.webp",
       title: "Caps",
+    },
+    {
+      imgSrc: "./images/Collections/Makeup.webp",
+      title: "Makeup",
     },
   ];
 </script>

@@ -1,50 +1,82 @@
 <script lang="ts">
-  import { Typography, InputText, TextArea, Button } from "$lib/ui";
+  import {
+    Button,
+    InputText,
+    Typography,
+    TextArea,
+    InputNumber,
+  } from "$lib/ui";
 
   const emailRegex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   let name: string;
   let email: string;
-  let message: string;
-  let error: boolean;
+  let company: string;
+  let budget: number;
+  let comment: string;
+  let error = false;
+  let negotiationStatus = false;
 
   $: if (email) error = !emailRegex.test(email);
 </script>
 
-<main class="contact-us">
-  <h1 class="heading">
-    <Typography type="cardTitle">Contact Us</Typography>
-  </h1>
+<main class="sales">
+  <Typography type="cardTitle">Contact Sales</Typography>
   <form>
     <InputText
+      bind:value={name}
       variant="text"
       placeholder="Please enter your name"
-      bind:value={name}
     />
     <br />
     <br />
     <InputText
+      bind:value={email}
       variant="email"
       placeholder="Please enter your email"
-      bind:value={email}
     />
     <p class="error-msg" class:show={error}>
-      <Typography type="subtext" _color="var(--danger)"
+      <Typography type="subtext" _color="var(--danger)" _fontweight="400"
         >{error ? "Please enter a valid email address" : ""}</Typography
       >
     </p>
     <br />
-    <TextArea placeholder="Please Enter your message" bind:value={message} />
+    <InputText
+      bind:value={company}
+      variant="text"
+      placeholder="Please enter company name"
+    />
     <br />
     <br />
-    <div class="btn">
-      <Button
-        type="primary"
-        buttonLabel="Get in touch"
-        onClick={() => alert("sdgs")}
+    <InputNumber bind:value={budget} placeholder="Please enter your budget" />
+    <br />
+    <br />
+    <div class="optional">
+      <input
+        class="Negotiation"
+        type="checkbox"
+        name="Open for Negotiation"
+        id="checkbox"
+        bind:checked={negotiationStatus}
       />
+      <label for="checkbox"
+        ><Typography type="subtext" _fontweight="400"
+          >Open For Negotiation</Typography
+        ></label
+      >
     </div>
+    <br />
+    <TextArea
+      bind:value={comment}
+      placeholder="Write any additional comments or requests"
+    />
+    <br /><br />
+    <Button
+      type="primary"
+      buttonLabel="Submit"
+      onClick={() => alert("sdafgasfg")}
+    />
   </form>
 </main>
 
@@ -52,19 +84,16 @@
   main {
     display: grid;
     place-items: center;
-    & > .heading {
-      text-align: center;
-      margin-block-end: 2rem;
-    }
     & > form {
-      max-inline-size: 650px;
       inline-size: 90vw;
+      max-inline-size: 600px;
       margin-inline: auto;
+      margin-block-start: 2rem;
       & > .error-msg {
-        margin-block-start: 5px;
-        padding-inline-start: 20px;
-        opacity: 0;
         block-size: 5px;
+        margin-block-start: 5px;
+        margin-inline-start: 20px;
+        opacity: 0;
         -webkit-transition: opacity 0.3s ease;
         -moz-transition: opacity 0.3s ease;
         -o-transition: opacity 0.3s ease;
@@ -73,10 +102,19 @@
           opacity: 1;
         }
       }
+      & > .optional {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        & > .negotiation {
+          inline-size: 16px;
+          block-size: 16px;
+          accent-color: var(--primary-900);
+        }
+      }
     }
   }
-
-  .contact-us + :global(footer) {
+  .sales + :global(footer) {
     @media screen and (width > 768px) and (height > 1024px) {
       position: absolute;
       inset-inline-start: 50%;
