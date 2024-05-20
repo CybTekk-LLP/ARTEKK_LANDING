@@ -29,7 +29,10 @@
 <section id="camera-section">
   <canvas id="stream" data-lens="none"></canvas>
   <div class="controls" role="button" tabindex="0">
-    <div class="lenses">
+    <div
+      class="lenses"
+      style="opacity: 0; visibility: hidden; pointer-events: none;"
+    >
       <div class="filters">
         <input type="checkbox" name="" id="filter-toggle" />
         <label for="filter-toggle"></label>
