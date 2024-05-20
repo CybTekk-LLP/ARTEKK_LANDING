@@ -1,7 +1,10 @@
 <script lang="ts">
   import { FeatureCard } from "$lib/project";
-  import { Typography } from "$lib/ui";
   import { onMount } from "svelte";
+  import { Navbar, Typography } from "$lib/ui";
+
+  let isOpen = false;
+  let year = new Date().getFullYear();
   let animationData = [false, false, false, false];
   const handleIntersection = (entries: any) => {
     entries.forEach((entry: any) => {
@@ -46,6 +49,18 @@
 </script>
 
 <main>
+  <Navbar
+    bind:isOpen
+    logo={"/images/Logo/Logo.svg"}
+    navOptions={[
+      { name: "About", href: "/about", target: "" },
+      { name: "Collections", href: "/collections", target: "" },
+      { name: "Pricing", href: "/pricing", target: "" },
+      { name: "Contact", href: "/contact", target: "" },
+      { name: "Documentation", href: "/docs", target: "" },
+    ]}
+  />
+  <br /><br />
   <section class="about" data-label="default">
     <div class="content">
       <h1 class="heading">
@@ -120,6 +135,11 @@
       isAnimated={animationData[3]}
     />
   </section>
+  <footer>
+    <Typography type="subtext" _fontweight="400" _color="var(--primary-500)"
+      >Copyright © {year} ARTEKK, all rights reserved</Typography
+    >
+  </footer>
 </main>
 
 <style lang="scss">
@@ -213,6 +233,10 @@
       @media screen and (orientation: portrait) and (width <= 568px) {
         block-size: auto;
       }
+    }
+    & > footer {
+      text-align: center;
+      margin-block: 2rem;
     }
   }
 </style>
