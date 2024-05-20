@@ -1,4 +1,4 @@
-<script lang="ts">
+<script context="module" lang="ts">
   import { bootstrapCameraKit } from "@snap/camera-kit";
 
   (async function () {
