@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Button } from "$lib/ui";
+  import { Button, Typography } from "$lib/ui";
   let query = new URL(window.location.href).searchParams.get("load");
   let title: string;
   let description: string;
@@ -58,7 +58,7 @@
     default:
       (title = "Step into Virtual Fashion Reality"),
         (description =
-          "Immerse yourself in a world where trying on footwear is as easy as a flick of the wrist.");
+          "Immerse yourself in a world where trying on clothes is as easy as a flick of the wrist.");
   }
 
   const navigateToCamera = () => {
@@ -71,14 +71,16 @@
   style:background-image={`url('./images/Ar/${query || "clothing"}.webp')`}
 >
   <section>
-    <h1 class="heading">{title}</h1>
-    <p class="description">
+    <Typography type="caption">{title}</Typography>
+    <br />
+    <Typography type="body">
       {description}
-    </p>
+    </Typography>
+    <br />
     <div class="btn">
       <Button
         type="primary"
-        buttonLabel="Getting-Started"
+        buttonLabel="GET STARTED"
         onClick={() => navigateToCamera()}
       />
     </div>
@@ -117,6 +119,13 @@
     & > .btn {
       inline-size: max-content;
       margin-inline: auto;
+      :global(button) {
+        padding-inline: 60px;
+        padding-block: 20px;
+      }
+      :global(.typography) {
+        font-size: 1.2rem;
+      }
     }
   }
 </style>
