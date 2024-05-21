@@ -62,7 +62,7 @@
   }
 
   const navigateToCamera = () => {
-    window.location.href = `./${query}.html`;
+    window.location.href = `./${query}`;
   };
 </script>
 
@@ -71,11 +71,13 @@
   style:background-image={`url('./images/Ar/${query || "clothing"}.webp')`}
 >
   <section>
-    <Typography type="caption">{title}</Typography>
+    <Typography type="cardTitle">{title}</Typography>
     <br />
-    <Typography type="body">
-      {description}
-    </Typography>
+    <p class="description">
+      <Typography type="body">
+        {description}
+      </Typography>
+    </p>
     <br />
     <div class="btn">
       <Button
@@ -102,19 +104,9 @@
     margin-block-start: auto;
     padding-block-start: calc(100vh - 250px);
     padding-inline: 20px;
-
-    & > .heading {
-      color: #ffffff;
-      font-size: clamp(1.25rem, 1.1786rem + 0.3571vw, 1.5rem);
-      text-align: center;
-      margin-block-end: 20px;
-    }
-
     & > .description {
-      color: #ffffff;
-      font-size: 14px;
-      text-align: center;
-      margin-block-end: 20px;
+      max-inline-size: 500px;
+      margin-inline: auto;
     }
     & > .btn {
       inline-size: max-content;
