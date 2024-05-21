@@ -2,8 +2,6 @@
   //@ts-nocheck
   import { bootstrapCameraKit } from "@snap/camera-kit";
   import { onMount } from "svelte";
-  import { streamWebCamVideo } from "./stream.mjs";
-  // import { addFiltersToPhoto } from "./apply-filters.mjs";
 
   (async function () {
     const cameraKit = await bootstrapCameraKit({
@@ -286,12 +284,12 @@
     const pad = (num) => {
       return num.toString().padStart(2, "0");
     };
+    streamWebCamVideo();
+    changeFacingMode();
+    capturePhoto();
+    captureVideo();
+    applyFilters();
   });
-  streamWebCamVideo();
-  changeFacingMode();
-  capturePhoto();
-  captureVideo();
-  applyFilters();
 </script>
 
 <section id="camera-section">
