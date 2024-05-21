@@ -1,15 +1,18 @@
 <script lang="ts" type="text/javascript">
   import { Button } from "$lib/ui";
+  import Typography from "$lib/ui/Typography/Typography.svelte";
   import QRCode from "@castlenine/svelte-qrcode";
   let query = new URL(window.location.href).searchParams.get("load");
 </script>
 
 <main>
   <section>
-    <h1>Continue on a mobile phone</h1>
+    <Typography type="caption">Continue on a mobile phone</Typography>
     <p>
-      Looks like you are on a desktop/laptop device. please scan the QR code
-      below to open it on a mobile device and get the full experience.
+      <Typography type="body">
+        Looks like you are on a desktop/laptop device. please scan the QR code
+        below to open it on a mobile device and get the full experience.
+      </Typography>
     </p>
     <QRCode
       color="#ffffff"
@@ -44,15 +47,9 @@
       img {
         margin-top: 10px;
       }
-
-      p {
-        font-weight: 500;
-      }
-
       p {
         text-align: center;
         max-width: 548px;
-        padding: 0 60px;
         margin: 20px 0;
       }
 
