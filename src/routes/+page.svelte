@@ -48,18 +48,18 @@
   $: currentSection = "";
 </script>
 
+<Navbar
+  bind:isOpen
+  logo={"/images/Logo/Logo.svg"}
+  navOptions={[
+    { name: "About", href: "/about", target: "" },
+    { name: "Collections", href: "/collections", target: "" },
+    { name: "Pricing", href: "/pricing", target: "" },
+    { name: "Contact", href: "/contact", target: "" },
+    { name: "Documentation", href: "/docs", target: "" },
+  ]}
+/>
 <main>
-  <Navbar
-    bind:isOpen
-    logo={"/images/Logo/Logo.svg"}
-    navOptions={[
-      { name: "About", href: "/about", target: "" },
-      { name: "Collections", href: "/collections", target: "" },
-      { name: "Pricing", href: "/pricing", target: "" },
-      { name: "Contact", href: "/contact", target: "" },
-      { name: "Documentation", href: "/docs", target: "" },
-    ]}
-  />
   <br /><br />
   <section class="about" data-label="default">
     <div class="content">
