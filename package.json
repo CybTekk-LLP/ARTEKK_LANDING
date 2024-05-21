@@ -36,6 +36,7 @@
     "@snap/camera-kit": "^0.16.2",
     "@storybook/addon-svelte-csf": "^4.1.2",
     "@sveltejs/adapter-static": "^3.0.1",
+    "@vitejs/plugin-basic-ssl": "^1.1.0",
     "sass": "^1.76.0",
     "scss": "^0.2.4"
   }
