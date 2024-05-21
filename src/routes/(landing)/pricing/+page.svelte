@@ -109,7 +109,7 @@
     <Button
       buttonLabel="Contact Sales"
       type="primary"
-      onClick={() => goto("/sales")}
+      onClick={() => goto("/contact")}
     />
   </div>
 </main>
