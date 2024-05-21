@@ -57,16 +57,6 @@
         max-width: 250px;
       }
 
-      .continue {
-        font-weight: 700;
-        background-color: transparent;
-        padding: 15px 60px;
-        color: white;
-        border: 1px solid #222;
-        cursor: pointer;
-        border-radius: 5px;
-      }
-
       #qrcode {
         text-align: center;
       }
