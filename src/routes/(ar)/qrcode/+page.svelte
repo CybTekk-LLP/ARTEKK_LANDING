@@ -76,6 +76,11 @@
       .qr-sub {
         text-align: center;
       }
+      & > .btn {
+        :global(button) {
+          padding-inline: 50px;
+        }
+      }
     }
   }
 </style>
