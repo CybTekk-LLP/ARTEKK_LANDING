@@ -14,3 +14,12 @@
 
 <Story name="main" args={{ variant: "text", placeholder: "Name" }} />
 <Story name="email" args={{ variant: "email", placeholder: "Email" }} />
+<Story
+  name="withLabel"
+  args={{
+    labelNeeded: true,
+    label: "Email",
+    variant: "email",
+    placeholder: "Email",
+  }}
+/>
