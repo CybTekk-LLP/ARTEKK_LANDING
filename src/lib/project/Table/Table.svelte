@@ -73,7 +73,6 @@
           />
         </td>
       </tr>
-      <br />
     {/each}
   </tbody>
 </table>
@@ -83,6 +82,9 @@
     inline-size: 100%;
     display: table;
     border-collapse: collapse;
+    @media screen and (width < 375px) {
+      scale: 0.9;
+    }
     & > thead {
       & > tr {
         & > th {
@@ -96,9 +98,11 @@
     }
     & > tbody {
       & > tr {
+        border-bottom: 1px solid var(--secondary-500);
         & > td {
-          padding: 5px;
+          padding-inline: 5px;
           text-align: center;
+          padding-block: 10px;
           &:first-of-type {
             text-align: start;
           }
@@ -110,6 +114,9 @@
               background-color: var(--secondary-500);
               padding: 5px;
               border-radius: 20px;
+              @media screen and (width < 375px) {
+                inline-size: 10ch;
+              }
             }
           }
           &.active {
@@ -129,6 +136,9 @@
               box-sizing: content-box;
               border-radius: 5px;
               opacity: 0.7;
+              -webkit-transition: opacity 0.2s ease-in-out;
+              -moz-transition: opacity 0.2s ease-in-out;
+              -o-transition: opacity 0.2s ease-in-out;
               transition: opacity 0.2s ease-in-out;
               margin-inline-end: 5px;
               &:hover {
