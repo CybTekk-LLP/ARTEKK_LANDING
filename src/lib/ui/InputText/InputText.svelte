@@ -1,7 +1,10 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import Typography from "../Typography/Typography.svelte";
   export let placeholder: string;
+  export let label: string | undefined = undefined;
   export let variant: "text" | "email";
+  export let labelNeeded: boolean | undefined = undefined;
   export let inputField: HTMLInputElement | undefined = undefined;
   export let value: string | undefined;
   export let uniqueId = "inputText" + Math.random().toString().split(".")[1];
@@ -29,6 +32,13 @@
   });
 </script>
 
+{#if labelNeeded}
+  <label class="label" for={uniqueId}>
+    <Typography type="subtext" _fontweight="400">
+      {label}
+    </Typography>
+  </label>
+{/if}
 <input
   bind:this={inputField}
   type="text"
@@ -39,6 +49,11 @@
 />
 
 <style lang="scss">
+  .label {
+    display: inline-block;
+    margin-inline-start: 20px;
+    margin-block-end: 5px;
+  }
   input {
     inline-size: 100%;
     block-size: 42px;
