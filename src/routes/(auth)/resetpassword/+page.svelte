@@ -12,6 +12,7 @@
   const eightCharacterRegex = /.{8,}/;
   $: validatePassword = () => {
     passwordError = false;
+    confrimPassword = false;
     errorPrompt = "";
     if (!lowerCaseRegex.test(password)) {
       passwordError = true;
