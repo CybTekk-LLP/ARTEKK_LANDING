@@ -111,6 +111,7 @@
         margin-block-start: 5px;
         margin-inline-start: 20px;
         opacity: 0;
+        padding-block-end: 15px;
         -webkit-transition: opacity 0.3s ease;
         -moz-transition: opacity 0.3s ease;
         -o-transition: opacity 0.3s ease;
