@@ -2,13 +2,13 @@
   import { Typography } from "./../../ui";
   export let tableHeadings: {
     headingOne: string;
-    headingTwo: string;
+    // headingTwo: string;
     headingThree: string;
     headingFour: string;
   };
   export let tableData: {
     rowDataOne: string;
-    rowDataTwo: string;
+    // rowDataTwo: string;
     status: "Active" | "Inactive";
     handleWatch: () => void;
     handleEdit: () => void;
@@ -24,11 +24,11 @@
           >{tableHeadings.headingOne}</Typography
         ></th
       >
-      <th
+      <!-- <th
         ><Typography type="subtext" _color="var(--primary-700)"
           >{tableHeadings.headingTwo}</Typography
         ></th
-      >
+      > -->
       <th
         ><Typography type="subtext" _color="var(--primary-700)"
           >{tableHeadings.headingThree}</Typography
@@ -45,12 +45,7 @@
     {#each tableData as data}
       <tr>
         <td><Typography type="subtext">{data.rowDataOne}</Typography></td>
-        <td
-          ><Typography type="subtext"
-            ><a class="links" href={data.rowDataTwo}>{data.rowDataTwo}</a
-            ></Typography
-          ></td
-        >
+        <!-- <td><Typography type="subtext">{data.rowDataTwo}</Typography></td> -->
         <td class="status" class:active={data.status === "Active"}
           ><Typography type="subtext">{data.status}</Typography></td
         >
@@ -93,6 +88,9 @@
         & > th {
           padding-inline: 5px;
           padding-block: 20px;
+          &:first-of-type {
+            text-align: start;
+          }
         }
       }
     }
@@ -101,8 +99,14 @@
         & > td {
           padding: 5px;
           text-align: center;
+          &:first-of-type {
+            text-align: start;
+          }
+
           &.status {
             :global(.typography) {
+              inline-size: 100px;
+              margin-inline: auto;
               background-color: var(--secondary-500);
               padding: 5px;
               border-radius: 20px;
@@ -126,6 +130,7 @@
               border-radius: 5px;
               opacity: 0.7;
               transition: opacity 0.2s ease-in-out;
+              margin-inline-end: 5px;
               &:hover {
                 opacity: 1;
               }
