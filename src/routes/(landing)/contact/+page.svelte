@@ -62,7 +62,7 @@
     {#if query}
       <InputText
         value={"Your chosen plans are: " +
-          query.replace(/(\S+)(\s*)$/gm, "and $1$2")}
+          query.replace(/(.*)\s+(\S+)/, "$1 and $2")}
         variant="text"
         placeholder="Please enter plans for your project"
       />
