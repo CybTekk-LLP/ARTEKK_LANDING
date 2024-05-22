@@ -10,6 +10,9 @@
     rowDataOne: string;
     rowDataTwo: string;
     status: "Active" | "Inactive";
+    handleWatch: () => void;
+    handleEdit: () => void;
+    handleDelete: () => void;
   }[];
 </script>
 
@@ -52,9 +55,27 @@
           ><Typography type="subtext">{data.status}</Typography></td
         >
         <td class="actions">
-          <img src="/images/Table/Watch.svg" alt="watch" />
-          <img src="/images/Table/Edit.svg" alt="edit" />
-          <img src="/images/Table/Delete.svg" alt="delete" />
+          <!-- svelte-ignore a11y-click-events-have-key-events -->
+          <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+          <img
+            on:click={data.handleWatch}
+            src="/images/Table/Watch.svg"
+            alt="watch"
+          />
+          <!-- svelte-ignore a11y-click-events-have-key-events -->
+          <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+          <img
+            on:click={data.handleEdit}
+            src="/images/Table/Edit.svg"
+            alt="edit"
+          />
+          <!-- svelte-ignore a11y-click-events-have-key-events -->
+          <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+          <img
+            on:click={data.handleDelete}
+            src="/images/Table/Delete.svg"
+            alt="delete"
+          />
         </td>
       </tr>
       <br />
@@ -71,7 +92,7 @@
       & > tr {
         & > th {
           padding-inline: 5px;
-          padding-block: 10px;
+          padding-block: 20px;
         }
       }
     }
