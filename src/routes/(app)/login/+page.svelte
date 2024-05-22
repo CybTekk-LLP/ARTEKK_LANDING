@@ -43,7 +43,7 @@
       label="Email"
       bind:value={email}
     />
-    <p class="error-msg" class:show={error}>
+    <p class="error-msg" class:show={error && email}>
       <Typography type="subtext" _color="var(--danger)" _fontweight="400"
         >{error ? "Please enter a valid email address" : ""}</Typography
       >
