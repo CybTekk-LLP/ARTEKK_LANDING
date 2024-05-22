@@ -12,4 +12,31 @@
   <Table {...args} />
 </Template>
 
-<Story name="main" args={{}} />
+<Story
+  name="main"
+  args={{
+    tableHeadings: {
+      headingOne: "Project",
+      headingTwo: "Domain",
+      headingThree: "Status",
+      headingFour: "Action",
+    },
+    tableData: [
+      {
+        rowDataOne: "Amazon",
+        rowDataTwo: "https://www.amazon.in",
+        status: "Active",
+      },
+      {
+        rowDataOne: "Amazon",
+        rowDataTwo: "https://www.amazon.in",
+        status: "Active",
+      },
+      {
+        rowDataOne: "Amazon",
+        rowDataTwo: "https://www.amazon.in",
+        status: "Inactive",
+      },
+    ],
+  }}
+/>
