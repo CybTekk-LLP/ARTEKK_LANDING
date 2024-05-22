@@ -86,8 +86,7 @@
       max-inline-size: 90vw;
       margin-inline: auto;
       background-color: var(--card-background);
-      padding-inline: 20px;
-      padding-block: 40px;
+      padding: 40px;
       border-radius: 16px;
       & > .card-header {
         text-align: center;
