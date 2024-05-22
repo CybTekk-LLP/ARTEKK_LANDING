@@ -1,8 +1,14 @@
 <script lang="ts">
   import { Typography, Button, InputText } from "$lib/ui";
 
+  const emailRegex =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
   let email: string;
   let password: string;
+  let error = false;
+
+  $: if (email) error = !emailRegex.test(email);
 </script>
 
 <main>
@@ -37,10 +43,14 @@
       label="Email"
       bind:value={email}
     />
-    <br />
+    <p class="error-msg" class:show={error}>
+      <Typography type="subtext" _color="var(--danger)" _fontweight="400"
+        >{error ? "Please enter a valid email address" : ""}</Typography
+      >
+    </p>
     <br />
     <InputText
-      variant="text"
+      variant="password"
       labelNeeded={true}
       placeholder="Nathan.Robers@Example.com"
       label="Password"
@@ -99,6 +109,19 @@
           inline-size: 30%;
           block-size: 1px;
           background-color: var(--secondary-500);
+        }
+      }
+      & > .error-msg {
+        block-size: 5px;
+        margin-block-start: 5px;
+        margin-inline-start: 20px;
+        opacity: 0;
+        -webkit-transition: opacity 0.3s ease;
+        -moz-transition: opacity 0.3s ease;
+        -o-transition: opacity 0.3s ease;
+        transition: opacity 0.3s ease;
+        &.show {
+          opacity: 1;
         }
       }
       & > a {

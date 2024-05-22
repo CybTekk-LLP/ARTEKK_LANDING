@@ -3,7 +3,7 @@
   import Typography from "../Typography/Typography.svelte";
   export let placeholder: string;
   export let label: string | undefined = undefined;
-  export let variant: "text" | "email";
+  export let variant: "text" | "email" | "password";
   export let labelNeeded: boolean | undefined = undefined;
   export let inputField: HTMLInputElement | undefined = undefined;
   export let value: string | undefined;
@@ -23,6 +23,10 @@
         break;
       case "email":
         inputField && (inputField.type = "email");
+        inputField && (inputField.inputMode = "text");
+        break;
+      case "password":
+        inputField && (inputField.type = "password");
         inputField && (inputField.inputMode = "text");
         break;
       default:
