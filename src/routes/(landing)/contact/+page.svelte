@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { page } from "$app/stores";
   import {
     Button,
     InputText,
@@ -17,7 +18,10 @@
   let comment: string;
   let error = false;
   let negotiationStatus = false;
-
+  let query = new URL($page.url.href.toString()).searchParams
+    .get("plans")
+    ?.split(",")
+    .join(", ");
   $: if (email) error = !emailRegex.test(email);
 </script>
 
@@ -49,9 +53,22 @@
     />
     <br />
     <br />
-    <InputNumber bind:value={budget} placeholder="Please enter your budget" />
+    <InputNumber
+      bind:value={budget}
+      placeholder="Please enter the budget for your project"
+    />
     <br />
     <br />
+    {#if query}
+      <InputText
+        value={"Your chosen plans are: " +
+          query.replace(/(\S+)(\s*)$/gm, "and $1$2")}
+        variant="text"
+        placeholder="Please enter plans for your project"
+      />
+      <br />
+      <br />{/if}
+
     <div class="optional">
       <input
         class="Negotiation"
@@ -62,14 +79,14 @@
       />
       <label for="checkbox"
         ><Typography type="subtext" _fontweight="400"
-          >Open For Negotiation</Typography
+          >Are you Open to Negotiation ?</Typography
         ></label
       >
     </div>
     <br />
     <TextArea
       bind:value={comment}
-      placeholder="Write any additional comments or requests"
+      placeholder="Please write the exact requirements needed for your project."
     />
     <br /><br />
     <Button
