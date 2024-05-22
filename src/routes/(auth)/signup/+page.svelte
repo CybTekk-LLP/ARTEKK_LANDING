@@ -4,6 +4,36 @@
   let password: string;
   let repeatPassword: string;
   let agreeForTerms: boolean;
+  let emailError = false;
+  let passwordError = false;
+  let errorPrompt: string = "";
+  const emailRegex =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const upperCaseRegex = /(?=.*[A-Z])/;
+  const lowerCaseRegex = /(.*[a-z].*)/;
+  const digitRegex = /(.*\d.*)/;
+  const eightCharacterRegex = /.{8,}/;
+  $: validatePassword = () => {
+    passwordError = false;
+    errorPrompt = "";
+    if (!lowerCaseRegex.test(password)) {
+      passwordError = true;
+      errorPrompt = "Password must contain atleast one lowercase character";
+    } else if (!upperCaseRegex.test(password)) {
+      passwordError = true;
+      errorPrompt = "Password must contain atleast one uppercase character";
+    } else if (!digitRegex.test(password)) {
+      passwordError = true;
+      errorPrompt = "Password must contain atleast one digit character";
+    } else if (!eightCharacterRegex.test(password)) {
+      passwordError = true;
+      errorPrompt = "Password must be atleast eight character long";
+    }
+    return !passwordError;
+  };
+  $: validatePassword();
+  $: console.log(passwordError);
+  $: if (email) emailError = !emailRegex.test(email);
 </script>
 
 <main>
@@ -41,6 +71,12 @@
       bind:value={email}
     />
     <br />
+    {#if emailError && email}
+      <p class="error-msg" class:show={emailError}>
+        <Typography type="subtext" _color="var(--danger)" _fontweight="400"
+          >{emailError ? "Please enter a valid email address" : ""}</Typography
+        >
+      </p>{/if}
     <br />
     <InputText
       variant="text"
@@ -50,6 +86,13 @@
       bind:value={password}
     />
     <br />
+    {#if passwordError && password}
+      <p class="error-msg" class:show={passwordError}>
+        <Typography type="subtext" _color="var(--danger)" _fontweight="400"
+          >{errorPrompt}
+        </Typography>
+      </p>
+    {/if}
     <br />
     <InputText
       variant="text"
@@ -58,7 +101,15 @@
       label="Repeat Password"
       bind:value={repeatPassword}
     />
+
     <br />
+    <!-- <p class="error-msg" class:show={error}>
+      <Typography type="subtext" _color="var(--danger)" _fontweight="400"
+        >{error
+          ? "Please enter a Password and Repeat Passowrd same"
+          : ""}</Typography
+      >
+    </p> -->
     <br />
     <div class="optional">
       <input
@@ -101,7 +152,7 @@
       max-inline-size: 90vw;
       margin-inline: auto;
       background-color: var(--card-background);
-      padding-inline: 20px;
+      padding-inline: 2vw;
       padding-block: 40px;
       border-radius: 16px;
       & > .btn {
@@ -123,6 +174,19 @@
           inline-size: 30%;
           block-size: 1px;
           background-color: var(--secondary-500);
+        }
+      }
+      & > .error-msg {
+        block-size: 5px;
+        margin-block-start: 5px;
+        margin-inline-start: 20px;
+        opacity: 0;
+        -webkit-transition: opacity 0.3s ease;
+        -moz-transition: opacity 0.3s ease;
+        -o-transition: opacity 0.3s ease;
+        transition: opacity 0.3s ease;
+        &.show {
+          opacity: 1;
         }
       }
       & > .optional {
