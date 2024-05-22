@@ -6,6 +6,7 @@
   let agreeForTerms: boolean;
   let emailError = false;
   let passwordError = false;
+  let confrimPassword = false;
   let errorPrompt: string = "";
   const emailRegex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -28,11 +29,12 @@
     } else if (!eightCharacterRegex.test(password)) {
       passwordError = true;
       errorPrompt = "Password must be atleast eight character long";
+    } else if (repeatPassword && password !== repeatPassword) {
+      confrimPassword = true;
     }
     return !passwordError;
   };
   $: validatePassword();
-  $: console.log(passwordError);
   $: if (email) emailError = !emailRegex.test(email);
 </script>
 
@@ -51,8 +53,8 @@
       <Button
         iconSrc="/images/SignUp/Google.svg"
         type="secondary"
-        buttonLabel="Login in with google"
-        onClick={() => alert("l")}
+        buttonLabel="Login with google"
+        onClick={() => alert("google")}
       />
     </div>
     <br />
@@ -71,12 +73,14 @@
       bind:value={email}
     />
     <br />
-    {#if emailError && email}
-      <p class="error-msg" class:show={emailError}>
-        <Typography type="subtext" _color="var(--danger)" _fontweight="400"
-          >{emailError ? "Please enter a valid email address" : ""}</Typography
-        >
-      </p>{/if}
+
+    <p class="error-msg" class:show={emailError}>
+      <Typography type="subtext" _color="var(--danger)" _fontweight="400"
+        >{emailError && email
+          ? "Please enter a valid email address"
+          : ""}</Typography
+      >
+    </p>
     <br />
     <InputText
       variant="text"
@@ -86,13 +90,13 @@
       bind:value={password}
     />
     <br />
-    {#if passwordError && password}
-      <p class="error-msg" class:show={passwordError}>
-        <Typography type="subtext" _color="var(--danger)" _fontweight="400"
-          >{errorPrompt}
-        </Typography>
-      </p>
-    {/if}
+
+    <p class="error-msg" class:show={passwordError}>
+      <Typography type="subtext" _color="var(--danger)" _fontweight="400"
+        >{passwordError && password ? errorPrompt : ""}
+      </Typography>
+    </p>
+
     <br />
     <InputText
       variant="text"
@@ -103,14 +107,15 @@
     />
 
     <br />
-    <!-- <p class="error-msg" class:show={error}>
+    <p class="error-msg" class:show={confrimPassword}>
       <Typography type="subtext" _color="var(--danger)" _fontweight="400"
-        >{error
-          ? "Please enter a Password and Repeat Passowrd same"
+        >{confrimPassword && repeatPassword
+          ? "Password and the repeat password should be the same."
           : ""}</Typography
       >
-    </p> -->
+    </p>
     <br />
+
     <div class="optional">
       <input
         class="agree-terms"
@@ -130,12 +135,12 @@
     <Button
       type="primary"
       buttonLabel="SignUp"
-      onClick={() => alert("sign in")}
+      onClick={() => alert("sign un")}
     />
     <br />
 
     <Typography type="subtext"
-      >Already have an account? <a href="/register"
+      >Already have an account? <a href="/login"
         ><Typography type="subtext" renderInline={true}>Sign In</Typography></a
       ></Typography
     >
@@ -152,7 +157,7 @@
       max-inline-size: 90vw;
       margin-inline: auto;
       background-color: var(--card-background);
-      padding-inline: 2vw;
+      padding-inline: 22px;
       padding-block: 40px;
       border-radius: 16px;
       & > .btn {

@@ -43,7 +43,7 @@
       label="Email"
       bind:value={email}
     />
-    <p class="error-msg" class:show={error}>
+    <p class="error-msg" class:show={error && email}>
       <Typography type="subtext" _color="var(--danger)" _fontweight="400"
         >{error ? "Please enter a valid email address" : ""}</Typography
       >
@@ -86,8 +86,8 @@
       max-inline-size: 90vw;
       margin-inline: auto;
       background-color: var(--card-background);
-      padding-inline: 20px;
-      padding-block: 40px;
+      padding: 40px;
+      padding-inline: 2vw;
       border-radius: 16px;
       & > .card-header {
         text-align: center;
