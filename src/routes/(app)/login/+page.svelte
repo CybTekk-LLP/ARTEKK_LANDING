@@ -52,7 +52,7 @@
     <InputText
       variant="password"
       labelNeeded={true}
-      placeholder="Nathan.Robers@Example.com"
+      placeholder="Please enter your password"
       label="Password"
       bind:value={password}
     />
