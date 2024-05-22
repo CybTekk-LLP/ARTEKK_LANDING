@@ -99,6 +99,9 @@
     & > tbody {
       & > tr {
         border-bottom: 1px solid var(--secondary-500);
+        &:last-of-type {
+          border: 1px solid var(--transparent);
+        }
         & > td {
           padding-inline: 5px;
           text-align: center;
