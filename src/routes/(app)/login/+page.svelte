@@ -87,6 +87,7 @@
       margin-inline: auto;
       background-color: var(--card-background);
       padding: 40px;
+      padding-inline: 2vw;
       border-radius: 16px;
       & > .card-header {
         text-align: center;
