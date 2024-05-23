@@ -5,5 +5,6 @@ export { default as PricingCard } from "./PricingCard/PricingCard.svelte";
 export { default as Modal } from "./Modal/Modal.svelte";
 export { default as FeatureCard } from "./FeatureCard/FeatureCard.svelte";
 export { default as Table } from "./Table/Table.svelte";
-export { default as CodeSnippet } from "./CodeSnippet/CodeSnippet.svelte";
+export { default as CodeSnippet } from './CodeSnippet/CodeSnippet.svelte';
+export { default as CopyPaste } from "./CopyPaste/CopyPaste.svelte";
 export { default as DropBox } from "./DropBox/DropBox.svelte";
