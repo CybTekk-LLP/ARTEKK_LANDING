@@ -32,11 +32,13 @@
     inline-size: 100%;
     background: var(--secondary-700);
     border-radius: 16px;
-    padding-inline: 22px;
+    padding-inline: 25px;
     padding-block: 20px;
     margin-inline: auto;
+    line-height: 1.4;
     display: grid;
     gap: 24px;
+    box-shadow: inset 0 2px var(--secondary-500);
     & > .card-header {
       white-space: nowrap;
     }
