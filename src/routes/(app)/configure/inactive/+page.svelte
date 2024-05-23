@@ -54,7 +54,8 @@
   main {
     & > form {
       margin-block-start: 100px;
-      inline-size: 550px;
+      max-inline-size: 550px;
+      inline-size: 90vw;
       margin-inline: auto;
       & > .domain-label {
         margin-block-end: 5px;
