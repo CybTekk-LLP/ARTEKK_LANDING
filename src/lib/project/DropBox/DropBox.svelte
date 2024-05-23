@@ -22,7 +22,7 @@
     event.preventDefault();
     const dt = event.dataTransfer;
     if (dt?.types && (dt.types.indexOf ? dt.types.indexOf('Files') !== -1 : dt.types.contains('Files'))) {
-      for( const file of dt.files){
+      for( let file of dt.files){
         fileInfo.files = [file];
       }
       document.querySelector('.image-upload-wrap')?.classList.add('image-dropping');
