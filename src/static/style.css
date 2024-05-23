@@ -27,6 +27,7 @@ body {
   --tertiary-900: #1a7634;
   --tertiary-700: #00d03a;
   --card-background: #111111;
+  --danger-translucent: #b5000033;
   --danger: #c31b21;
   --transparent: transparent;
 }
