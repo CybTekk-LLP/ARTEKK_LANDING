@@ -3,6 +3,7 @@
   export let inputField: HTMLInputElement | undefined = undefined;
   export let value: number | undefined;
   export let uniqueId = "inputText" + Math.random().toString().split(".")[1];
+  export let autocomplete = "";
 
   const handleInput = (inputField: HTMLInputElement) => {
     if (inputField.value) {
@@ -18,6 +19,7 @@
   {placeholder}
   on:invalid={() => inputField && handleInput(inputField)}
   bind:value
+  {autocomplete}
 />
 
 <style lang="scss">

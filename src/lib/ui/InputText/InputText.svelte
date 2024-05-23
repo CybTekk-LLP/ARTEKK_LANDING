@@ -10,6 +10,7 @@
   export let value: string | undefined;
   export let readonly: boolean | undefined = undefined;
   export let uniqueId = "inputText" + Math.random().toString().split(".")[1];
+  export let autocomplete = "";
 
   const handleInput = (inputField: HTMLInputElement) => {
     if (inputField.value) {
@@ -51,6 +52,7 @@
   id={uniqueId}
   {placeholder}
   {readonly}
+  {autocomplete}
   on:invalid={() => inputField && handleInput(inputField)}
   bind:value
 />
@@ -59,6 +61,9 @@
   .label {
     display: inline-block;
     margin-block-end: 5px;
+  }
+  input:not(input:-webkit-autofill)::-webkit-contacts-auto-fill-button {
+    background-color: #fff;
   }
   input {
     inline-size: 100%;
