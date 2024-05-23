@@ -32,7 +32,7 @@
     inline-size: 100%;
     background: var(--secondary-700);
     border-radius: 16px;
-    padding-inline: 16px;
+    padding-inline: 22px;
     padding-block: 20px;
     margin-inline: auto;
     display: grid;
