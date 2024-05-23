@@ -6,7 +6,7 @@
 </script>
 
 <div class="checkbox-group">
-  {#each content ?? [] as option, i}
+  {#each content ?? [] as option}
     <input
       type="checkbox"
       name={uniqueId}
