@@ -57,7 +57,12 @@
   }, 8000);
 </script>
 
-<svelte:window on:drop|preventDefault={handleFileDrop} />
+<svelte:window
+  on:drop|preventDefault={handleFileDrop}
+  on:dragstart={handleFileDrop}
+  on:dragend={handleFileDrop}
+  on:dragover={handleFileDrop}
+/>
 <div class="dropbox-wrapper" bind:this={dropbox} data-drop={"drop-wrapper"}>
   <div class="dropbox">
     <label for={uniqueId}
