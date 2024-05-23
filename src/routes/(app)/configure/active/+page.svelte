@@ -2,4 +2,4 @@
     import {DropBox} from "$lib/project";
 </script>
 
-<DropBox onFileInput={() => null}/>
+<DropBox/>
