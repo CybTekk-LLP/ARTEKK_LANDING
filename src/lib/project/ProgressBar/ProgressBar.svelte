@@ -4,11 +4,11 @@
 
 <progress id="bar" {value} max="100"></progress>
 
-<style>
+<style lang="scss">
   #bar {
     display: inline-block;
     width: 100%;
-    height: 40px;
+    height: 10px;
     border-radius: 20px;
     overflow: hidden;
     -webkit-appearance: none;
@@ -23,7 +23,7 @@
     border-radius: 20px;
 
     &::-webkit-progress-bar {
-      background-color: #e6e6e6;
+      background-color: var(--primary-500);
       border-radius: 20px;
     }
 
@@ -32,10 +32,10 @@
         --progress-bar-bg,
         repeating-linear-gradient(
           45deg,
-          #4caf50,
-          #4caf50 10px,
-          #8bc34a 10px,
-          #8bc34a 20px
+          var(--tertiary-900),
+          var(--tertiary-900) 10px,
+          var(--tertiary-700) 10px,
+          var(--tertiary-700) 20px
         )
       );
       border-radius: 20px;
@@ -47,10 +47,10 @@
         --progress-bar-bg,
         repeating-linear-gradient(
           45deg,
-          #4caf50,
-          #4caf50 10px,
-          #8bc34a 10px,
-          #8bc34a 20px
+          var(--tertiary-900),
+          var(--tertiary-900) 10px,
+          var(--tertiary-700) 10px,
+          var(--tertiary-700) 20px
         )
       );
       border-radius: 20px;

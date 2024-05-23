@@ -12,4 +12,4 @@
   <ProgressBar {...args} />
 </Template>
 
-<Story name="main" args={{ value: 40 }} />
+<Story name="main" args={{ value: 60 }} />
