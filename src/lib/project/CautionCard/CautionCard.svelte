@@ -6,7 +6,7 @@
 
 <li class="caution-card">
   <img src={imgSrc} alt="" />
-  <Typography type="body" _color="var(--danger)">
+  <Typography type="body">
     {content}
   </Typography>
 </li>
@@ -14,13 +14,13 @@
 <style lang="scss">
   .caution-card {
     inline-size: 100%;
-    background-color: whitesmoke;
+    background-color: var(--danger-translucent);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 16px;
+    gap: 6px;
     padding: 16px;
-    border-radius: 9px;
+    border-radius: 6px;
     :global(.body) {
       font-size: 12px;
     }
