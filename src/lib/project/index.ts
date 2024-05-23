@@ -9,3 +9,4 @@ export { default as CodeSnippet } from "./CodeSnippet/CodeSnippet.svelte";
 export { default as CopyPaste } from "./CopyPaste/CopyPaste.svelte";
 export { default as DropBox } from "./DropBox/DropBox.svelte";
 export { default as ProgressBar } from "./ProgressBar/ProgressBar.svelte";
+export { default as ProfilePic } from "./ProfilePic/ProfilePic.svelte"
