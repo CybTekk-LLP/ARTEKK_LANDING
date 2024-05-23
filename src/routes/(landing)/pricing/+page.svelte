@@ -61,39 +61,36 @@
     <Typography type="cardTitle">Plans and Pricing</Typography>
     <div class="pricing-list">
       <PricingCard
-        planLabel="Starter"
-        amount="₹4Lakhs"
-        description="Choose any 3 AR models "
+        planLabel="Builder"
+        amount="₹4Lakhs/year"
+        descriptions={[
+          "You can convert to custom plan by paying the difference.",
+          "Place any number of 3d models into the real space.",
+          "Only pay the difference to upgrade to custom for switching to more complex AR experiences.",
+          "Gives the best quality AR experience for real time object placement",
+          "Real time model placement",
+        ]}
         onClick={() => {
-          heading = "Choose 3 plugins";
-          dialog.show();
-          showBackdrop = true;
+          null;
         }}
-        buttonType="secondary"
+        buttonType="primary"
         buttonLabel="Get this plan"
       />
-
       <PricingCard
-        planLabel="Basic"
-        amount="₹6Lakhs"
-        description="Choose any 5 AR models "
+        planLabel="Custom"
+        amount="₹9Lakhs/year"
+        descriptions={[
+          "Get full access to all the AR models.",
+          "fully customizable as per your needs",
+          "Get the exact implementation of AR as needed free of hassles using our AR platform.",
+          "Track surface, human body, face, hand, feet and gestures with no limits to it’s customization",
+        ]}
         onClick={() => {
           heading = "Choose 5 plugins";
           dialog.show();
           showBackdrop = true;
         }}
         buttonType="secondary"
-        buttonLabel="Get this plan"
-      />
-
-      <PricingCard
-        planLabel="Pro"
-        amount="₹9Lakhs"
-        description="Get full access to all the AR models "
-        onClick={() => {
-          null;
-        }}
-        buttonType="primary"
         buttonLabel="Get this plan"
       />
     </div>

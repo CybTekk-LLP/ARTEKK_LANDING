@@ -3,7 +3,7 @@
   import Button from "$lib/ui/Button/Button.svelte";
   export let planLabel: string;
   export let amount: string;
-  export let description: string;
+  export let descriptions: string[] = [];
   export let buttonLabel: string;
   export let buttonType: "secondary" | "primary";
   export let onClick = () => {};
@@ -15,9 +15,14 @@
     <Typography type="cardTitle">{amount}</Typography>
   </div>
   <ul class="description">
-    <Typography type="impact" _color="var(--primary-700)"
-      ><li>{description}</li></Typography
-    >
+    {#each descriptions as description}
+      <li>
+        <img src="/images/Pricing/Tick.svg" alt="" />
+        <Typography type="impact" _color="var(--primary-700)">
+          {description}</Typography
+        >
+      </li>
+    {/each}
   </ul>
   <Button type={buttonType} {buttonLabel} {onClick}></Button>
 </div>
@@ -37,7 +42,12 @@
     }
   }
   li {
-    list-style-image: url('data:image/svg+xml,<svg width="16" height="12" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.521423 4.31994L3.5083 7.19994L9.48142 1.43994" stroke="%23D9D9D9" stroke-linecap="round" stroke-linejoin="round"/></svg>');
-    list-style-position: inside;
+    // list-style-image: url('data:image/svg+xml,<svg width="16" height="12" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.521423 4.31994L3.5083 7.19994L9.48142 1.43994" stroke="%23D9D9D9" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    // list-style-position: inside;
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-block-end: 10px;
   }
 </style>
