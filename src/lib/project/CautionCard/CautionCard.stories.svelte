@@ -3,7 +3,7 @@
   import { CautionCard } from "..";
 
   export const meta = {
-    title: "Caution Card",
+    title: "Components/Project/Caution Card",
     component: CautionCard,
   };
 </script>
