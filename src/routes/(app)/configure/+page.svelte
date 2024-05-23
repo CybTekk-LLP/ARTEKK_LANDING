@@ -3,7 +3,25 @@
   import { CopyPaste, CautionCard } from "$lib/project";
 
   let projectName: string;
-  let statusActive = false;
+  let domainValue: string[] = [];
+  let domainCount = 0;
+
+  let statusActive = true;
+  const addInput = () => {
+    domainCount++;
+  };
+  // let slabData: string[];
+  // $: for (let count = 0; count < domainsData.length; count++) {
+  //   const totalSlabLength = domainsData.length - 1;
+  //   if (totalSlabLength > 0) {
+  //     slabData = [];
+  //     for (let i = 0; i < domainValue.length; i++) {
+  //       slabData = [...slabData, domainValue[i]];
+  //     }
+  //     console.log(slabData);
+  //   }
+  // }
+  $: console.log(domainValue);
 </script>
 
 <main>
@@ -35,6 +53,7 @@
       labelNeeded={true}
       label="Project Name (2-32 Characters)"
       placeholder="Theresa Webb"
+      readonly={statusActive}
       bind:value={projectName}
     />
     <br />
@@ -46,33 +65,35 @@
           : "Authorised Domain"}</Typography
       >
     </p>
-    {#each Array(3) as _}
+    {#each Array(domainCount) as _, i}
       <div class="domains">
         <InputText
           variant="text"
           placeholder="Theresa Webb"
-          bind:value={projectName}
+          bind:value={domainValue[i]}
         />
       </div>
     {/each}
     {#if statusActive}
-      <!-- <div class="api-key"> -->
-      <InputText
-        variant="text"
-        labelNeeded={true}
-        label="Api Key"
-        placeholder="XXXXX-XXXXX-XXXXXX"
-        bind:value={projectName}
-      />
-      <CopyPaste />
-      <!-- </div> -->
+      <div class="apiLabel-key">
+        <InputText
+          variant="text"
+          labelNeeded={true}
+          label="Api Key"
+          placeholder="XXXXX-XXXXX-XXXXXX"
+          bind:value={projectName}
+        />
+        <div class="apiKey-copy">
+          <CopyPaste />
+        </div>
+      </div>
     {:else}
       <br />
       <Button
         type="secondary"
         buttonLabel="Add a new domain"
         iconSrc="/images/Project/Create.svg"
-        onClick={() => alert("asfa")}
+        onClick={() => addInput()}
       />
       <br />
       <CautionCard
@@ -108,8 +129,14 @@
           padding-block: 8px;
         }
       }
-      & > .api-key {
-        display: flex;
+      & > .apiLabel-key {
+        position: relative;
+        display: block;
+        & > .apiKey-copy {
+          position: absolute;
+          top: 55%;
+          right: 10px;
+        }
       }
       & > .domain-label {
         margin-block-end: 5px;
