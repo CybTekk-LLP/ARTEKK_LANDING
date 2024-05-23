@@ -69,10 +69,11 @@
       ><img src={imgSrc} alt="add" />
       <Typography type="body">{DropBoxLabel}</Typography></label
     >
-    <div class="progress">
-      <ProgressBar value={uploadingProgress} />
-    </div>
-
+    {#if uploadingProgress !== 0}
+      <div class="progress">
+        <ProgressBar value={uploadingProgress} />
+      </div>
+    {/if}
     <input type="file" id={uniqueId} accept="*" on:change={handleFileInput} />
   </div>
 </div>
