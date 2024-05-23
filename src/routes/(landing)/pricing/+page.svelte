@@ -64,11 +64,10 @@
         planLabel="Builder"
         amount="₹4Lakhs/year"
         descriptions={[
-          "You can convert to custom plan by paying the difference.",
           "Place any number of 3d models into the real space.",
-          "Only pay the difference to upgrade to custom for switching to more complex AR experiences.",
           "Gives the best quality AR experience for real time object placement",
-          "Real time model placement",
+          "A must try before going for custom",
+          "Only pay the difference to upgrade to custom for switching to more complex AR experiences.",
         ]}
         onClick={() => {
           null;

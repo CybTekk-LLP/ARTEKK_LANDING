@@ -55,7 +55,6 @@
 <style lang="scss">
   .label {
     display: inline-block;
-    margin-inline-start: 20px;
     margin-block-end: 5px;
   }
   input {
