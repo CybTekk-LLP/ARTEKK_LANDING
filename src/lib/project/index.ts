@@ -11,3 +11,4 @@ export { default as DropBox } from "./DropBox/DropBox.svelte";
 export { default as CautionCard } from "./CautionCard/CautionCard.svelte";
 export { default as ProgressBar } from "./ProgressBar/ProgressBar.svelte";
 export { default as ProfilePic } from "./ProfilePic/ProfilePic.svelte";
+export { default as ApexCharts } from "./ApexCharts/ApexCharts.svelte"
