@@ -85,9 +85,7 @@
           "Track surface, human body, face, hand, feet and gestures with no limits to it’s customization",
         ]}
         onClick={() => {
-          heading = "Choose 5 plugins";
-          dialog.show();
-          showBackdrop = true;
+          goto(`/contact?plans=all`);
         }}
         buttonType="secondary"
         buttonLabel="Get this plan"
@@ -104,7 +102,7 @@
   <div class="btn">
     <Button
       buttonLabel="Contact Sales"
-      type="primary"
+      type="secondary"
       onClick={() => goto(`/contact?plans=${value}`)}
     />
   </div>

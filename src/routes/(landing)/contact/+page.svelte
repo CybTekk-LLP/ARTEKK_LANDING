@@ -71,7 +71,7 @@
 
     <div class="optional">
       <input
-        class="Negotiation"
+        class="negotiation"
         type="checkbox"
         name="Open for Negotiation"
         id="checkbox"

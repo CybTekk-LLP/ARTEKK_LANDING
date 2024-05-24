@@ -29,6 +29,7 @@
     border-radius: 6px;
     gap: 16px;
     text-transform: capitalize;
+
     & > input {
       display: none;
     }
@@ -36,6 +37,7 @@
       background-color: var(--secondary-700);
       max-inline-size: 100%;
       inline-size: 350px;
+      box-shadow: inset 0 1px var(--secondary-500);
       @media screen and (width < 768px) {
         inline-size: 100%;
       }
