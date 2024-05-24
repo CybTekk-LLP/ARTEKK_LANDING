@@ -75,6 +75,7 @@
         <InputText
           variant="text"
           placeholder="Theresa Webb"
+          readonly={statusActive}
           bind:value={domainValue[i]}
         />
       </div>
