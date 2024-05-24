@@ -1,9 +1,15 @@
 <script lang="ts">
   import { Typography, Button, InputText } from "$lib/ui";
   import { CodeSnippet, CopyPaste } from "$lib/project";
+  import { onMount } from "svelte";
+  // @ts-ignore
+  import { page } from "$app/stores";
 
   let apiKey = "";
   let url = "";
+  let pagePath = $page.url;
+  let highlightCode: (code: string) => void;
+  let highlightJSCode: (code: string) => void;
   let code = [
     `&lt;!-- Insert in HEAD --&gt;
     &lt;script 
@@ -32,15 +38,49 @@
       ar.init();
     &lt;/script&gt;`,
   ];
+  let codeCopy = code.slice();
 
-  const changeSnippets = () => {
+  const changeSnippets = (code: string[]) => {
     if (apiKey) {
-      code[0].replace("YOUR_APP_KEY_HERE", apiKey);
+      codeCopy[0] = code[0]
+        .replace(/YOUR_APP_KEY_HERE/gm, apiKey)
+        .replace(/&lt;/g, "<")
+        .replace(/&gt;/g, ">");
+    } else {
+      codeCopy[0] = code[0].replace(/&lt;/g, "<").replace(/&gt;/g, ">");
     }
     if (url) {
-      code[2].replace("./PATH_TO_YOUR_MODEL.glb", url);
+      codeCopy[2] = code[2]
+        .replace(/\.\/PATH_TO_YOUR_MODEL.glb/gm, url)
+        .replace(/&lt;/g, "<")
+        .replace(/&gt;/g, ">");
+    } else {
+      codeCopy[2] = code[2].replace(/&lt;/g, "<").replace(/&gt;/g, ">");
     }
+    highlightCode(codeCopy[0]);
+    highlightJSCode(codeCopy[2]);
   };
+
+  onMount(() => {
+    try {
+      let _apiKey = new URL(pagePath).searchParams.get("apiKey");
+      let _url = new URL(pagePath).searchParams.get("url");
+      if (_apiKey) {
+        codeCopy[0] = code[0]
+          .replace(/YOUR_APP_KEY_HERE/gm, _apiKey)
+          .replace(/&lt;/g, "<")
+          .replace(/&gt;/g, ">");
+        highlightCode(codeCopy[0]);
+      }
+      if (_url) {
+        codeCopy[2] = code[2]
+          .replace(/\.\/PATH_TO_YOUR_MODEL.glb/gm, _url)
+          .replace(/&lt;/g, "<")
+          .replace(/&gt;/g, ">");
+        highlightJSCode(codeCopy[2]);
+      }
+    } catch {}
+  });
 </script>
 
 <main>
@@ -70,7 +110,7 @@
   <Button
     type="primary"
     buttonLabel="GENERATE CODE"
-    onClick={() => changeSnippets()}
+    onClick={() => changeSnippets(code)}
   />
   <br />
   <br />
@@ -79,13 +119,18 @@
       >{"Paste The Following Code In The <head> Section Of Your HTML"}</Typography
     >
   </p>
+  <div style="display: none;" aria-hidden="true"><CopyPaste text="" /></div>
+
   <div class="snippet">
     <CodeSnippet
-      code={code[0].replace(/&lt;/g, "<").replace(/&gt;/g, ">")}
+      code={codeCopy[0].replace(/&lt;/g, "<").replace(/&gt;/g, ">")}
       language="html"
+      bind:highlightCode
     />
     <span class="copy">
-      <CopyPaste text={code[0].replace(/&lt;/g, "<").replace(/&gt;/g, ">")} />
+      <CopyPaste
+        text={codeCopy[0].replace(/&lt;/g, "<").replace(/&gt;/g, ">")}
+      />
     </span>
   </div>
   <p>
@@ -95,11 +140,13 @@
   </p>
   <div class="snippet">
     <CodeSnippet
-      code={code[1].replace(/&lt;/g, "<").replace(/&gt;/g, ">")}
+      code={codeCopy[1].replace(/&lt;/g, "<").replace(/&gt;/g, ">")}
       language="html"
     />
     <span class="copy">
-      <CopyPaste text={code[1].replace(/&lt;/g, "<").replace(/&gt;/g, ">")} />
+      <CopyPaste
+        text={codeCopy[1].replace(/&lt;/g, "<").replace(/&gt;/g, ">")}
+      />
     </span>
   </div>
   <p>
@@ -109,11 +156,14 @@
   </p>
   <div class="snippet">
     <CodeSnippet
-      code={code[2].replace(/&lt;/g, "<").replace(/&gt;/g, ">")}
+      code={codeCopy[2].replace(/&lt;/g, "<").replace(/&gt;/g, ">")}
       language="html"
+      bind:highlightCode={highlightJSCode}
     />
     <span class="copy">
-      <CopyPaste text={code[2].replace(/&lt;/g, "<").replace(/&gt;/g, ">")} />
+      <CopyPaste
+        text={codeCopy[2].replace(/&lt;/g, "<").replace(/&gt;/g, ">")}
+      />
     </span>
   </div>
 </main>
