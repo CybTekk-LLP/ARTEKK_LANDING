@@ -20,7 +20,7 @@
   </h1>
   <form>
     <div class="card-header">
-      <ProfilePic userName="Gourav" />
+      <ProfilePic userName="sdsfg" />
     </div>
     <br />
     <InputText
