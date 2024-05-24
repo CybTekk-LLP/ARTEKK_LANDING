@@ -52,7 +52,10 @@
     margin-inline: auto;
     margin-block-start: 100px;
     & > .btn {
-      max-inline-size: 250px;
+      max-inline-size: 200px;
+      :global(button) {
+        padding-block: 10px;
+      }
     }
   }
 </style>
