@@ -26,21 +26,18 @@
       {
         rowDataOne: "Amazon",
         status: "Active",
-        handleWatch: () => alert("watch"),
         handleEdit: () => alert("edit"),
         handleDelete: () => alert("delete"),
       },
       {
         rowDataOne: "Amazon",
         status: "Active",
-        handleWatch: () => alert("watch"),
         handleEdit: () => alert("edit"),
         handleDelete: () => alert("delete"),
       },
       {
         rowDataOne: "Amazon",
         status: "Inactive",
-        handleWatch: () => alert("watch"),
         handleEdit: () => alert("edit"),
         handleDelete: () => alert("delete"),
       },

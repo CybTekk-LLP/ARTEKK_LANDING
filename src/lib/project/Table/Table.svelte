@@ -10,7 +10,7 @@
     rowDataOne: string;
     // rowDataTwo: string;
     status: "Active" | "Inactive";
-    handleWatch: () => void;
+    // handleWatch: () => void;
     handleEdit: () => void;
     handleDelete: () => void;
   }[];
@@ -52,11 +52,11 @@
         <td class="actions">
           <!-- svelte-ignore a11y-click-events-have-key-events -->
           <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-          <img
+          <!-- <img
             on:click={data.handleWatch}
             src="/images/Table/Watch.svg"
             alt="watch"
-          />
+          /> -->
           <!-- svelte-ignore a11y-click-events-have-key-events -->
           <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
           <img
