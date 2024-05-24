@@ -80,6 +80,9 @@
         />
       </div>
     {/each}
+    <div class="apiKey-copy-extra" aria-hidden="true" style:display="none">
+      <CopyPaste bind:text={apikey} />
+    </div>
     {#if statusActive}
       <div class="apiLabel-key">
         <InputText

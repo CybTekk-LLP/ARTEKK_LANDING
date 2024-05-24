@@ -5,8 +5,11 @@
   let isAdmin = true;
 </script>
 
-<main>
-  <Typography type="cardTitle">{isAdmin ? "Users" : "My Projects"}</Typography>
+<main class:for-admin={isAdmin}>
+  <h1 class="heading">
+    <Typography type="cardTitle">{isAdmin ? "Users" : "My Projects"}</Typography
+    >
+  </h1>
   {#if !isAdmin}
     <br />
     <br />
@@ -91,10 +94,15 @@
 
 <style lang="scss">
   main {
-    inline-size: 90vw;
+    inline-size: 100vw;
     max-inline-size: 1280px;
     margin-inline: auto;
     margin-block-start: 100px;
+    & > .heading {
+      @media screen and (width < 375px) {
+        padding-inline-start: 20px;
+      }
+    }
     & > .btn {
       max-inline-size: 200px;
       :global(button) {
