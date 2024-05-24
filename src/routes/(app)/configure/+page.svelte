@@ -4,6 +4,7 @@
 
   let projectName: string;
   let domainValue: string[] = ["domain One", "doman Two", "domain Three"];
+  let apikey: string;
   let fileArray: string[] = [];
   let files: string[] = [];
   let domainCount = 0;
@@ -14,12 +15,18 @@
     domainCount++;
   };
 
-  // $: if (fileInfo?.files[0]?.name) {
-  //   fileArray.push(fileInfo.files[0]);
-  //   files = fileArray;
-  // }
+  const addFilesToArray = () => {
+    if (fileInfo?.files[0]?.name) {
+      fileArray.push(fileInfo.files[0]?.name);
+      files = fileArray;
+    }
+  };
+  const deleteFileFromArray = (deleteFileIndex: any) => {
+    files = files.filter((_, index) => index !== deleteFileIndex);
+    fileArray = files;
+  };
+  $: load = files;
   $: domainCount = domainValue.length;
-  $: console.log(files);
 </script>
 
 <main>
@@ -79,31 +86,43 @@
           labelNeeded={true}
           label="Api Key"
           placeholder="XXXXX-XXXXX-XXXXXX"
-          bind:value={projectName}
+          bind:value={apikey}
         />
         <div class="apiKey-copy">
-          <CopyPaste />
+          <CopyPaste bind:text={apikey} />
         </div>
       </div>
       <br />
-      <div>
+      <div class="drop-box">
         <Typography type="subtext" _fontweight="400">Upload model</Typography>
-        <DropBox bind:fileInfo />
+        <DropBox bind:fileInfo onChange={() => addFilesToArray()} />
       </div>
-      {#each files ?? [] as file}
+      {#if files.length}
+        <Typography type="subtext" _fontweight="400"
+          >Uploaded model link</Typography
+        >
+        <br />
+      {/if}
+      {#each load ?? [] as file, i}
         <div class="apiLabel-key">
           <InputText
             variant="text"
-            labelNeeded={true}
-            label="Uploaded model link"
+            labelNeeded={false}
             placeholder="XXXXX-XXXXX-XXXXXX"
             bind:value={file}
           />
           <div class="upload-model-link">
-            <CopyPaste />
-            <img src="/images/Cancel.svg" alt="" />
+            <CopyPaste text={file} />
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+            <img
+              on:click|preventDefault={() => deleteFileFromArray(i)}
+              src="/images/Cancel.svg"
+              alt=""
+            />
           </div>
         </div>
+        <br />
       {/each}
     {:else}
       <br />
@@ -149,6 +168,9 @@
           padding-block: 8px;
         }
       }
+      & > .drop-box {
+        inline-size: 100%;
+      }
       & > .apiLabel-key {
         position: relative;
         display: block;
@@ -159,7 +181,7 @@
         }
         & > .upload-model-link {
           position: absolute;
-          top: 55%;
+          top: 25%;
           right: -20px;
           & > img {
             padding-inline-start: 15px;
