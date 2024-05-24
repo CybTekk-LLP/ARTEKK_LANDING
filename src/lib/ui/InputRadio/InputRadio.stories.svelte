@@ -1,0 +1,15 @@
+<script context="module" lang="ts">
+  import { Template, Story } from "@storybook/addon-svelte-csf";
+  import { InputRadio } from "..";
+
+  export const meta = {
+    title: "Components/UI/InputRadio",
+    component: InputRadio,
+  };
+</script>
+
+<Template let:args>
+  <InputRadio {...args} />
+</Template>
+
+<Story name="Main" args={{ projectName: "abc" }} />
