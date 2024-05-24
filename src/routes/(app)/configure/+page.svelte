@@ -1,27 +1,25 @@
 <script lang="ts">
   import { Status, Typography, InputText, Button } from "$lib/ui";
-  import { CopyPaste, CautionCard } from "$lib/project";
+  import { CopyPaste, CautionCard, DropBox } from "$lib/project";
 
   let projectName: string;
-  let domainValue: string[] = [];
+  let domainValue: string[] = ["domain One", "doman Two", "domain Three"];
+  let fileArray: string[] = [];
+  let files: string[] = [];
   let domainCount = 0;
+  let fileInfo: Record<string, any>;
 
   let statusActive = true;
   const addInput = () => {
     domainCount++;
   };
-  // let slabData: string[];
-  // $: for (let count = 0; count < domainsData.length; count++) {
-  //   const totalSlabLength = domainsData.length - 1;
-  //   if (totalSlabLength > 0) {
-  //     slabData = [];
-  //     for (let i = 0; i < domainValue.length; i++) {
-  //       slabData = [...slabData, domainValue[i]];
-  //     }
-  //     console.log(slabData);
-  //   }
+
+  // $: if (fileInfo?.files[0]?.name) {
+  //   fileArray.push(fileInfo.files[0]);
+  //   files = fileArray;
   // }
-  $: console.log(domainValue);
+  $: domainCount = domainValue.length;
+  $: console.log(files);
 </script>
 
 <main>
@@ -43,7 +41,7 @@
       </div>
       <Status
         type={statusActive ? "active" : "inActive"}
-        statusLabel={statusActive ? "active" : "InActive"}
+        statusLabel={statusActive ? "active" : "inactive"}
       />
     </div>
     <br />
@@ -61,8 +59,8 @@
     <p class="domain-label">
       <Typography type="subtext" _fontweight="400">
         {statusActive
-          ? "Domain (Domain names once approved can’t be changed)"
-          : "Authorised Domain"}</Typography
+          ? "Authorised Domain"
+          : "Domain (Domain names once approved can’t be changed)"}</Typography
       >
     </p>
     {#each Array(domainCount) as _, i}
@@ -87,6 +85,26 @@
           <CopyPaste />
         </div>
       </div>
+      <br />
+      <div>
+        <Typography type="subtext" _fontweight="400">Upload model</Typography>
+        <DropBox bind:fileInfo />
+      </div>
+      {#each files ?? [] as file}
+        <div class="apiLabel-key">
+          <InputText
+            variant="text"
+            labelNeeded={true}
+            label="Uploaded model link"
+            placeholder="XXXXX-XXXXX-XXXXXX"
+            bind:value={file}
+          />
+          <div class="upload-model-link">
+            <CopyPaste />
+            <img src="/images/Cancel.svg" alt="" />
+          </div>
+        </div>
+      {/each}
     {:else}
       <br />
       <Button
@@ -119,7 +137,9 @@
       margin-inline: auto;
       & > .status {
         display: flex;
+        flex-wrap: nowrap;
         justify-content: space-between;
+        gap: 10px;
         align-items: center;
 
         & > .tool-label {
@@ -135,9 +155,18 @@
         & > .apiKey-copy {
           position: absolute;
           top: 55%;
-          right: 10px;
+          right: 20px;
+        }
+        & > .upload-model-link {
+          position: absolute;
+          top: 55%;
+          right: -20px;
+          & > img {
+            padding-inline-start: 15px;
+          }
         }
       }
+
       & > .domain-label {
         margin-block-end: 5px;
       }
