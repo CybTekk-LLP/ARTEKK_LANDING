@@ -4,26 +4,43 @@
 
   let apiKey = "";
   let url = "";
-
-  /* eslint-disable */
-  let code = 
- [ `<!-- Insert in HEAD -->
-    <script src="//cdn.8thwall.com/web/aframe/8frame-1.4.1.min.js"></script>
-    <script src="//apps.8thwall.com/xrweb?appKey=1d6X9SFyuyJpIfjlJSVLLuHM6phbYsvdfRhQfwSSpAKUHLlt2rrNNDrJOMSPUYCAYU4GBq"
-        async></script>
-    <script src="../js/8thWall/insertAR.js"></script>
-    <!-- Insert in HEAD -->`, 
-    `<div id="target"></div>`, 
-     `// AR class instance instantiated with the new operator 
+  let code = [
+    `&lt;!-- Insert in HEAD --&gt;
+    &lt;script 
+    src="//cdn.8thwall.com/web/aframe/8frame-1.4.1.min.js"
+    &gt;&lt;/script&gt;
+    &lt;script
+      src="//apps.8thwall.com/xrweb?appKey=YOUR_APP_KEY_HERE"
+      async
+    &gt;&lt;/script&gt;
+    &lt;script src="../js/8thWall/insertAR.js"&gt;&lt;/script&gt;
+    &lt;!-- Insert in HEAD --&gt;`,
+    `&lt;div id="target"&gt;&lt;/div&gt;`,
+    `&lt;script&gt;
+      // AR class instance instantiated with the new operator
       // supplying with modelURL and target div while calling
       const target = document.getElementById("target");
-      const url = "../models/chair/chair.glb"
-      // additional model styling options can be provided as well (optional)
-      const modelConfigs = { position: "0 0 0", rotation: "0 0 0", scale: ".08 .08 .08" }
+      const url = "./PATH_TO_YOUR_MODEL.glb";
+      // additional model styling options can be provided as well 
+      // (optional)
+      const modelConfigs = {
+        position: "0 0 0",
+        rotation: "0 0 0",
+        scale: "1 1 1",
+      };
       const ar = new AR(url, target, modelConfigs);
-      console.log(ar.init());`
-        ]
-  /* eslint-enable  */
+      ar.init();
+    &lt;/script&gt;`,
+  ];
+
+  const changeSnippets = () => {
+    if (apiKey) {
+      code[0].replace("YOUR_APP_KEY_HERE", apiKey);
+    }
+    if (url) {
+      code[2].replace("./PATH_TO_YOUR_MODEL.glb", url);
+    }
+  };
 </script>
 
 <main>
@@ -53,7 +70,7 @@
   <Button
     type="primary"
     buttonLabel="GENERATE CODE"
-    onClick={() => alert("asf")}
+    onClick={() => changeSnippets()}
   />
   <br />
   <br />
@@ -63,9 +80,12 @@
     >
   </p>
   <div class="snippet">
-    <CodeSnippet code="" language="HTML" />
+    <CodeSnippet
+      code={code[0].replace(/&lt;/g, "<").replace(/&gt;/g, ">")}
+      language="html"
+    />
     <span class="copy">
-      <CopyPaste text="" />
+      <CopyPaste text={code[0].replace(/&lt;/g, "<").replace(/&gt;/g, ">")} />
     </span>
   </div>
   <p>
@@ -74,9 +94,12 @@
     >
   </p>
   <div class="snippet">
-    <CodeSnippet code="" language="HTML" />
+    <CodeSnippet
+      code={code[1].replace(/&lt;/g, "<").replace(/&gt;/g, ">")}
+      language="html"
+    />
     <span class="copy">
-      <CopyPaste text={`<div id="target"></div>`} />
+      <CopyPaste text={code[1].replace(/&lt;/g, "<").replace(/&gt;/g, ">")} />
     </span>
   </div>
   <p>
@@ -85,9 +108,12 @@
     >
   </p>
   <div class="snippet">
-    <CodeSnippet code={` `} language="js" />
+    <CodeSnippet
+      code={code[2].replace(/&lt;/g, "<").replace(/&gt;/g, ">")}
+      language="html"
+    />
     <span class="copy">
-      <CopyPaste text="" />
+      <CopyPaste text={code[2].replace(/&lt;/g, "<").replace(/&gt;/g, ">")} />
     </span>
   </div>
 </main>
