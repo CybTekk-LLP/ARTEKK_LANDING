@@ -61,17 +61,20 @@
     <br />
     {#if query}
       <InputText
-        value={"Your chosen plans are: " +
-          query.replace(/(.*)\s+(\S+)/, "$1 and $2")}
+        value={query === "all"
+          ? "Your have chosen the custom plan"
+          : "Your chosen plans are: " +
+            query.replace(/(.*)\s+(\S+)/, "$1 and $2")}
         variant="text"
         placeholder="Please enter plans for your project"
+        readonly={true}
       />
       <br />
       <br />{/if}
 
     <div class="optional">
       <input
-        class="Negotiation"
+        class="negotiation"
         type="checkbox"
         name="Open for Negotiation"
         id="checkbox"
@@ -89,11 +92,7 @@
       placeholder="Please write the exact requirements needed for your project."
     />
     <br /><br />
-    <Button
-      type="primary"
-      buttonLabel="Submit"
-      onClick={() => alert("sdafgasfg")}
-    />
+    <Button type="primary" buttonLabel="Submit" onClick={() => null} />
   </form>
 </main>
 
