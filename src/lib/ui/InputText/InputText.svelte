@@ -1,12 +1,14 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import Typography from "../Typography/Typography.svelte";
+
   export let placeholder: string;
   export let label: string | undefined = undefined;
   export let variant: "text" | "email" | "password";
   export let labelNeeded: boolean | undefined = undefined;
   export let inputField: HTMLInputElement | undefined = undefined;
   export let value: string | undefined;
+  export let readonly: boolean | undefined = undefined;
   export let uniqueId = "inputText" + Math.random().toString().split(".")[1];
   export let autocomplete = "";
 
@@ -49,6 +51,7 @@
   type="text"
   id={uniqueId}
   {placeholder}
+  {readonly}
   {autocomplete}
   on:invalid={() => inputField && handleInput(inputField)}
   bind:value

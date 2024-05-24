@@ -15,6 +15,8 @@
     padding-inline: 12px;
     padding-block: 5px;
     border-radius: 25px;
+    text-transform: capitalize;
+    white-space: nowrap;
     &.active {
       background-color: var(--tertiary-900);
     }
