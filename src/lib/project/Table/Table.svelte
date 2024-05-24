@@ -2,18 +2,19 @@
   import { Typography } from "./../../ui";
   export let tableHeadings: {
     headingOne: string;
-    // headingTwo: string;
+    headingTwo: string | undefined;
     headingThree: string;
     headingFour: string;
   };
   export let tableData: {
     rowDataOne: string;
-    // rowDataTwo: string;
+    rowDataTwo: string | undefined;
     status: "Active" | "Inactive";
     // handleWatch: () => void;
     handleEdit: () => void;
     handleDelete: () => void;
   }[];
+  export let isExtraColumn = false;
 </script>
 
 <table>
@@ -24,11 +25,13 @@
           >{tableHeadings.headingOne}</Typography
         ></th
       >
-      <!-- <th
-        ><Typography type="subtext" _color="var(--primary-700)"
-          >{tableHeadings.headingTwo}</Typography
-        ></th
-      > -->
+      {#if isExtraColumn}
+        <th
+          ><Typography type="subtext" _color="var(--primary-700)"
+            >{tableHeadings.headingTwo}</Typography
+          ></th
+        >
+      {/if}
       <th
         ><Typography type="subtext" _color="var(--primary-700)"
           >{tableHeadings.headingThree}</Typography
@@ -45,7 +48,7 @@
     {#each tableData as data}
       <tr>
         <td><Typography type="subtext">{data.rowDataOne}</Typography></td>
-        <!-- <td><Typography type="subtext">{data.rowDataTwo}</Typography></td> -->
+        <td><Typography type="subtext">{data.rowDataTwo}</Typography></td>
         <td class="status" class:active={data.status === "Active"}
           ><Typography type="subtext">{data.status}</Typography></td
         >

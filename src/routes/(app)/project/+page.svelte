@@ -1,48 +1,92 @@
 <script lang="ts">
   import { Typography, Button } from "$lib/ui";
   import { Table } from "$lib/project";
+
+  let isAdmin = true;
 </script>
 
 <main>
-  <Typography type="cardTitle">My Projects</Typography>
-  <br />
-  <br />
-  <div class="btn">
-    <Button
-      type="secondary"
-      buttonLabel="Create a new project"
-      iconSrc="/images/Project/Create.svg"
-      onClick={() => alert("create")}
-    />
-  </div>
+  <Typography type="cardTitle">{isAdmin ? "Users" : "My Projects"}</Typography>
+  {#if !isAdmin}
+    <br />
+    <br />
+    <div class="btn">
+      <Button
+        type="secondary"
+        buttonLabel="Create a new project"
+        iconSrc="/images/Project/Create.svg"
+        onClick={() => alert("create")}
+      />
+    </div>
+  {/if}
   <br /><br /><br />
-  <Table
-    tableHeadings={{
-      headingOne: "Project",
-      headingThree: "Status",
-      headingFour: "Action",
-    }}
-    tableData={[
-      {
-        rowDataOne: "Amazon",
-        status: "Active",
-        handleEdit: () => alert("edit"),
-        handleDelete: () => alert("delete"),
-      },
-      {
-        rowDataOne: "Amazon",
-        status: "Active",
-        handleEdit: () => alert("edit"),
-        handleDelete: () => alert("delete"),
-      },
-      {
-        rowDataOne: "Amazon",
-        status: "Inactive",
-        handleEdit: () => alert("edit"),
-        handleDelete: () => alert("delete"),
-      },
-    ]}
-  />
+  {#if !isAdmin}
+    <Table
+      isExtraColumn={false}
+      tableHeadings={{
+        headingOne: "Project",
+        headingTwo: "",
+        headingThree: "Status",
+        headingFour: "Action",
+      }}
+      tableData={[
+        {
+          rowDataOne: "Amazon",
+          rowDataTwo: "",
+          status: "Active",
+          handleEdit: () => alert("edit"),
+          handleDelete: () => alert("delete"),
+        },
+        {
+          rowDataOne: "Amazon",
+          rowDataTwo: "",
+          status: "Active",
+          handleEdit: () => alert("edit"),
+          handleDelete: () => alert("delete"),
+        },
+        {
+          rowDataOne: "Amazon",
+          rowDataTwo: "",
+          status: "Inactive",
+          handleEdit: () => alert("edit"),
+          handleDelete: () => alert("delete"),
+        },
+      ]}
+    />
+  {:else}
+    <Table
+      isExtraColumn={true}
+      tableHeadings={{
+        headingOne: "User Name",
+        headingTwo: "Projects",
+        headingThree: "Status",
+        headingFour: "Action",
+      }}
+      tableData={[
+        {
+          rowDataOne: "Gourav",
+          rowDataTwo: "Amazon",
+          status: "Active",
+          handleEdit: () => alert("edit"),
+          handleDelete: () => alert("delete"),
+        },
+        {
+          rowDataOne: "Shubhi",
+          rowDataTwo: "Amazon",
+          status: "Active",
+          handleEdit: () => alert("edit"),
+          handleDelete: () => alert("delete"),
+        },
+        {
+          rowDataOne: "Yogendra",
+          rowDataTwo: "Flipkart",
+          status: "Inactive",
+          handleEdit: () => alert("edit"),
+          handleDelete: () => alert("delete"),
+        },
+      ]}
+    />
+  {/if}
 </main>
 
 <style lang="scss">
