@@ -1,9 +1,7 @@
 <script lang="ts">
   import { Typography } from "$lib/ui/";
   import { PluginCard } from "$lib/project";
-  export let onClick = () => {
-    alert("hii by shubhi");
-  };
+  export let onClick = () => {};
   export let pluginContent = [
     { cardHeading: "Furniture", imgSrc: "./images/Collections/Furniture.webp" },
     { cardHeading: "Shoes", imgSrc: "./images/Collections/Shoes.webp" },
