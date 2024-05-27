@@ -3,7 +3,6 @@
   export let projects: string[] = [];
   import { stringToColor } from "../../utils";
   let uniqueId = "inputCheckbox" + Math.random().toString().split(".")[1];
-  $: console.log(selectedProject);
 </script>
 
 <div class="projects">
@@ -29,7 +28,12 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 20px;
+    gap: 4px;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
     p {
       display: flex;
       justify-content: flex-start;
@@ -42,6 +46,12 @@
       border-radius: 5px;
       transition: background-color 0.3s;
       white-space: nowrap;
+      :global(.span) {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+      }
       &:hover {
         background-color: var(--secondary-700);
       }
