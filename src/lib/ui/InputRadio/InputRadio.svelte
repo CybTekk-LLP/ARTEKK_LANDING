@@ -37,7 +37,7 @@
       inline-size: max-content;
       padding-inline-start: 20px;
       border: 1px solid var(--secondary-700);
-      margin: 10px;
+      margin: 5px;
       padding: 5px 20px;
       border-radius: 5px;
       -webkit-transition: background-color 0.3s ease;
