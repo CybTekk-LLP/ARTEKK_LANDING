@@ -69,6 +69,7 @@
     padding-inline: 10px;
     padding-block: 20px;
     border-radius: 6px;
+    background-color: var(--card-background);
     & > .table-headings {
       list-style: none;
       display: grid;
