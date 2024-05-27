@@ -12,4 +12,7 @@
   <InputRadio {...args} />
 </Template>
 
-<Story name="Main" args={{ projectName: "abc" }} />
+<Story
+  name="Main"
+  args={{ projects: ["Chat cube", "Foodie", "Nykaa 2.0", "wrkble"] }}
+/>
