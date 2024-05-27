@@ -24,23 +24,10 @@
   {/each}
 </div>
 
-<!-- // .projects {
-  //   display: grid;
-  //   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  //   justify-content: space-between;
-  //   gap: 25px;
-
-  //   & > input[type="radio"] {
-  //     display: none;
-  //     &:is(:checked) + p {
-  //       background-color: var(--primary-900);
-  //     }
-  //   }
-  // } -->
-
 <style lang="scss">
   p {
     display: flex;
+    justify-content: flex-start;
     align-items: center;
     inline-size: max-content;
     padding-inline-start: 20px;
