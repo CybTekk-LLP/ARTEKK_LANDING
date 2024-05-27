@@ -13,3 +13,4 @@ export { default as ProgressBar } from "./ProgressBar/ProgressBar.svelte";
 export { default as ProfilePic } from "./ProfilePic/ProfilePic.svelte";
 export { default as ApexCharts } from "./ApexCharts/ApexCharts.svelte";
 export { default as SummaryCard } from "./SummaryCard/SummaryCard.svelte";
+export { default as Suggestion } from "./Suggestion/Suggestion.svelte";
