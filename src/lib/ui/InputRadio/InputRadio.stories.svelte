@@ -14,5 +14,16 @@
 
 <Story
   name="Main"
-  args={{ projects: ["Chat cube", "Foodie", "Nykaa 2.0", "wrkble"] }}
+  args={{
+    projects: [
+      "Chat cube",
+      "Foodie -3 ",
+      "Nykaa 2.0",
+      "wrkble 2.0",
+      "Chat cube456",
+      "Foodie",
+      "Nykaa 2.0 Nykaa ",
+      "wrkble",
+    ],
+  }}
 />
