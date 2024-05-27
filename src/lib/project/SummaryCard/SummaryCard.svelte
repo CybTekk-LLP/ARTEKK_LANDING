@@ -66,19 +66,19 @@
 <style lang="scss">
   .card {
     border: 1px solid var(--secondary-500);
-    padding: 20px;
+    padding: 10px;
     border-radius: 6px;
     & > .table-headings {
       list-style: none;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
+      gap: 5px;
     }
     & > .table-data {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       list-style: none;
-      gap: 10px;
+      gap: 5px;
     }
   }
 </style>

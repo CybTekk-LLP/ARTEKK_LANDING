@@ -20,27 +20,27 @@
     tableData: [
       {
         planName: "Custom",
-        billingDate: new Date().toDateString(),
+        billingDate: new Date().toLocaleString().slice(0, 9),
         amountDue: 3000,
-        lastPaid: new Date().toDateString(),
+        lastPaid: new Date().toLocaleString().slice(0, 9),
       },
       {
         planName: "Custom",
-        billingDate: new Date().toDateString(),
+        billingDate: new Date().toLocaleString().slice(0, 9),
         amountDue: 2300,
-        lastPaid: new Date().toDateString(),
+        lastPaid: new Date().toLocaleString().slice(0, 9),
       },
       {
         planName: "Custom",
-        billingDate: new Date().toDateString(),
+        billingDate: new Date().toLocaleString().slice(0, 9),
         amountDue: 20030,
-        lastPaid: new Date().toDateString(),
+        lastPaid: new Date().toLocaleString().slice(0, 9),
       },
       {
         planName: "Custom",
-        billingDate: new Date().toDateString(),
+        billingDate: new Date().toLocaleString().slice(0, 9),
         amountDue: 30000,
-        lastPaid: new Date().toDateString(),
+        lastPaid: new Date().toLocaleString().slice(0, 9),
       },
     ],
   }}
