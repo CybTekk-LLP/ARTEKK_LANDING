@@ -1,9 +1,16 @@
 <script lang="ts">
-  import { Typography } from "$lib/ui";
+  import { Button, Typography } from "./../../ui";
 
   export let cardHeading: string;
   export let tableHeadings: string[] = [];
   export let tableData: ISummaryData[] = [];
+
+  let totalPrice: number = 0;
+  (() => {
+    for (let data of tableData) {
+      totalPrice = totalPrice + data.amountDue;
+    }
+  })();
 
   interface ISummaryData {
     planName: string;
@@ -39,7 +46,7 @@
       </li>
       <li>
         <Typography type="subtext" _fontweight="700"
-          >{data.amountDue}</Typography
+          >{`₹${data.amountDue}`}</Typography
         >
       </li>
       <li>
@@ -48,6 +55,12 @@
       </li>
     {/each}
   </ul>
+  <br />
+  <Button
+    type="primary"
+    buttonLabel={`₹${totalPrice}`}
+    onClick={() => alert("asfa")}
+  />
 </div>
 
 <style lang="scss">
