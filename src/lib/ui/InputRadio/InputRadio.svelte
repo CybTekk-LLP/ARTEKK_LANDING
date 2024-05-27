@@ -25,30 +25,36 @@
 </div>
 
 <style lang="scss">
-  p {
+  .projects {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    inline-size: max-content;
-    padding-inline-start: 20px;
-    border: 1px solid var(--secondary-700);
-    margin: 10px;
-    padding: 5px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-    white-space: nowrap;
-    &:hover {
-      background-color: lightcoral;
+    gap: 20px;
+    p {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      inline-size: max-content;
+      padding-inline-start: 20px;
+      border: 1px solid var(--secondary-700);
+      margin: 10px;
+      padding: 5px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      white-space: nowrap;
+      &:hover {
+        background-color: var(--secondary-700);
+      }
+      & > span {
+        font-size: 1rem;
+        margin-inline-end: 5px;
+      }
     }
-    & > span {
-      font-size: 1rem;
-      margin-inline-end: 5px;
-    }
-  }
-  input[type="radio"] {
-    display: none;
-    &:checked + label > p {
-      background-color: red;
+    input[type="radio"] {
+      display: none;
+      &:checked + label > p {
+        background-color: var(--secondary-700);
+      }
     }
   }
 </style>
