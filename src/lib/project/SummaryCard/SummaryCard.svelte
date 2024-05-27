@@ -66,7 +66,8 @@
 <style lang="scss">
   .card {
     border: 1px solid var(--secondary-500);
-    padding: 10px;
+    padding-inline: 10px;
+    padding-block: 20px;
     border-radius: 6px;
     & > .table-headings {
       list-style: none;
