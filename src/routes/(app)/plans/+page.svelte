@@ -120,12 +120,6 @@
             amountDue: 3000,
             lastPaid: new Date().toLocaleString().slice(0, 9),
           },
-          {
-            planName: "Custom",
-            billingDate: new Date().toLocaleString().slice(0, 9),
-            amountDue: 2300,
-            lastPaid: new Date().toLocaleString().slice(0, 9),
-          },
         ]}
       />
     </div>
@@ -200,11 +194,11 @@
         list-style: none;
         display: grid;
         // justify-content: space-between;
-        grid-template-columns: repeat(3, auto);
+        grid-template-columns: auto auto 30vw;
         &.headings {
-          //   & > li:nth-of-type(2) {
-          //     padding-inline-start: 20px;
-          //   }
+          & > li:nth-of-type(2) {
+            padding-inline-start: 20px;
+          }
         }
       }
     }
