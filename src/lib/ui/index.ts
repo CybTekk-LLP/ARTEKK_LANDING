@@ -7,3 +7,4 @@ export { default as TextArea } from "./TextArea/TextArea.svelte";
 export { default as InputNumber } from "./InputNumber/InputNumber.svelte";
 export { default as Status } from "./Status/Status.svelte";
 export { default as InputRadio } from "./InputRadio/InputRadio.svelte";
+export { default as Accordion } from "./Accordion/Accordion.svelte";
