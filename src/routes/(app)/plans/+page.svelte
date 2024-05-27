@@ -105,26 +105,68 @@
     selectedProject="Swiggy"
   />
   <br />
+  <br />
   <section class="analytics">
     <ApexCharts bind:options />
-    <SummaryCard
-      cardHeading="Current Month Summary"
-      tableHeadings={["Plan Name", "Billing Date", "Amount Due", "Last Paid"]}
-      tableData={[
-        {
-          planName: "Custom",
-          billingDate: new Date().toLocaleString().slice(0, 9),
-          amountDue: 3000,
-          lastPaid: new Date().toLocaleString().slice(0, 9),
-        },
-        {
-          planName: "Custom",
-          billingDate: new Date().toLocaleString().slice(0, 9),
-          amountDue: 2300,
-          lastPaid: new Date().toLocaleString().slice(0, 9),
-        },
-      ]}
-    />
+    <div class="card">
+      <SummaryCard
+        cardHeading="Current Month Summary"
+        tableHeadings={["Plan Name", "Billing Date", "Amount Due", "Last Paid"]}
+        tableData={[
+          {
+            planName: "Custom",
+            billingDate: new Date().toLocaleString().slice(0, 9),
+            amountDue: 3000,
+            lastPaid: new Date().toLocaleString().slice(0, 9),
+          },
+          {
+            planName: "Custom",
+            billingDate: new Date().toLocaleString().slice(0, 9),
+            amountDue: 2300,
+            lastPaid: new Date().toLocaleString().slice(0, 9),
+          },
+        ]}
+      />
+    </div>
+  </section>
+  <br />
+  <section class="payment-history">
+    <Typography type="caption" _fontweight="700">Payment History</Typography>
+    <br />
+    <ul class="payments-table headings">
+      <li>
+        <Typography type="subtext" _color="var(--secondary-300)"
+          >Date</Typography
+        >
+      </li>
+      <li>
+        <Typography type="subtext" _color="var(--secondary-300)"
+          >Plan</Typography
+        >
+      </li>
+      <li>
+        <Typography type="subtext" _color="var(--secondary-300)"
+          >Amount</Typography
+        >
+      </li>
+    </ul>
+    <br />
+    {#each Array(4) as _}
+      <ul class="payments-table">
+        <li>
+          <Typography type="subtext"
+            >{new Date().toLocaleString().slice(0, 9)}</Typography
+          >
+        </li>
+        <li>
+          <Typography type="subtext">Custom</Typography>
+        </li>
+        <li>
+          <Typography type="subtext">20000</Typography>
+        </li>
+      </ul>
+      <br />
+    {/each}
   </section>
 </main>
 
@@ -136,10 +178,28 @@
     padding-block-start: 70px;
     & > .analytics {
       display: grid;
-      grid-template-columns: repeat(2, auto);
-      align-items: center;
-      @media screen and (width < 900px) {
-        grid-template-columns: 100%;
+      grid-template-columns: auto 40%;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 50px;
+      @media screen and (width < 950px) {
+        display: block;
+        & > .card {
+          max-inline-size: 500px;
+          inline-size: 100%;
+        }
+      }
+    }
+    & > .payment-history {
+      & > ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        &.headings {
+          & > li:nth-of-type(2) {
+            padding-inline-start: 20px;
+          }
+        }
       }
     }
   }

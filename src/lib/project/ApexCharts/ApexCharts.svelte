@@ -92,5 +92,6 @@
   div {
     height: 100%;
     width: 500px;
+    max-width: 100%;
   }
 </style>
