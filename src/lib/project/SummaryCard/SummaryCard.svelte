@@ -26,7 +26,7 @@
   <ul class="table-headings">
     {#each tableHeadings as heading}
       <li>
-        <Typography type="subtext" _color="var(--secondary-500)"
+        <Typography type="subtext" _color="var(--secondary-300)"
           >{heading}</Typography
         >
       </li>
