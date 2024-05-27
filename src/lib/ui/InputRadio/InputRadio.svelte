@@ -29,11 +29,7 @@
     justify-content: flex-start;
     align-items: center;
     gap: 4px;
-    overflow-x: scroll;
-    scrollbar-width: none;
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    flex-wrap: wrap;
     p {
       display: flex;
       justify-content: flex-start;
@@ -44,7 +40,10 @@
       margin: 10px;
       padding: 5px 20px;
       border-radius: 5px;
-      transition: background-color 0.3s;
+      -webkit-transition: background-color 0.3s ease;
+      -moz-transition: background-color 0.3s ease;
+      -o-transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease;
       white-space: nowrap;
       :global(.span) {
         -webkit-user-select: none;
