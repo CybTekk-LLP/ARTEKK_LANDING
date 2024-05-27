@@ -1,6 +1,7 @@
 <script lang="ts">
   import { ApexCharts, SummaryCard } from "$lib/project";
   import { Typography } from "$lib/ui";
+  import Accordion from "$lib/ui/Accordion/Accordion.svelte";
   import InputRadio from "$lib/ui/InputRadio/InputRadio.svelte";
 
   let options = {
@@ -162,7 +163,11 @@
           <Typography type="subtext">Custom</Typography>
         </li>
         <li>
-          <Typography type="subtext">20000</Typography>
+          <!-- <Typography type="subtext">20000</Typography> -->
+          <Accordion
+            title="Summary Title"
+            data={["dribble", "amazon", "nike", "oracle"]}
+          />
         </li>
       </ul>
       <br />
@@ -193,12 +198,13 @@
     & > .payment-history {
       & > ul {
         list-style: none;
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        // justify-content: space-between;
+        grid-template-columns: repeat(3, auto);
         &.headings {
-          & > li:nth-of-type(2) {
-            padding-inline-start: 20px;
-          }
+          //   & > li:nth-of-type(2) {
+          //     padding-inline-start: 20px;
+          //   }
         }
       }
     }
