@@ -12,7 +12,7 @@
     </summary>
     <p>
       <Typography type="impact" _color="var(--primary-300)"
-        >{faq.description}</Typography
+        >{@html faq.description}</Typography
       >
     </p>
   </details>

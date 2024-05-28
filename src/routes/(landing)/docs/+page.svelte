@@ -2,49 +2,44 @@
   import { FAQ } from "$lib/project";
   let content = [
     {
-      title: "How to know the status of my order?",
+      title: "Getting Started with ARTEKK: A Beginner's Guide",
       description:
-        "StoneTEKK offers real-time order tracking, and also assists the users to monitor their order status in one-go.",
+        "Embark on your ARTEKK journey as a beginner with this comprehensive documentation. Learn the fundamentals of navigating our platform, from setting up your account to exploring basic functionalities. Gain insights into creating and viewing AR models using our intuitive Builder Section, tailored for ease of use. Follow step-by-step instructions to integrate AutoCAD models seamlessly and utilise our customised solutions for scaling products. Dive into key features such as face tracking for caps, real-space interaction, and QR code scanning for AR videos to enhance customer engagement. With this guide, beginners can gain the ARTEKK experience with confidence and proficiency.",
     },
     {
-      title: "How to know the status of my order?",
+      title: "ARTEKK as a Beginner",
       description:
-        "StoneTEKK offers real-time order tracking, and also assists the users to monitor their order status in one-go.",
+        "In order to start with ARTEKK, visit our Builder's Option page for a step-by-step setup guide and detailed information on tools and resources. If you'd prefer not to handle any code, our Custom Option offers a personalised solution tailored to your specific needs. Explore the Builder's Option or choose the Custom Option for a hassle-free experience.",
     },
     {
-      title: "How to know the status of my order?",
+      title: "How do I contact Sales?",
       description:
-        "StoneTEKK offers real-time order tracking, and also assists the users to monitor their order status in one-go.",
+        "You can contact our Sales team through the following methods: Email: sales@artekk.com, Phone: +1###-###-###### , Contact Form: Fill out the form on our Contact Us page. Our Sales team is available Monday to Friday, 10:00 AM to 6:00 PM EST.",
     },
     {
-      title: "How to know the status of my order?",
+      title: "How do Price Plans work?",
       description:
-        "StoneTEKK offers real-time order tracking, and also assists the users to monitor their order status in one-go.",
+        "<h3>Our price plans are designed to be flexible and cater to different needs:</h3><br><ul style=list-style:none><li>Builder Plan: Available to place models on the go. Limited customization. A no-code solution to serve your basic needs. (Check out more on the pricing page)</li><br><li>Custom Plan: Connect with sales to discuss your exact requirements, and we will develop an AR solution for your new or existing projects, curated to meet your needs.</li><br><li>A-la-carte: Add any of the verticals you want with this plan, and we will provide you with the developed solution. A plan made to serve specific needs.</li><br><li>Premium Plan: Best for large teams and extensive projects with advanced features.</li><li>For a detailed breakdown of each plan, please visit our Pricing Plans page.</li></ul>",
     },
     {
-      title: "How to know the status of my order?",
+      title: "How does configuration of my own project is carried out?",
       description:
-        "StoneTEKK offers real-time order tracking, and also assists the users to monitor their order status in one-go.",
+        "<ul style=list-style:none><li>Login to your account and set up your builder module by navigating to the Projects tab in the top menu. For more details about the Builder Plan, visit our Pricing page.</li><br><li>Start by creating a new project and adding a name for your project and the authorised domain. When you first create a project, its status will be inactive. This is to ensure your domains can be authorised. We will verify this on our end, and once your project is approved, it will show a status of active. You can then start uploading your 3D models and receive the CDN links for the JavaScript libraries and models to use.</li><br><li>Visit our Code Generator page to learn how to configure your project. If you prefer not to deal with any code, you can always upgrade to the Custom Plan, where we will develop the solution models for you. You will only be charged the difference</li></ul>",
     },
     {
-      title: "How to know the status of my order?",
+      title: "Can we switch from a Pricing Plan to the Builder's Section Plan?",
       description:
-        "StoneTEKK offers real-time order tracking, and also assists the users to monitor their order status in one-go.",
+        "<p>Yes, you can switch from a Pricing Plan to the Builder's Section Plan. This will make your work hassle-free, offering greater customizations and solutions tailored to meet your exact needs. Whether for new or existing projects, our service ensures everything is precisely aligned with your requirements. Enjoy seamless integration and enhanced functionality with our expert support.</p><br><br><p>ARTEKK's Builder Section ensures effortless navigation in AR technology, with precise size detection capabilities enhancing integration within existing workflows.</p>",
     },
     {
-      title: "How to know the status of my order?",
+      title: "KMS (Knowledge Management System) – Go to a Customer Plan",
       description:
-        "StoneTEKK offers real-time order tracking, and also assists the users to monitor their order status in one-go.",
+        "<h3>Cars & Furniture – Builder Section</h3><br><p>The Builder Section facilitates the creation and viewing of detailed AR models for cars and furniture, enabling users to virtually place vehicles in various interior settings and convert AutoCAD furniture models for accurate representation.</p><br><h3>Customised Solutions – Hassle-Free Expertise</h3><br><p>Tailored AR solutions provided by ARTEKK simplify product scaling and integration, backed by expert support for a seamless experience.</p><br><h3>Criteria for AR Solutions</h3><br><p>AR solutions include face tracking for caps, offering a realistic fit and interaction, while furniture models enhance customer visualisation in real-world contexts.</p><br><h3>Existing Business Applications<h3><br><p>Incorporating AR-based videos via QR code scans enriches newspaper content, while the shoe solution eliminates size constraints, aiding informed purchasing decisions. Face tracking technology ensures virtual try-ons for caps, reducing returns and enhancing customer satisfaction.<p/><br><h3>Key Benefits</h3><br><p>ARTEKK's user-friendly interfaces, accurate sizing, realistic visualisation, interactive engagement features, and expert support empower businesses to optimise product presentations and customer engagement with innovative AR technology.</p>",
     },
     {
-      title: "How to know the status of my order?",
+      title: "What fields is ARTEKK covering the virtual Try On Service:",
       description:
-        "StoneTEKK offers real-time order tracking, and also assists the users to monitor their order status in one-go.",
-    },
-    {
-      title: "How to know the status of my order?",
-      description:
-        "StoneTEKK offers real-time order tracking, and also assists the users to monitor their order status in one-go.",
+        "<ul style=list-style:none><li>Caps: Try on a variety of caps in different styles and colours to find the perfect fit for your head and your outfit, all from the comfort of your home.</li><br><li>Furniture: Visualise how different pieces of furniture will look in your space, allowing you to match styles and sizes perfectly before making a purchase.</li><br><li>Newspapers: Experience reading newspapers in an immersive virtual format, making it feel like you're holding the real thing, with easy access to enhanced content and multimedia.</li><br><li>Billboards: See how advertisements will appear on actual billboards in different locations, helping advertisers choose the most effective placements for their campaigns.</li><br><li>Clothes: Try on clothes virtually to see how they fit and look on your body, ensuring you always make the right choice when shopping for new outfits.</li><br><li>Jewellery: Explore how rings, necklaces, earrings, and other pieces of jewellery will look on you, helping you find the perfect accessories to complement your style.</li><br><li>Makeup: Experiment with different makeup products and looks on your own face, allowing you to find the perfect shades and styles without any mess.</li><br><li>Shoes: Virtually try on shoes to see how they look and fit, helping you pick the perfect pair for comfort and style without leaving your home.</li><br><li>Glasses: See how different frames and lenses will look on your face, ensuring you choose glasses that enhance your appearance and suit your vision needs.</li><br><li>Watches: Try on various watch styles to see how they fit and look on your wrist, helping you find the ideal timepiece that matches your personal taste.</li><br><li>Car: Get a virtual preview of different car models, allowing you to explore interiors and exteriors in detail before making a test drive or purchase.</li><br><li>Gloves: Virtually try on gloves to ensure a perfect fit and style, whether you need them for fashion, work, or sports.</li><br></ul>",
     },
   ];
 </script>
