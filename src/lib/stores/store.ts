@@ -5,3 +5,4 @@ export type UserTokens = {
   accessToken: string;
 };
 export const userTokens = persisted<UserTokens | null>("userToken", null);
+export const accessToken = persisted<string | null>("accessToken", null);

@@ -3,7 +3,7 @@ import { userTokens } from "$lib/stores/store";
 import { goto } from "$app/navigation";
 import * as storeService from "$lib/services/store.service";
 import { get } from "svelte/store";
-// import { PUBLIC_BASE_URI } from "$env/static/public";
+import { PUBLIC_BASE_URI } from "$env/static/public";
 import type {
   ICreateContact,
   ICreateProject,
@@ -16,7 +16,7 @@ import type {
   IUpdateUser,
 } from "$lib/types/ApiService.types";
 export const api = axios.create({
-  baseURL: "http://192.168.1.2:1208/api",
+  baseURL: PUBLIC_BASE_URI,
   timeout: 5000,
   withCredentials: true,
 });
@@ -91,6 +91,7 @@ export const createNewUser = async (
   const createUserData = await api.post("/users", userInfo).catch((error) => {
     catchError(error);
   });
+
   return createUserData?.data;
 };
 
@@ -156,6 +157,7 @@ export const deleteUserById = async (
   });
   return userData?.data;
 };
+
 //PROJECT
 
 /**
@@ -183,7 +185,7 @@ export const createNewProject = async (
 export const getProjectById = async (
   projectId: number
 ): Promise<ISingleProject> => {
-  const projectData = await api.get(`/projects${projectId}`).catch((error) => {
+  const projectData = await api.get(`/projects/${projectId}`).catch((error) => {
     catchError(error);
   });
   return projectData?.data;
@@ -216,7 +218,7 @@ export const updateProject = async (
   updateData: IUpdateProject
 ): Promise<ISingleProject> => {
   const projectData = await api
-    .patch(`/projects${projectId}`, updateData)
+    .patch(`/projects/${projectId}`, updateData)
     .catch((error) => {
       catchError(error);
     });
@@ -267,4 +269,28 @@ export const getAllContactsById = async (
     catchError(error);
   });
   return contactData?.data;
+};
+//UPLOAD
+/**
+ * Upload an model file
+ *
+ * @param {File[]} models
+ * @returns { URI: String}
+ */
+export const uploadGallery = async (models: File[]): Promise<string[]> => {
+  const formData = new FormData();
+  for (const model of models) {
+    formData.append("gallery", model);
+  }
+  try {
+    const { data } = await api.post("/uploads/gallery", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    return data.uri;
+  } catch (error) {
+    console.error(error);
+  }
+  return [];
 };
