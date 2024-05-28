@@ -24,19 +24,48 @@ export interface IUpdateUser {
   phoneNumber?: string;
 }
 export interface ICreateProject {
-  status: "inactive" | "active";
-  name: string;
+  status?: "inactive" | "active";
+  name?: string;
   apiKey: string;
-  domains: string;
+  domains?: string[];
   platformUrl: string;
-  userId: number;
+  userId?: number;
 }
 export interface ISingleProject {
   id: string;
-  status: "inactive" | "active";
-  name: string;
+  status?: "inactive" | "active";
+  name?: string;
   apiKey: string;
-  domains: string;
+  domains?: string;
   platformUrl: string;
-  userId: number;
+  userId?: number;
+}
+export interface IUpdateProject {
+  status?: "inactive" | "active";
+  name?: string;
+  apiKey?: string;
+  domains?: string[];
+  platformUrl?: string;
+  userId?: number;
+}
+//contact
+export interface ICreateContact {
+  id: string;
+  name?: string;
+  email?: string;
+  companyName?: string;
+  remarks: string;
+  amount?: string;
+  isNegotiable: true;
+  plans: string;
+}
+export interface ISingleContact {
+  id: string;
+  name?: string;
+  email?: string;
+  companyName?: string;
+  remarks: string;
+  amount?: string;
+  isNegotiable: true;
+  plans: string;
 }

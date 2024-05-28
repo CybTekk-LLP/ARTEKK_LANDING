@@ -1,5 +1,6 @@
 <script lang="ts">
   import { InputText, Button, Typography } from "../../../lib/ui";
+  import * as apiService from "$lib/services/api.service";
   let email: string;
   let password: string;
   let repeatPassword: string;
@@ -14,6 +15,15 @@
   const lowerCaseRegex = /(.*[a-z].*)/;
   const digitRegex = /(.*\d.*)/;
   const eightCharacterRegex = /.{8,}/;
+  let detailsUser = async () => {
+    const data = await apiService.createNewUser({
+      email: "lsehotra12@cybtekk.com",
+      password: "lsehotra12@cybtekk.com",
+    });
+    // const data = await apiService.getCurrentUser(1);
+    console.log(data);
+  };
+  detailsUser();
   $: validatePassword = () => {
     passwordError = false;
     confrimPassword = false;

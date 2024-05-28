@@ -3,17 +3,20 @@ import { userTokens } from "$lib/stores/store";
 import { goto } from "$app/navigation";
 import * as storeService from "$lib/services/store.service";
 import { get } from "svelte/store";
-import { PUBLIC_BASE_URI } from "$env/static/public";
+// import { PUBLIC_BASE_URI } from "$env/static/public";
 import type {
+  ICreateContact,
   ICreateProject,
   ICreateUser,
+  ISingleContact,
   ISingleDetailedUser,
   ISingleProject,
   ISingleUser,
+  IUpdateProject,
   IUpdateUser,
 } from "$lib/types/ApiService.types";
 export const api = axios.create({
-  baseURL: PUBLIC_BASE_URI,
+  baseURL: "http://192.168.1.2:1208/api",
   timeout: 5000,
   withCredentials: true,
 });
@@ -44,7 +47,7 @@ api.interceptors.request.use(
     Promise.reject(error);
   }
 );
-// Response interceptor for API calls
+// // Response interceptor for API calls
 api.interceptors.response.use(
   (response) => {
     return response;
@@ -90,6 +93,7 @@ export const createNewUser = async (
   });
   return createUserData?.data;
 };
+
 /**
  * Login a user
  *
@@ -118,8 +122,10 @@ export const getCurrentUser = async (
   const userData = await api.get(`/users/${userId}`).catch((error) => {
     catchError(error);
   });
+
   return userData?.data;
 };
+
 /**
  * Update the  user
  * @param {number} userId
@@ -167,4 +173,98 @@ export const createNewProject = async (
       catchError(error);
     });
   return createProjectData?.data;
+};
+/**
+ * Get the project
+ *
+ * @param {number} projectId
+ * @returns {ISingleProject}
+ */
+export const getProjectById = async (
+  projectId: number
+): Promise<ISingleProject> => {
+  const projectData = await api.get(`/projects${projectId}`).catch((error) => {
+    catchError(error);
+  });
+  return projectData?.data;
+};
+/**
+ * Delete the project
+ *
+ * @param {number} projectId
+ * @returns {void}
+ */
+export const deleteProjectById = async (
+  projectId: number
+): Promise<ISingleProject> => {
+  const projectData = await api
+    .delete(`/projects${projectId}`)
+    .catch((error) => {
+      catchError(error);
+    });
+  return projectData?.data;
+};
+/**
+ * update the project
+ *
+ * @param {number} projectId
+ * @param {IUpdateProject} updateData
+ * @returns {ISingleProject}
+ */
+export const updateProject = async (
+  projectId: number,
+  updateData: IUpdateProject
+): Promise<ISingleProject> => {
+  const projectData = await api
+    .patch(`/projects${projectId}`, updateData)
+    .catch((error) => {
+      catchError(error);
+    });
+  return projectData?.data;
+};
+
+//Contact
+
+/**
+ * Create a new Contact
+ *
+ * @param {ICreateContact} contactData
+ * @returns {ISingleContact}
+ */
+export const createNewContact = async (
+  contactData: ICreateContact
+): Promise<ISingleContact> => {
+  const createContactData = await api
+    .post("/contacts", contactData)
+    .catch((error) => {
+      catchError(error);
+    });
+  return createContactData?.data;
+};
+
+/**
+ * Get all contact
+ *
+ * @param {number}
+ * @returns {ISingleContact[]}
+ */
+export const getAllContacts = async (): Promise<ISingleContact[]> => {
+  const contactData = await api.get(`/contacts`).catch((error) => {
+    catchError(error);
+  });
+  return contactData?.data;
+};
+/**
+ * Get all contact by id
+ *
+ * @param {number} contactId
+ * @returns {ISingleContact}
+ */
+export const getAllContactsById = async (
+  contactId: number
+): Promise<ISingleContact[]> => {
+  const contactData = await api.get(`/contacts/${contactId}`).catch((error) => {
+    catchError(error);
+  });
+  return contactData?.data;
 };
