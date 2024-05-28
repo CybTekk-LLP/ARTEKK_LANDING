@@ -70,6 +70,8 @@
     }
     & > .btn {
       margin-block-end: 5rem;
+      max-inline-size: 360px;
+      margin-inline: auto;
       :global(button) {
         padding-inline: 100px;
         @media screen and (width < 420px) {
