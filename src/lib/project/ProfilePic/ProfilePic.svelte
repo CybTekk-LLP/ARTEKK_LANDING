@@ -3,9 +3,11 @@
   import { minidenticon } from "minidenticons";
 
   export let userName = "";
+  export let isSmall: boolean | undefined = false;
 </script>
 
-<minidenticon-svg username={userName}></minidenticon-svg>
+<minidenticon-svg class:smallIcon={isSmall} class="avatar" username={userName}
+></minidenticon-svg>
 
 <style lang="scss">
   :global(minidenticon-svg svg) {
@@ -13,5 +15,11 @@
     background-color: grey;
     height: 100px;
     width: 100px;
+  }
+  .smallIcon {
+    :global(svg) {
+      height: 50px;
+      width: 50px;
+    }
   }
 </style>

@@ -7,6 +7,8 @@
   let isOpen = false;
   let year = new Date().getFullYear();
   let animationData = [false, false, false, false];
+  let isSignedIn = true;
+  let userName = "Gourav";
   const handleIntersection = (entries: any) => {
     entries.forEach((entry: any) => {
       if (entry.isIntersecting) {
@@ -52,6 +54,8 @@
 <main>
   <Navbar
     bind:isOpen
+    bind:isSignedIn
+    bind:userName
     logo={"/images/Logo/Logo.svg"}
     navOptions={[
       { name: "About", href: "/about", target: "" },

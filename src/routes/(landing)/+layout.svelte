@@ -2,11 +2,15 @@
   import { Navbar, Typography } from "$lib/ui";
   let isOpen = false;
   let year = new Date().getFullYear();
+  let isSignedIn = true;
+  let userName = "Gourav";
 </script>
 
 <main>
   <Navbar
     bind:isOpen
+    bind:isSignedIn
+    bind:userName
     logo={"/images/Logo/Logo.svg"}
     navOptions={[
       { name: "About", href: "/about", target: "" },

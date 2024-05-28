@@ -3,9 +3,13 @@
   import { fly } from "svelte/transition";
   import { clickOutside } from "./../../utils";
   import { onMount } from "svelte";
+  import { ProfilePic } from "$lib/project";
   export let isOpen = false;
   export let navOptions: { name: string; href: string; target?: string }[];
   export let logo: string;
+  export let isSignedIn: boolean | undefined = false;
+  export let userName: string | undefined = undefined;
+
   let nav: HTMLElement;
 
   const handleClickOutside = () => {
@@ -34,6 +38,11 @@
     {/each}
   </ul>
   <div aria-hidden="true" />
+  {#if isSignedIn}
+    <a href="/profile" class="user-avatar">
+      <ProfilePic isSmall={true} bind:userName />
+    </a>
+  {/if}
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div class="nav-icon" class:open={isOpen} on:click={() => (isOpen = !isOpen)}>
@@ -94,6 +103,11 @@
         & > a {
           text-decoration: none;
         }
+      }
+    }
+    & > .user-avatar {
+      @media screen and (width <= 1020px) {
+        display: none;
       }
     }
     & > .nav-icon {

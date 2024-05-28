@@ -6,6 +6,14 @@
     title: "Components/UI/Navbar",
     component: Navbar,
   };
+
+  let navOptions = [
+    { name: "About", href: "/about", target: "" },
+    { name: "Collections", href: "/collections", target: "" },
+    { name: "Pricing", href: "/pricing", target: "" },
+    { name: "Contact", href: "/contact", target: "" },
+    { name: "FAQ", href: "/faq", target: "" },
+  ];
 </script>
 
 <Template let:args>
@@ -16,12 +24,6 @@
   name="main"
   args={{
     logo: "/images/Home/Logo.svg",
-    navOptions: [
-      { name: "About", href: "/about", target: "" },
-      { name: "Collections", href: "/collections", target: "" },
-      { name: "Pricing", href: "/pricing", target: "" },
-      { name: "Contact", href: "/contact", target: "" },
-      { name: "FAQ", href: "/faq", target: "" },
-    ],
+    navOptions: navOptions,
   }}
 />
