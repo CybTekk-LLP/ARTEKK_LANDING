@@ -129,7 +129,7 @@
         description="Experience the ease of trying on shoes virtually with our 3D feature, making shopping a breeze."
         img="./images/FeatureCard/footwear.webp"
         isAnimated={animationData[1]}
-        onClick={()=> goto("/view?load=footwear")}
+        onClick={()=> goto("/gettingstarted?load=footwear")}
       />
     </section>
     <section class="feature-card-section" data-label="jewellery">
