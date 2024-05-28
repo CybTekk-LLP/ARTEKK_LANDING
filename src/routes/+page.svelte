@@ -2,6 +2,7 @@
   import { FeatureCard } from "$lib/project";
   import { onMount } from "svelte";
   import { Navbar, Typography, Button } from "$lib/ui";
+  import { goto } from "$app/navigation";
 
   let isOpen = false;
   let year = new Date().getFullYear();
@@ -80,7 +81,7 @@
           <Button
             type="primary"
             buttonLabel="Get Started"
-            onClick={() => alert("asdf")}
+            onClick={() => goto("/pricing")}
           />
         </div>
       </div>
