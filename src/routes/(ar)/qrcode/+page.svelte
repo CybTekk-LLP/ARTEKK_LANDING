@@ -17,7 +17,7 @@
     <QRCode
       color="#ffffff"
       backgroundColor="#000000"
-      data={"https://cybtekk-llp.github.io/ARTEKK/pages/getting-started.html?load=" +
+      data={"https://artekk.io/" +
         query}
     />
     <p class="qr-sub">Scan this to visit ARTEKK</p>
@@ -25,7 +25,7 @@
       <Button
         type="secondary"
         buttonLabel="Continue Anyway"
-        onClick={() => (window.location.href = "./" + query + ".html")}
+        onClick={() => (window.location.href = "./" + query)}
       />
     </div>
   </section>
