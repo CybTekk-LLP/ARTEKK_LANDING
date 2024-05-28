@@ -8,8 +8,6 @@
   let isOpen = false;
   let year = new Date().getFullYear();
   let animationData = [false, false, false, false];
-  let isSignedIn = true;
-  let userName = "Gourav";
   const handleIntersection = (entries: any) => {
     entries.forEach((entry: any) => {
       if (entry.isIntersecting) {
@@ -33,6 +31,8 @@
       });
     };
   });
+  $: isSignedIn = false;
+  $: userName = "Gourav";
   $: switch (currentSection) {
     case "watches":
       animationData = [true, false, false, false];
@@ -119,7 +119,7 @@
         description="Explore our 3D watch feature and find the perfect timepiece that suits your style!"
         img="./images/FeatureCard/watches.webp"
         isAnimated={animationData[0]}
-        onClick={()=> goto("/view?load=watches")}
+        onClick={() => goto("/view?load=watches")}
       />
     </section>
     <section class="feature-card-section" data-label="shoes">
@@ -129,7 +129,7 @@
         description="Experience the ease of trying on shoes virtually with our 3D feature, making shopping a breeze."
         img="./images/FeatureCard/footwear.webp"
         isAnimated={animationData[1]}
-        onClick={()=> goto("/view?load=footwear")}
+        onClick={() => goto("/view?load=footwear")}
       />
     </section>
     <section class="feature-card-section" data-label="jewellery">
@@ -139,7 +139,7 @@
         description="Choosing the best jewellery for you was never so easy! Make your online shopping a one-click tap! Adorn yourself with digital elegance – 3D jewellery!"
         img="./images/FeatureCard/jwellery.webp"
         isAnimated={animationData[2]}
-        onClick={()=> goto("/view?load=jewellery")}
+        onClick={() => goto("/view?load=jewellery")}
       />
     </section>
     <section class="feature-card-section" data-label="cars">
@@ -149,7 +149,7 @@
         description="Drive into the virtual fast lane – 3D cars that put you in the driver's seat of innovation!"
         img="./images/FeatureCard/cars.webp"
         isAnimated={animationData[3]}
-        onClick={()=> goto("/view?load=cars")}
+        onClick={() => goto("/view?load=cars")}
       />
     </section>
   </section>
@@ -187,8 +187,10 @@
           & > .btn {
             margin-block-end: 5rem;
             :global(button) {
-              padding-inline: 70px;
-              padding-block: 20px;
+              padding-inline: 100px;
+              @media screen and (width < 420px) {
+                padding-inline: 70px;
+              }
               :global(.typography) {
                 font-size: 1.5rem;
               }

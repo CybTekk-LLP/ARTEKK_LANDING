@@ -18,8 +18,8 @@
   }
   .smallIcon {
     :global(svg) {
-      height: 50px;
-      width: 50px;
+      height: 30px;
+      width: 30px;
     }
   }
 </style>
