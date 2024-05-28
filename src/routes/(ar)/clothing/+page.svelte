@@ -400,22 +400,6 @@
     }
   }
 
-  .record {
-    display: block;
-    position: fixed;
-    inset-block-start: 10px;
-    inset-inline-start: 50%;
-    translate: -50% 0;
-    background-color: red;
-    min-inline-size: 9.5ch;
-    text-align: start;
-    padding: 10px;
-    color: white;
-    font-kerning: none;
-    letter-spacing: 0.1rem;
-    border-radius: 30px;
-  }
-
   /* Filter lens effect on video (does not retain for camera pics or recordings for now */
 
   #stream[data-lens="none"] {

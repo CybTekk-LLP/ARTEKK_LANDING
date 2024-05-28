@@ -47,6 +47,22 @@ const recordVideo = async (facingModeButton: Element | null) => {
 
     recordingIndicator.textContent = "00:00:00";
     recordingIndicator.classList.add("record");
+    recordingIndicator.setAttribute(
+      "style",
+      `display: block;
+    position: fixed;
+    inset-block-start: 10px;
+    inset-inline-start: 50%;
+    translate: -50% 0;
+    background-color: red;
+    min-inline-size: 9.5ch;
+    text-align: start;
+    padding: 10px;
+    color: white;
+    font-kerning: none;
+    letter-spacing: 0.1rem;
+    border-radius: 30px;`
+    );
     document.body.appendChild(recordingIndicator);
 
     timerInterval = setInterval(() => {
