@@ -69,14 +69,15 @@
       margin-inline: auto;
     }
     & > .btn {
-      inline-size: max-content;
-      margin-inline: auto;
+      margin-block-end: 5rem;
       :global(button) {
-        padding-inline: 60px;
-        padding-block: 20px;
-      }
-      :global(.typography) {
-        font-size: 1.2rem;
+        padding-inline: 100px;
+        @media screen and (width < 420px) {
+          padding-inline: 70px;
+        }
+        :global(.typography) {
+          font-size: 1.5rem;
+        }
       }
     }
   }

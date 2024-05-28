@@ -5,7 +5,18 @@
   import { goto } from "$app/navigation";
 
   export let onClick = (cardHeading: string) => {
-    goto("/view?load=" + cardHeading.toLowerCase());
+    switch (cardHeading.toLocaleLowerCase()) {
+      case "footwear": {
+        goto("/gettingstarted?load=footwear");
+        break;
+      }
+      case "clothing": {
+        goto("/gettingstarted?load=clothing");
+        break;
+      }
+      default:
+        goto("/view?load=" + cardHeading.toLowerCase());
+    }
   };
   export let pluginContent = [
     { cardHeading: "Furniture", imgSrc: "./images/Collections/Furniture.webp" },
