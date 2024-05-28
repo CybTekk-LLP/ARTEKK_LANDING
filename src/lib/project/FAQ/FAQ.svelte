@@ -4,7 +4,7 @@
 </script>
 
 {#each content ?? [] as faq}
-  <details open>
+  <details>
     <summary>
       <Typography type="impact" _color="var(--primary-900)"
         >{faq.title}</Typography

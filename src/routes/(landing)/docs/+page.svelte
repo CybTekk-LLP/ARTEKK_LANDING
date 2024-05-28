@@ -39,7 +39,7 @@
     {
       title: "Trying Newspaper and Billboard AR Experiences",
       description:
-        "Using Billboard and Newspaper to display AR content requires a target to put the 3D models on. For our <a style='color: #fff' href='/collections'><u>Collection Page</a></u>'s example, we have used the following images as image targets: <br><br> <img src='/images/Sample/billboard-target.png' width='100%' style='border-radius: 10px' alt='AR Experience Example for Billboard'> <br> <br> <img src='/images/Sample/billboard.png' width='100%' style='border-radius: 10px' alt='AR Experience Example for Billboard'> <br> <br> <img src='/images/Sample/Red_Chief.jpg' width='100%' style='border-radius: 10px' alt='AR Experience Example for Newspaper'> <br> Feel free to scan these when visiting our newspaper and billboards AR experience.",
+        "Using Billboard and Newspaper to display AR content requires a target to put the 3D models on. For our <a style='color: #fff' href='/collections'><u>Collection Page</a></u>'s example, we have used the following images as image targets: <br><br> <img src='/images/Sample/billboard-target.png' width='100%' style='border-radius: 10px' alt='AR Experience Example for Billboard'> <br> <br> <img src='/images/Sample/billboard.png' width='100%' style='border-radius: 10px' alt='AR Experience Example for Billboard'> <br> <br> <img src='/images/Sample/Red_Chief.jpg' width='100%' style='border-radius: 10px' alt='AR Experience Example for Newspaper'> <br> <br> Feel free to scan these when visiting our newspaper and billboards AR experience.",
     },
     {
       title: "Fields covered by ARTEKK on the virtual Try On Service",
