@@ -7,14 +7,14 @@
 <div class="card">
   <Typography type="heading" _color="var(--primary-900)">{heading}</Typography>
   <Typography type="body" _color="var(--primary-500)">
-    {description}
+    {@html description}
   </Typography>
 </div>
 
 <style lang="scss">
   .card {
     display: grid;
-    grid-template-columns: 40% auto;
+    grid-template-columns: 100%;
     align-items: center;
     gap: 20px;
     opacity: 0.8;
