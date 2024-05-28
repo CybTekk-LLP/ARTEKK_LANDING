@@ -39,6 +39,7 @@
       cardHeading: "Makeup",
       imgSrc: "./images/Collections/Makeup.webp",
     },
+    { cardHeading: "Glasses", imgSrc: "./images/Collections/Glasses.webp" }
   ];
 </script>
 

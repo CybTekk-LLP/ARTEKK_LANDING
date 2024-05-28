@@ -54,6 +54,10 @@
       imgSrc: "./images/Collections/Makeup.webp",
       title: "Makeup",
     },
+    {
+      imgSrc: "./images/Collections/Glasses.webp",
+      title: "Glasses",
+    }
   ];
 </script>
 
