@@ -115,8 +115,11 @@
           background-color: var(--primary-900);
           content: "";
           display: block;
-          height: 0.1em;
-          margin-top: 0.2em;
+          height: 1px;
+          margin-top: 2px;
+          --webkit-transition: width 0.5s;
+          --moz-transition: width 0.5s;
+          --o-transition: width 0.5s;
           transition: width 0.5s;
           width: 0;
         }
