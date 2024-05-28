@@ -38,7 +38,7 @@
     {/each}
   </ul>
 
-  {#if true}
+  {#if isSignedIn}
     <a href="/profile" class="user-avatar">
       <ProfilePic isSmall={true} bind:userName />
     </a>

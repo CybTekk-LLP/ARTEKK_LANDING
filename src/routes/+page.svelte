@@ -32,7 +32,7 @@
     };
   });
   $: isSignedIn = false;
-  $: userName = "Gourav";
+  $: userName = "Dustin Porier";
   $: switch (currentSection) {
     case "watches":
       animationData = [true, false, false, false];
