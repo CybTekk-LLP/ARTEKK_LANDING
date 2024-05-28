@@ -95,7 +95,7 @@
     & > a {
       & > .logo {
         position: relative;
-        z-index: 4;
+        z-index: 3;
       }
     }
     & > .nav-options {
@@ -206,7 +206,7 @@
     block-size: 100vh;
     padding-inline: 20px;
     padding-block: 10px;
-    background-color: var(--secondary-700);
+    background-color: var(--secondary-900);
     transition: opacity 1s ease;
     z-index: 3;
     @media screen and (width <= 720px) {
