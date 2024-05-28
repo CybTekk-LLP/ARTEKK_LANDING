@@ -13,9 +13,9 @@ export interface ISingleUser {
 export interface ISingleDetailedUser {
   id: string;
   email: string;
-  name: string;
-  phoneNumber: string;
-  projects: ISingleProject;
+  name?: string;
+  phoneNumber?: string;
+  projects?: ISingleProject;
 }
 export interface IUpdateUser {
   email: string;
