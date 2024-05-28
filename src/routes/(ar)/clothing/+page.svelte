@@ -1,5 +1,7 @@
 <script lang="ts">
+  import { capturePhoto } from "$lib/utils/capturePhoto";
   import { bootstrapCameraKit } from "@snap/camera-kit";
+  import { onMount } from "svelte";
 
   (async function () {
     const cameraKit = await bootstrapCameraKit({
@@ -24,6 +26,10 @@
     );
     await session.applyLens(lens);
   })();
+
+  onMount(() => {
+    capturePhoto();
+  });
 </script>
 
 <section id="camera-section">
