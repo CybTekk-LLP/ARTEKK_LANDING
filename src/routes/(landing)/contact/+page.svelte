@@ -92,7 +92,7 @@
       placeholder="Please write the exact requirements needed for your project."
     />
     <br /><br />
-    <Button type="primary" buttonLabel="Submit" onClick={() => null} />
+    <Button type="primary" buttonLabel="Send a message" onClick={() => null} />
   </form>
 </main>
 
