@@ -81,6 +81,7 @@
       role="button"
       tabindex="0"
       data-facing-mode="front"
+      style="opacity: 0; visibility: hidden; pointer-events: none;"
     >
       <svg
         width="48"
@@ -145,12 +146,7 @@
       </svg>
     </div>
   </div>
-  <div
-    class="switch-camera-video-photo-mode"
-    role="button"
-    tabindex="0"
-    style="opacity: 0; visibility: hidden; pointer-events: none;"
-  >
+  <div class="switch-camera-video-photo-mode" role="button" tabindex="0">
     <input type="checkbox" name="switch" id="switch" />
     <label for="switch">
       <div>

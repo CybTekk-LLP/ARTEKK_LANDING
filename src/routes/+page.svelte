@@ -34,10 +34,10 @@
   $: isSignedIn = false;
   $: userName = "Dustin Porier";
   $: switch (currentSection) {
-    case "watches":
+    case "makeup":
       animationData = [true, false, false, false];
       break;
-    case "shoes":
+    case "glasses":
       animationData = [false, true, false, false];
       break;
     case "jewellery":
@@ -95,41 +95,43 @@
         <img
           class="banner"
           height="756px"
-          src="/images/Home/BannerOne.png"
+          src="/images/Home/BannerOne.webp"
           alt="Banner"
         />
         <img
           class="banner"
           height="756px"
-          src="/images/Home/BannerTwo.png"
+          src="/images/Home/BannerTwo.webp"
           alt="Banner"
         />
         <img
           class="banner"
           height="756px"
-          src="/images/Home/BannerThree.png"
+          src="/images/Home/BannerThree.webp"
           alt="Banner"
         />
       </div>
     </section>
-    <section class="feature-card-section" data-label="watches">
+    <section class="feature-card-section" data-label="makeup">
       <FeatureCard
         direction="left"
-        heading="Watches"
-        description="Explore our 3D watch feature and find the perfect timepiece that suits your style!"
-        img="./images/FeatureCard/watches.webp"
+        heading="Virtual Makeup Magic Awaits!"
+        description="Transform your look instantly with our virtual try-on.
+        All the Girlies! It's time to Glam up with just a click!
+       "
+        img="./images/FeatureCard/Makeup.webp"
         isAnimated={animationData[0]}
-        onClick={() => goto("/view?load=watches")}
+        onClick={() => goto("/view?load=makeup")}
       />
     </section>
-    <section class="feature-card-section" data-label="shoes">
+    <section class="feature-card-section" data-label="glasses">
       <FeatureCard
         direction="right"
-        heading="Footwear"
-        description="Experience the ease of trying on shoes virtually with our 3D feature, making shopping a breeze."
-        img="./images/FeatureCard/footwear.webp"
+        heading="Perfect Fit, Virtually Tried!"
+        description="Discover your perfect pair of Glasses instantly with our virtual technique. Style made simple!"
+        img="./images/FeatureCard/Glasses.webp"
         isAnimated={animationData[1]}
-        onClick={() => goto("/gettingstarted?load=footwear")}
+        onClick={() => goto("/gettingstarted?load=glasses")}
       />
     </section>
     <section class="feature-card-section" data-label="jewellery">

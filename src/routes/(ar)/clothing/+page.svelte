@@ -80,6 +80,7 @@
       role="button"
       tabindex="0"
       data-facing-mode="front"
+      style="opacity: 0; visibility: hidden; pointer-events: none;"
     >
       <svg
         width="48"

@@ -35,8 +35,8 @@
     <InputText
       variant="email"
       labelNeeded={true}
-      label="Email(Can't Be Changed)"
-      placeholder="Dustin.porier@gmail.com"
+      label="Email (Can't Be Changed)"
+      placeholder="email@example.com"
       bind:value={email}
     />
     <p class="error-msg" class:show={error && email}>
