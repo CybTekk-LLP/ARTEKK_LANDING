@@ -15,46 +15,6 @@
         (description =
           "Immerse yourself in a world where trying on footwear is as easy as a flick of the wrist.");
       break;
-    case "furniture":
-      (title = "Step into Virtual Fashion Reality"),
-        (description =
-          "Immerse yourself in a world where trying on furniture is as easy as a flick of the wrist.");
-      break;
-    case "cap":
-      (title = "Step into Virtual Fashion Reality"),
-        (description =
-          "Immerse yourself in a world where trying on cap is as easy as a flick of the wrist.");
-      break;
-    case "jwellery":
-      (title = "Step into Virtual Fashion Reality"),
-        (description =
-          "Immerse yourself in a world where trying on jwellery is as easy as a flick of the wrist.");
-      break;
-    case "newspaper":
-      (title = "Step into Virtual Fashion Reality"),
-        (description =
-          "Immerse yourself in a world where trying on newspaper is as easy as a flick of the wrist.");
-      break;
-    case "watches":
-      (title = "Step into Virtual Fashion Reality"),
-        (description =
-          "Immerse yourself in a world where trying on watches is as easy as a flick of the wrist.");
-      break;
-    case "billboard":
-      (title = "Step into Virtual Fashion Reality"),
-        (description =
-          "Immerse yourself in a world where trying on billboard is as easy as a flick of the wrist.");
-      break;
-    case "makeup":
-      (title = "Step into Virtual Fashion Reality"),
-        (description =
-          "Immerse yourself in a world where trying on Make up is as easy as a flick of the wrist.");
-      break;
-    case "cars":
-      (title = "Step into Virtual Fashion Reality"),
-        (description =
-          "Immerse yourself in a world where trying on cars is as easy as a flick of the wrist.");
-      break;
     default:
       (title = "Step into Virtual Fashion Reality"),
         (description =
