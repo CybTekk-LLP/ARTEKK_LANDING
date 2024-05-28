@@ -4,6 +4,7 @@
 
 <iframe
     src={`https://cybtekk-llp.github.io/ARTEKK/pages/getting-started.html?load=${query}`}
+    allow="camera;accelerometer;gyroscope;xr-spatial-tracking"
     title={query}
     frameborder="0"
 ></iframe>
