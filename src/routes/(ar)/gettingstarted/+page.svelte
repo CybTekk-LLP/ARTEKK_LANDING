@@ -8,14 +8,14 @@
 
   $: switch (query) {
     case "clothing":
-      (title = "Step into Virtual Fashion Reality"),
+      (title = "Virtual Wardrobe: Fashion at Fingertips"),
         (description =
-          "Immerse yourself in a world where trying on clothes is as easy as a flick of the wrist.");
+          "Step into style's new dimension with 3D garments and shop virtually!");
       break;
     case "footwear":
-      (title = "Step into Virtual Fashion Reality"),
+      (title = "Footwear Scan: Step into Virtual Shoe Reality"),
         (description =
-          "Immerse yourself in a world where trying on footwear is as easy as a flick of the wrist.");
+          "Experience the ease of trying on shoes virtually with our 3D feature, making shopping a breeze.");
       break;
     default:
       (title = "Step into Virtual Fashion Reality"),
