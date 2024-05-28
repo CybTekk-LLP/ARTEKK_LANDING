@@ -1,4 +1,5 @@
 <script lang="ts">
+  // @ts-ignore
   import { goto } from "$app/navigation";
   import { Modal, PricingCard } from "$lib/project";
   import { Button, InputCheckbox, Typography } from "$lib/ui";
@@ -7,7 +8,7 @@
   let heading: string;
   let pluginsValue: any;
   let value: any;
-  let buttonType: "primary" | "secondary";
+  // let buttonType: "primary" | "secondary";
   let content = [
     {
       imgSrc: "./images/Collections/Shoes.webp",
@@ -93,7 +94,7 @@
     </div>
   </div>
   <div class="plan-box">
-    <Typography type="cardTitle">Buy Individual Plans (₹2Lakhs each)</Typography
+    <Typography type="cardTitle">Buy Plans A-La-Carte  (₹2Lakhs each)</Typography
     >
     <div class="plan-option">
       <InputCheckbox {content} bind:value />
