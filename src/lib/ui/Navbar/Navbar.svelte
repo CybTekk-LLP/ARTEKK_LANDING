@@ -71,6 +71,14 @@
           >
         </li>
       {/each}
+      {#if isSignedIn}
+        <li>
+          <a href="/profile" on:click={() => (isOpen = false)}
+            ><Typography type="impact" _fontweight="400">{"Profile"}</Typography
+            ></a
+          >
+        </li>
+      {/if}
     </ul>
   </div>
 {/if}
