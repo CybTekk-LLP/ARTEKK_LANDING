@@ -103,7 +103,26 @@
 
       & > li {
         & > a {
+          position: relative;
+          display: inline-block;
+          padding: 0px 5px;
           text-decoration: none;
+        }
+
+        a:after {
+          position: absolute;
+          left: 0px;
+          background-color: var(--primary-900);
+          content: "";
+          display: block;
+          height: 0.1em;
+          margin-top: 0.2em;
+          transition: width 0.5s;
+          width: 0;
+        }
+
+        a:hover:after {
+          width: 100%;
         }
       }
     }
