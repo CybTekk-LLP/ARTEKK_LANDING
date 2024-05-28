@@ -37,11 +37,13 @@
       </li>
     {/each}
   </ul>
-  <div aria-hidden="true" />
-  {#if isSignedIn}
+
+  {#if true}
     <a href="/profile" class="user-avatar">
       <ProfilePic isSmall={true} bind:userName />
     </a>
+  {:else}
+    <div aria-hidden="true" />
   {/if}
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <!-- svelte-ignore a11y-no-static-element-interactions -->
