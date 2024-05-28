@@ -85,6 +85,8 @@
 
 <style lang="scss">
   nav {
+    inline-size: 100%;
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -92,9 +94,15 @@
     padding-inline: 30px;
     padding-block: 20px;
     margin-block-end: 2rem;
+    background-color: var(--secondary-900);
+    z-index: 4;
     & > a {
       & > .logo {
         position: relative;
+        inset-block-start: 0;
+        inset-inline-start: 0;
+        translate: 0 10px;
+        inline-size: 50px;
         z-index: 3;
       }
     }

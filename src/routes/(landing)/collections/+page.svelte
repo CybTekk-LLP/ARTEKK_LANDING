@@ -39,11 +39,12 @@
       cardHeading: "Makeup",
       imgSrc: "./images/Collections/Makeup.webp",
     },
-    { cardHeading: "Glasses", imgSrc: "./images/Collections/Glasses.webp" }
+    { cardHeading: "Glasses", imgSrc: "./images/Collections/Glasses.webp" },
   ];
 </script>
 
 <main>
+  <br /><br /><br /><br />
   <Typography type="cardTitle">Collections</Typography>
   <br />
   <div class="plugin-cards">

@@ -57,11 +57,12 @@
     {
       imgSrc: "./images/Collections/Glasses.webp",
       title: "Glasses",
-    }
+    },
   ];
 </script>
 
 <main>
+  <br /><br /><br /><br />
   <div class="pricing-box">
     <Typography type="cardTitle">Plans and Pricing</Typography>
     <div class="pricing-list">
@@ -98,7 +99,7 @@
     </div>
   </div>
   <div class="plan-box">
-    <Typography type="cardTitle">Buy Plans A-La-Carte  (₹2Lakhs each)</Typography
+    <Typography type="cardTitle">Buy Plans A-La-Carte (₹2Lakhs each)</Typography
     >
     <div class="plan-option">
       <InputCheckbox {content} bind:value />
