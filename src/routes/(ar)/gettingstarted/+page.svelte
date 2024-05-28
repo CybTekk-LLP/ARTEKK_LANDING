@@ -42,7 +42,7 @@
     <div class="btn">
       <Button
         type="primary"
-        buttonLabel="GET STARTED"
+        buttonLabel="Get Started"
         onClick={() => navigateToCamera()}
       />
     </div>
@@ -70,7 +70,7 @@
     }
     & > .btn {
       margin-block-end: 5rem;
-      max-inline-size: 360px;
+      max-inline-size: 300px;
       margin-inline: auto;
       :global(button) {
         padding-inline: 100px;
