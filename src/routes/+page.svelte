@@ -1,7 +1,7 @@
 <script lang="ts">
   import { FeatureCard } from "$lib/project";
   import { onMount } from "svelte";
-  import { Navbar, Typography } from "$lib/ui";
+  import { Navbar, Typography, Button } from "$lib/ui";
 
   let isOpen = false;
   let year = new Date().getFullYear();
@@ -76,7 +76,13 @@
             dimensions of creativity with our cutting-edge AR solutions.
           </Typography>
         </p>
-        <button class="getstarted">Get Started</button>
+        <div class="btn">
+          <Button
+            type="primary"
+            buttonLabel="Get Started"
+            onClick={() => alert("asdf")}
+          />
+        </div>
       </div>
       <br />
       <div class="section-image">
@@ -168,30 +174,15 @@
             margin-block: 3rem;
           }
 
-          & > button {
-            position: relative;
-            overflow: hidden;
-            transition: background 400ms;
-            color: #fff;
-            background-color: #6200ee;
-            background-image: linear-gradient(to right, #0a0030, #2a002e);
-            padding: 1rem 60px;
-            font-family: "Space Grotesk", sans-serif;
-            font-size: 1.5rem;
-            outline: 0;
-            border: 0;
-            border-radius: 0.25rem;
-            box-shadow:
-              1px 1px 2px 0px #000,
-              0px 6px 12px 0px #000,
-              0px 1px 2px 0px rgba(255, 255, 255, 0.1) inset,
-              0px 6px 12px 0px rgba(255, 255, 255, 0.24) inset;
-            cursor: pointer;
-            white-space: nowrap;
-            text-align: center;
-            margin-block-end: 3rem;
-            max-inline-size: 90vw;
-            margin-inline: auto;
+          & > .btn {
+            margin-block-end: 5rem;
+            :global(button) {
+              padding-inline: 70px;
+              padding-block: 20px;
+              :global(.typography) {
+                font-size: 1.5rem;
+              }
+            }
           }
         }
 
