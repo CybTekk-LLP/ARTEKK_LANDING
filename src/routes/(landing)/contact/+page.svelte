@@ -26,7 +26,6 @@
 </script>
 
 <main class="sales">
-  <br /><br /><br /><br />
   <Typography type="cardTitle">Contact Sales</Typography>
   <form>
     <InputText

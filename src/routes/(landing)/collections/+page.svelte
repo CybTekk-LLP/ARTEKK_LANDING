@@ -44,7 +44,6 @@
 </script>
 
 <main>
-  <br /><br /><br /><br />
   <Typography type="cardTitle">Collections</Typography>
   <br />
   <div class="plugin-cards">

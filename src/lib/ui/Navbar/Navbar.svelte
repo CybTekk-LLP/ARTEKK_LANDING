@@ -93,7 +93,6 @@
     gap: 50px;
     padding-inline: 30px;
     padding-block: 20px;
-    margin-block-end: 2rem;
     background-color: var(--secondary-900);
     z-index: 4;
     & > a {

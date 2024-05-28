@@ -20,7 +20,6 @@
 </script>
 
 <main>
-  <br /><br /><br /><br />
   <div class="about-cards">
     {#each aboutContent as content}
       <AboutCard heading={content.heading} description={content.description} />

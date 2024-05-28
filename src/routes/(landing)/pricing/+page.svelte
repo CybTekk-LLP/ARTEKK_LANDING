@@ -62,7 +62,6 @@
 </script>
 
 <main>
-  <br /><br /><br /><br />
   <div class="pricing-box">
     <Typography type="cardTitle">Plans and Pricing</Typography>
     <div class="pricing-list">

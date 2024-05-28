@@ -1,5 +1,6 @@
 <script lang="ts">
   import { capturePhoto } from "$lib/utils/capturePhoto";
+  import { captureVideo } from "$lib/utils/captureVideo";
   import { bootstrapCameraKit } from "@snap/camera-kit";
   import { onMount } from "svelte";
 
@@ -29,6 +30,7 @@
 
   onMount(() => {
     capturePhoto();
+    captureVideo();
   });
 </script>
 

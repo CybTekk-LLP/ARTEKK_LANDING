@@ -50,7 +50,6 @@
 </script>
 
 <main>
-  <br /><br /><br /><br />
   <FAQ {content} />
 </main>
 
