@@ -93,8 +93,10 @@
     gap: 50px;
     padding-inline: 30px;
     padding-block: 20px;
-    background-color: var(--secondary-900);
+    background-color: #00000065;
     z-index: 4;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
     & > a {
       & > .logo {
         position: relative;
