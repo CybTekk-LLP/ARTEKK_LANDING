@@ -22,7 +22,7 @@ export const capturePhoto = () => {
   });
 };
 
-const drawOnCanvasAndSavePhoto = async (isMirrored = false) => {
+const drawOnCanvasAndSavePhoto = async () => {
   const canvas = document.getElementById("stream") as HTMLCanvasElement;
 
   const flashElement = document.createElement("div");
