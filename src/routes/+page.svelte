@@ -2,6 +2,7 @@
   import { FeatureCard } from "$lib/project";
   import { onMount } from "svelte";
   import { Navbar, Typography, Button } from "$lib/ui";
+  // @ts-ignore
   import { goto } from "$app/navigation";
 
   let isOpen = false;
@@ -114,6 +115,7 @@
         description="Explore our 3D watch feature and find the perfect timepiece that suits your style!"
         img="./images/FeatureCard/watches.webp"
         isAnimated={animationData[0]}
+        onClick={()=> goto("/view?load=watches")}
       />
     </section>
     <section class="feature-card-section" data-label="shoes">
@@ -123,6 +125,7 @@
         description="Experience the ease of trying on shoes virtually with our 3D feature, making shopping a breeze."
         img="./images/FeatureCard/footwear.webp"
         isAnimated={animationData[1]}
+        onClick={()=> goto("/view?load=footwear")}
       />
     </section>
     <section class="feature-card-section" data-label="jewellery">
@@ -132,6 +135,7 @@
         description="Choosing the best jewellery for you was never so easy! Make your online shopping a one-click tap! Adorn yourself with digital elegance – 3D jewellery!"
         img="./images/FeatureCard/jwellery.webp"
         isAnimated={animationData[2]}
+        onClick={()=> goto("/view?load=jewellery")}
       />
     </section>
     <section class="feature-card-section" data-label="cars">
@@ -141,6 +145,7 @@
         description="Drive into the virtual fast lane – 3D cars that put you in the driver's seat of innovation!"
         img="./images/FeatureCard/cars.webp"
         isAnimated={animationData[3]}
+        onClick={()=> goto("/view?load=cars")}
       />
     </section>
   </section>

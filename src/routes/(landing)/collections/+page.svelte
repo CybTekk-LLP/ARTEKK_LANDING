@@ -1,22 +1,27 @@
 <script lang="ts">
   import { Typography } from "$lib/ui/";
   import { PluginCard } from "$lib/project";
-  export let onClick = () => {};
+  // @ts-ignore
+  import { goto } from "$app/navigation";
+
+  export let onClick = (cardHeading: string) => {
+    goto("/view?load=" + cardHeading.toLowerCase());
+  };
   export let pluginContent = [
     { cardHeading: "Furniture", imgSrc: "./images/Collections/Furniture.webp" },
-    { cardHeading: "Shoes", imgSrc: "./images/Collections/Shoes.webp" },
-    { cardHeading: "Clothes", imgSrc: "./images/Collections/Clothes.webp" },
-    { cardHeading: "Watch", imgSrc: "./images/Collections/Watch.webp" },
+    { cardHeading: "Footwear", imgSrc: "./images/Collections/Shoes.webp" },
+    { cardHeading: "Clothing", imgSrc: "./images/Collections/Clothes.webp" },
+    { cardHeading: "Watches", imgSrc: "./images/Collections/Watch.webp" },
     { cardHeading: "Gloves", imgSrc: "./images/Collections/Gloves.webp" },
     { cardHeading: "Jewellery", imgSrc: "./images/Collections/Jewellery.webp" },
-    { cardHeading: "Caps", imgSrc: "./images/Collections/Caps.webp" },
+    { cardHeading: "Cap", imgSrc: "./images/Collections/Caps.webp" },
     { cardHeading: "Cars", imgSrc: "./images/Collections/Cars.webp" },
     {
-      cardHeading: "Newspapers",
+      cardHeading: "Newspaper",
       imgSrc: "./images/Collections/Newspapers.webp",
     },
     {
-      cardHeading: "Billboards",
+      cardHeading: "Billboard",
       imgSrc: "./images/Collections/Billboards.webp",
     },
     {
@@ -36,7 +41,7 @@
         cardHeading={content.cardHeading}
         imgSrc={content.imgSrc}
         buttonLabel="View in AR"
-        clickHandler={onClick}><br /></PluginCard
+        clickHandler={() => onClick(content.cardHeading)}><br /></PluginCard
       >
     {/each}
   </div>
