@@ -31,7 +31,7 @@
       });
     };
   });
-  $: isSignedIn = false;
+  $: isSignedIn = true;
   $: userName = "Dustin Porier";
   $: switch (currentSection) {
     case "makeup":
