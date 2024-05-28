@@ -44,9 +44,6 @@
     <div class="header">
       <img src="/images/Logo/Logo.svg" alt="" />
       <Typography type="cardTitle">Sign Up</Typography>
-      <Typography type="caption" _fontweight="400"
-        >Enter your details to sign up</Typography
-      >
     </div>
     <br />
 
@@ -54,7 +51,7 @@
       <Button
         iconSrc="/images/SignUp/Google.svg"
         type="secondary"
-        buttonLabel="Login with google"
+        buttonLabel="Continue with google"
         onClick={() => alert("google")}
       />
     </div>
@@ -135,8 +132,8 @@
     <br />
     <Button
       type="primary"
-      buttonLabel="SignUp"
-      onClick={() => alert("sign un")}
+      buttonLabel="Sign Up"
+      onClick={() => alert("sign up")}
     />
     <br />
 
@@ -162,8 +159,7 @@
       padding-block: 40px;
       border-radius: 16px;
       & > .btn {
-        max-inline-size: 250px;
-        inline-size: 90vw;
+        inline-size: 100%;
         margin-inline: auto;
       }
       & > .header {

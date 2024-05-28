@@ -18,14 +18,13 @@
       <br />
       <Typography type="cardTitle">Sign In</Typography>
       <br />
-      <Typography>Enter your details to sign in</Typography>
     </div>
     <br />
     <div class="btn">
       <Button
         type="secondary"
         iconSrc="/images/SignIn/Google.svg"
-        buttonLabel="Log in with google"
+        buttonLabel="Continue with Google"
         onClick={() => alert("sdfskdn")}
       />
     </div>
@@ -64,7 +63,7 @@
     <br />
     <Button
       type="primary"
-      buttonLabel="SignIn"
+      buttonLabel="Sign In"
       onClick={() => alert("sign in")}
     />
     <br />
@@ -93,8 +92,7 @@
         text-align: center;
       }
       & > .btn {
-        max-inline-size: 250px;
-        inline-size: 90vw;
+        inline-size: 100%;
         margin-inline: auto;
       }
 

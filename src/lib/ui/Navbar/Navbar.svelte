@@ -157,6 +157,7 @@
       transition: 0.5s ease-in-out;
       cursor: pointer;
       z-index: 4;
+
       @media screen and (width <= 1020px) {
         display: block;
       }

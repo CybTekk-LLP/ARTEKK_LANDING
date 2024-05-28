@@ -131,7 +131,7 @@
         description="Discover your perfect pair of Glasses instantly with our virtual technique. Style made simple!"
         img="./images/FeatureCard/Glasses.webp"
         isAnimated={animationData[1]}
-        onClick={() => goto("/gettingstarted?load=glasses")}
+        onClick={() => goto("/view?load=glasses")}
       />
     </section>
     <section class="feature-card-section" data-label="jewellery">
