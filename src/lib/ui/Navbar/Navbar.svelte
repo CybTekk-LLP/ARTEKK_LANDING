@@ -143,11 +143,12 @@
       }
     }
     & > .nav-icon {
-      position: relative;
+      position: fixed;
+      inset-inline-end: 35px;
+      inset-block-start: 50px;
       display: none;
       inline-size: 30px;
       block-size: 20px;
-      position: relative;
       rotate: 0deg;
       transform-origin: center center;
       -webkit-transition: 0.5s ease-in-out;
@@ -197,7 +198,7 @@
 
   .ham-menu {
     display: block;
-    position: absolute;
+    position: fixed;
     inset-inline-end: 0;
     inset-block-start: 0;
     inline-size: 30vw;
