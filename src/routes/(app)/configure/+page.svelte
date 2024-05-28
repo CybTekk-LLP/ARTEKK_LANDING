@@ -129,7 +129,6 @@
         <br />
       {/each}
     {:else}
-      <br />
       <Button
         type="secondary"
         buttonLabel="Add a new domain"
