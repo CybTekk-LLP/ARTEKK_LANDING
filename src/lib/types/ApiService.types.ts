@@ -11,7 +11,7 @@ export interface ISingleUser {
   accessToken?: string;
 }
 export interface ISingleDetailedUser {
-  id: string;
+  id: number;
   email: string;
   name?: string;
   phoneNumber?: string;
