@@ -1,8 +1,6 @@
 <script lang="ts">
   import { ProfilePic } from "$lib/project";
-  import { InputText } from "$lib/ui";
-  import Button from "$lib/ui/Button/Button.svelte";
-  import Typography from "$lib/ui/Typography/Typography.svelte";
+  import { InputText, Button, Typography } from "$lib/ui";
 
   const emailRegex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -55,6 +53,14 @@
     & > .heading {
       text-align: center;
       margin-block-end: 80px;
+    }
+
+    & > .tabs {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-block-end: 3rem;
     }
     & > form {
       inline-size: 90vw;
