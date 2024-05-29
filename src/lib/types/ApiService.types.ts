@@ -31,7 +31,7 @@ export interface ICreateProject {
   user: number;
 }
 export interface ISingleProject {
-  id: string;
+  id: number;
   status: "inactive" | "active";
   name: string;
   apiKey?: string;
