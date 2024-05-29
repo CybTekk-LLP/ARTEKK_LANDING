@@ -14,6 +14,7 @@
   const lowerCaseRegex = /(.*[a-z].*)/;
   const digitRegex = /(.*\d.*)/;
   const eightCharacterRegex = /.{8,}/;
+
   $: validatePassword = () => {
     passwordError = false;
     confrimPassword = false;
