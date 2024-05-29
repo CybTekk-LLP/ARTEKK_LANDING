@@ -11,11 +11,12 @@ export default defineConfig({
   server: {
     proxy: {},
   },
-  plugins: [basicSsl(), sveltekit()],
-  //   server: {
-  //     https: {
-  //       key: resolve(__dirname, "localhost+1-key.pem"),
-  //       cert: resolve(__dirname, "localhost+1.pem"),
-  //     },
+  plugins: [sveltekit()],
+  // server: {
+  //   https: {
+  //     key: resolve(__dirname, "localhost+1-key.pem"),
+  //     cert: resolve(__dirname, "localhost+1.pem"),
   //   },
+  // },
 });
+// basicSsl(),

@@ -1,5 +1,6 @@
 <script lang="ts">
   import { AboutCard } from "$lib/project";
+
   let aboutContent = [
     {
       heading: "Who We Are",
