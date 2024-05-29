@@ -56,7 +56,7 @@ export interface ICreateContact {
   plans?: string;
 }
 export interface ISingleContact {
-  id: string;
+  id: number;
   name: string;
   email: string;
   companyName: string;
