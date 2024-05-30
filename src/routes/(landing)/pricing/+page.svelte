@@ -67,7 +67,7 @@
     <div class="pricing-list">
       <PricingCard
         planLabel="Builder"
-        amount="₹4Lakhs/year"
+        amount="4999$/year"
         descriptions={[
           "Place any number of 3d models into the real space.",
           "Gives the best quality AR experience for real time object placement",
@@ -82,7 +82,7 @@
       />
       <PricingCard
         planLabel="Custom"
-        amount="₹9Lakhs/year"
+        amount="10999$/year"
         descriptions={[
           "Get full access to all the AR models.",
           "fully customizable as per your needs",
