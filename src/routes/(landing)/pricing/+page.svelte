@@ -98,8 +98,7 @@
     </div>
   </div>
   <div class="plan-box">
-    <Typography type="cardTitle">Buy Plans A-La-Carte (₹2Lakhs each)</Typography
-    >
+    <Typography type="cardTitle">Buy Plans A-La-Carte (2500$ each)</Typography>
     <div class="plan-option">
       <InputCheckbox {content} bind:value />
     </div>
