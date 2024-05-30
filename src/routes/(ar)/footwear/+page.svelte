@@ -8,7 +8,7 @@
     (async function () {
       const cameraKit = await bootstrapCameraKit({
         apiToken:
-          "eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNzEzODAzNTY4LCJzdWIiOiIwZjBjYWY5Mi1hYjMyLTQyZWEtYjgwZC05ZDQ5N2VlOTYwMTV-U1RBR0lOR35kOTBiZGJkMS03MzU0LTRjNTYtYTYwMi1jMGEyMjJlNmJmYmYifQ.uDZfZL0qjbTggO8K1KWGLmIgYSc_n9A6fgC5-8zD0QQ",
+          "eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNzEzMDk2NDUwLCJzdWIiOiIwMDM2ZDg0NS01ZmEzLTQ3YmYtOTI5Ny1kYzg2YzAwMjdkYzB-UFJPRFVDVElPTn45YzI2YmNjMy03NzE2LTRkMzQtODE3My0wNmY3MDk3NDE1MjgifQ.eFrh4Ib7eSBWGxoVOu4I55s8NsoLH3hVh_KqQNUnaxA",
       });
       const liveRenderTarget = document.getElementById(
         "stream",
@@ -23,7 +23,7 @@
       await session.play();
 
       const lens = await cameraKit.lensRepository.loadLens(
-        "1e54efe7-148c-4f74-a032-da5b3adef95b",
+        "324ffc1d-1407-45ce-b2c5-1fad38de7d18",
         "88100c29-c3e6-4deb-bce0-35e91383790e",
       );
       await session.applyLens(lens);
@@ -57,12 +57,7 @@
         <input type="radio" id="gradient4" name="filters" value="gradient4" />
         <label for="gradient4" class="lens"></label>
       </div>
-      <img
-        class="cancel"
-        src=""
-        alt=""
-        height="20px"
-      />
+      <img class="cancel" src="" alt="" height="20px" />
     </div>
     <div class="capture-button" role="button" tabindex="0">
       <svg
