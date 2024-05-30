@@ -4,10 +4,12 @@
   import { bootstrapCameraKit } from "@snap/camera-kit";
   import { onMount } from "svelte";
 
-  (async function () {
+ 
+  onMount(() => {
+    (async function () {
     const cameraKit = await bootstrapCameraKit({
       apiToken:
-        "eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNzEzMDk2NDUwLCJzdWIiOiIwMDM2ZDg0NS01ZmEzLTQ3YmYtOTI5Ny1kYzg2YzAwMjdkYzB-UFJPRFVDVElPTn45YzI2YmNjMy03NzE2LTRkMzQtODE3My0wNmY3MDk3NDE1MjgifQ.eFrh4Ib7eSBWGxoVOu4I55s8NsoLH3hVh_KqQNUnaxA",
+        "eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNzEzMDk2NDUwLCJzdWIiOiIwMDM2ZDg0NS01ZmEzLTQ3YmYtOTI5Ny1kYzg2YzAwMjdkYzB-U1RBR0lOR35jNDEwODlhZC1hNWFjLTQyNmEtOTlmYy04MzUzY2UxY2ViNmEifQ.f_-wJbSAKSppVisqmQszxuMuruvLfpkfMDFZU6YHcn0",
     });
     const liveRenderTarget = document.getElementById(
       "stream"
@@ -28,7 +30,6 @@
     );
     await session.applyLens(lens);
   })();
-  onMount(() => {
     capturePhoto();
     captureVideo();
   });
@@ -60,7 +61,7 @@
       </div>
       <img
         class="cancel"
-        src="../assets/camera/cancel.svg"
+        src=""
         alt=""
         height="20px"
       />
