@@ -1,33 +1,33 @@
-<script context="module" lang="ts">
+<script lang="ts">
   import { capturePhoto } from "$lib/utils/capturePhoto";
   import { captureVideo } from "$lib/utils/captureVideo";
   import { bootstrapCameraKit } from "@snap/camera-kit";
   import { onMount } from "svelte";
 
-  onMount(async () => {
-    const cameraKit = await bootstrapCameraKit({
-      apiToken:
-        "eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNzEzMDk2NDUwLCJzdWIiOiIwMDM2ZDg0NS01ZmEzLTQ3YmYtOTI5Ny1kYzg2YzAwMjdkYzB-U1RBR0lOR35jNDEwODlhZC1hNWFjLTQyNmEtOTlmYy04MzUzY2UxY2ViNmEifQ.f_-wJbSAKSppVisqmQszxuMuruvLfpkfMDFZU6YHcn0",
-    });
-    const liveRenderTarget = document.getElementById(
-      "stream",
-    ) as HTMLCanvasElement;
-    const session = await cameraKit.createSession({ liveRenderTarget });
+  onMount(() => {
+    (async function () {
+      const cameraKit = await bootstrapCameraKit({
+        apiToken:
+          "eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNzEzODAzNTY4LCJzdWIiOiIwZjBjYWY5Mi1hYjMyLTQyZWEtYjgwZC05ZDQ5N2VlOTYwMTV-U1RBR0lOR35kOTBiZGJkMS03MzU0LTRjNTYtYTYwMi1jMGEyMjJlNmJmYmYifQ.uDZfZL0qjbTggO8K1KWGLmIgYSc_n9A6fgC5-8zD0QQ",
+      });
+      const liveRenderTarget = document.getElementById(
+        "stream",
+      ) as HTMLCanvasElement;
+      const session = await cameraKit.createSession({ liveRenderTarget });
+      const mediaStream = await navigator.mediaDevices.getUserMedia({
+        video: {
+          facingMode: { exact: "environment" },
+        },
+      });
+      await session.setSource(mediaStream);
+      await session.play();
 
-    const mediaStream = await navigator.mediaDevices.getUserMedia({
-      video: {
-        facingMode: { exact: "environment" },
-      },
-    });
-    await session.setSource(mediaStream);
-    await session.play();
-
-    const lens = await cameraKit.lensRepository.loadLens(
-      "324ffc1d-1407-45ce-b2c5-1fad38de7d18",
-      "88100c29-c3e6-4deb-bce0-35e91383790e",
-    );
-    await session.applyLens(lens);
-
+      const lens = await cameraKit.lensRepository.loadLens(
+        "1e54efe7-148c-4f74-a032-da5b3adef95b",
+        "88100c29-c3e6-4deb-bce0-35e91383790e",
+      );
+      await session.applyLens(lens);
+    })();
     capturePhoto();
     captureVideo();
   });
@@ -57,7 +57,12 @@
         <input type="radio" id="gradient4" name="filters" value="gradient4" />
         <label for="gradient4" class="lens"></label>
       </div>
-      <img class="cancel" src="" alt="" height="20px" />
+      <img
+        class="cancel"
+        src=""
+        alt=""
+        height="20px"
+      />
     </div>
     <div class="capture-button" role="button" tabindex="0">
       <svg
@@ -392,22 +397,6 @@
     100% {
       scale: 1;
     }
-  }
-
-  .record {
-    display: block;
-    position: fixed;
-    inset-block-start: 10px;
-    inset-inline-start: 50%;
-    translate: -50% 0;
-    background-color: red;
-    min-inline-size: 9.5ch;
-    text-align: start;
-    padding: 10px;
-    color: white;
-    font-kerning: none;
-    letter-spacing: 0.1rem;
-    border-radius: 30px;
   }
 
   /* Filter lens effect on video (does not retain for camera pics or recordings for now */
