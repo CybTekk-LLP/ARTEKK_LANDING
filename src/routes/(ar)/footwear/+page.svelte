@@ -4,6 +4,8 @@
   import { bootstrapCameraKit } from "@snap/camera-kit";
   import { onMount } from "svelte";
 
+  let src = new URL(window.location.href).searchParams.get("brand");
+
   onMount(() => {
     (async function () {
       const cameraKit = await bootstrapCameraKit({
@@ -32,6 +34,13 @@
     captureVideo();
   });
 </script>
+
+{#if src}
+  <div
+    class="brand"
+    style:background-image={`url(/images/Company/${src})`}
+  ></div>
+{/if}
 
 <section id="camera-section">
   <canvas id="stream" data-lens="none"></canvas>
@@ -438,5 +447,18 @@
       rgba(255, 255, 0, 0.215),
       rgba(255, 255, 255, 0.436)
     );
+  }
+  .brand {
+    position: fixed;
+    display: block;
+    inline-size: 200px;
+    block-size: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-color: var(--primary-900);
+    border-radius: 20px;
+    inset-block-start: 20px;
+    inset-inline-start: 20px;
   }
 </style>
