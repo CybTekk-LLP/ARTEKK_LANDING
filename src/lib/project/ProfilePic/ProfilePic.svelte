@@ -4,22 +4,22 @@
 
   export let userName = "";
   export let isSmall: boolean | undefined = false;
+
+  $: svgURI =
+    "data:image/svg+xml;utf8," + encodeURIComponent(minidenticon(userName));
 </script>
 
-<minidenticon-svg class:smallIcon={isSmall} class="avatar" username={userName}
-></minidenticon-svg>
+<img src={svgURI} alt={userName} class:smallIcon={isSmall} />
 
 <style lang="scss">
-  :global(minidenticon-svg svg) {
+  img {
     border-radius: 50%;
     background-color: grey;
     height: 100px;
     width: 100px;
   }
   .smallIcon {
-    :global(svg) {
-      height: 30px;
-      width: 30px;
-    }
+    height: 30px;
+    width: 30px;
   }
 </style>
