@@ -7,7 +7,6 @@
   const hideChatbox = () => {
     openChatbox = false;
   };
-  $: console.log(openChatbox);
 </script>
 
 <button
@@ -40,7 +39,6 @@
 <style lang="scss">
   .chatbox-icon {
     background-color: var(--card-background);
-    background-color: antiquewhite;
     padding-inline: 10px;
     padding-block-start: 10px;
     padding-block-end: 5px;
@@ -58,14 +56,15 @@
 
   .chatbox {
     block-size: 852px;
-    inline-size: 393px;
+    max-block-size: 70vh;
+    inline-size: 400px;
+    max-inline-size: 90%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     border: 1px solid var(--primary-900);
     border-radius: 10px;
     padding: 10px;
-    margin-inline: 15px;
     position: absolute;
     inset-block-end: 0;
     inset-inline-end: 0;
@@ -75,7 +74,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-inline: 10px;
+      gap: 5px;
       padding-block: 8px;
     }
     & > .message-box {
