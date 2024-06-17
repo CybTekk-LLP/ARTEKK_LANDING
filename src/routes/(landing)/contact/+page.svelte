@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from "$app/stores";
+  import * as apiService from "$lib/services/api.service";
   import {
     Button,
     InputText,
@@ -92,7 +93,20 @@
       placeholder="Please write the exact requirements needed for your project."
     />
     <br /><br />
-    <Button type="primary" buttonLabel="Send a message" onClick={() => null} />
+    <Button
+      type="primary"
+      buttonLabel="Send a message"
+      onClick={() =>
+        apiService.createNewContact({
+          name: name,
+          email: email,
+          companyName: company,
+          remarks: comment,
+          amount: budget.toString(),
+          isNegotiable: negotiationStatus,
+          plans: query,
+        })}
+    />
   </form>
 </main>
 
