@@ -87,36 +87,47 @@
           <Button
             type="primary"
             buttonLabel="Get Started"
-            onClick={() => goto("/pricing")}
+            onClick={() => goto("/collections")}
           />
         </div>
       </div>
       <br />
       <div class="section-image">
+        <!-- svelte-ignore a11y-no-noninteractive-element-to-interactive-role -->
         <img
           class="banner"
           height="756px"
           src="/images/Home/BannerOne.webp"
           alt="Banner"
+          tabindex="0"
+          role="button"
+          on:click={() => goto("/gettingstarted?load=clothing")}
+          on:keydown={() => null}
         />
+        <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
         <img
           class="banner"
           height="756px"
           src="/images/Home/BannerTwo.webp"
           alt="Banner"
+          on:click={() => goto("/view?load=furniture")}
+          on:keydown={() => null}
         />
+        <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
         <img
           class="banner"
           height="756px"
           src="/images/Home/BannerThree.webp"
-          alt="Banner"
+          alt="Footwear AR Banner"
+          on:click={() => goto("/gettingstarted?load=footwear")}
+          on:keydown={() => null}
         />
       </div>
     </section>
     <section class="feature-card-section" data-label="makeup">
       <FeatureCard
         direction="left"
-        heading="Virtual Makeup Magic Awaits!"
+        heading="Virtual Cosmetics Magic Awaits!"
         description="Transform your look instantly with our virtual try-on.
         All the Girlies! It's time to Glam up with just a click!
        "
