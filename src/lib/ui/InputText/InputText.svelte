@@ -11,7 +11,7 @@
   export let readonly: boolean | undefined = undefined;
   export let uniqueId = "inputText" + Math.random().toString().split(".")[1];
   export let autocomplete = "";
-  export let onKeyDown: () => void;
+  export let onKeyDown: () => void = () => null;
   const handleInput = (inputField: HTMLInputElement) => {
     if (inputField.value) {
       inputField.checkValidity() && inputField.reportValidity();

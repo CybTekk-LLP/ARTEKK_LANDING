@@ -66,16 +66,18 @@
     border: none;
     border-radius: 50% 50% 50% 0%;
     margin: 15px;
-    position: absolute;
+    position: fixed;
     inset-block-end: 0;
     inset-inline-end: 0;
     cursor: pointer;
+    z-index: 4;
   }
   .hideIcon {
     display: none;
   }
 
   .chatbox {
+    background-color: var(--card-background);
     block-size: 852px;
     max-block-size: 70vh;
     inline-size: 400px;
@@ -85,12 +87,13 @@
     justify-content: space-between;
     border: 1px solid var(--primary-900);
     border-radius: 10px;
-    padding: 10px;
+    padding: 15px;
     margin: 5px;
-    position: absolute;
+    position: fixed;
     inset-block-end: 0;
     inset-inline-end: 0;
     display: none;
+    z-index: 4;
 
     & > .chatbox-heading {
       display: flex;
@@ -105,6 +108,7 @@
     & > .message {
       overflow-y: scroll;
       scrollbar-width: none;
+      block-size: 100%;
     }
     & > .input-message-box {
       position: relative;
