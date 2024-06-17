@@ -1,26 +1,33 @@
 <script lang="ts">
   import InputText from "../InputText/InputText.svelte";
   import Typography from "../Typography/Typography.svelte";
-  let value: string;
+  export let value: string;
   let openChatbox: boolean | undefined = undefined;
+  export let sendMessage: () => void;
 
   const hideChatbox = () => {
     openChatbox = false;
   };
+  const handleSendMessage = () => {
+    value = "";
+    sendMessage();
+  };
 </script>
 
-<button
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
+<div
   class="chatbox-icon"
   class:hideIcon={openChatbox}
   on:click={() => (openChatbox = true)}
 >
   <img src="/images/ChatBox/ChatboxIcon.svg" alt="" />
-</button>
+</div>
 
 <div class="chatbox" class:openChatbox>
   <div class="chatbox-heading">
     <img src="/images/ChatBox/ChatboxImg.svg" alt="" />
-    <Typography>ARTEKK Chatbot</Typography>
+    <Typography type="body">ARTEKK Chatbot</Typography>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
     <img
@@ -29,10 +36,23 @@
       on:click|preventDefault={() => hideChatbox()}
     />
   </div>
-  <slot />
-  <div class="message-box">
-    <InputText variant="text" placeholder="Write a question ?" bind:value />
-    <img src="/images/ChatBox/Send.svg" alt="" />
+  <div class="message">
+    <slot />
+  </div>
+  <div class="input-message-box">
+    <InputText
+      variant="text"
+      placeholder="Write a question ?"
+      bind:value
+      onKeyDown={() => handleSendMessage()}
+    />
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+    <img
+      src="/images/ChatBox/Send.svg"
+      alt=""
+      on:click={() => handleSendMessage()}
+    />
   </div>
 </div>
 
@@ -49,6 +69,7 @@
     position: absolute;
     inset-block-end: 0;
     inset-inline-end: 0;
+    cursor: pointer;
   }
   .hideIcon {
     display: none;
@@ -65,6 +86,7 @@
     border: 1px solid var(--primary-900);
     border-radius: 10px;
     padding: 10px;
+    margin: 5px;
     position: absolute;
     inset-block-end: 0;
     inset-inline-end: 0;
@@ -76,13 +98,21 @@
       align-items: center;
       gap: 5px;
       padding-block: 8px;
+      & > img {
+        cursor: pointer;
+      }
     }
-    & > .message-box {
+    & > .message {
+      overflow-y: scroll;
+      scrollbar-width: none;
+    }
+    & > .input-message-box {
       position: relative;
       & img {
         position: absolute;
         inset-block-end: 10px;
         inset-inline-end: 10px;
+        cursor: pointer;
       }
     }
   }

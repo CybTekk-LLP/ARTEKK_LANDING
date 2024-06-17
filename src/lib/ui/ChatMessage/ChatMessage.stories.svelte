@@ -13,10 +13,20 @@
 </Template>
 
 <Story
-  name="primary"
+  name="Main"
   args={{
-    type: "primary",
-    buttonLabel: "GETTING STARTED",
-    onClick: () => alert("clicked"),
+    message:
+      "Hello, I would like to know more about the pricing plans of ARTEKK.",
+    messageTime: "9:21",
+    messageType: "",
+  }}
+/>
+<Story
+  name="User"
+  args={{
+    message:
+      "Hello, I would like to know more about the pricing plans of ARTEKK.",
+    messageTime: "9:21",
+    messageType: "user",
   }}
 />

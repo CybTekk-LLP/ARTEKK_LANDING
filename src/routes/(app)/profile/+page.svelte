@@ -1,18 +1,20 @@
 <script lang="ts">
-  import { ProfilePic } from "$lib/project";
-  import { InputText, Button, Typography } from "$lib/ui";
+  // import { ProfilePic } from "$lib/project";
+  // import { InputText, Button, Typography } from "$lib/ui";
+  import ChatBox from "$lib/ui/ChatBox/ChatBox.svelte";
+  import ChatMessage from "$lib/ui/ChatMessage/ChatMessage.svelte";
 
-  const emailRegex =
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  // const emailRegex =
+  //   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-  let email: string;
-  let name: string;
-  let error = false;
+  // let email: string;
+  // let name: string;
+  // let error = false;
 
-  $: if (email) error = !emailRegex.test(email);
+  // $: if (email) error = !emailRegex.test(email);
 </script>
 
-<main>
+<!-- <main>
   <h1 class="heading">
     <Typography type="cardTitle">Profile</Typography>
   </h1>
@@ -45,6 +47,55 @@
     <br />
     <Button type="primary" buttonLabel="SAVE CHANGES" onClick={() => null} />
   </form>
+</main> -->
+<main>
+  <ChatBox sendMessage={() => alert("l")}>
+    <ChatMessage
+      message="Hello, I would like to know more about the pricing plans of ARTEKK."
+      messageTime="9:21"
+      messageType=""
+    ></ChatMessage>
+    <ChatMessage
+      message="Hello, I would like to know more about the pricing plans of ARTEKK."
+      messageTime="9:21"
+      messageType="user"
+    ></ChatMessage>
+    <ChatMessage
+      message="Hello, I would like to know more about the pricing plans of ARTEKK."
+      messageTime="9:21"
+      messageType=""
+    ></ChatMessage>
+    <ChatMessage
+      message="Hello, I would like to know more about the pricing plans of ARTEKK."
+      messageTime="9:21"
+      messageType=""
+    ></ChatMessage>
+    <ChatMessage
+      message="Hello, I would like to know more about the pricing plans of ARTEKK."
+      messageTime="9:21"
+      messageType="user"
+    ></ChatMessage>
+    <ChatMessage
+      message="Hello, I would like to know more about the pricing plans of ARTEKK."
+      messageTime="9:21"
+      messageType=""
+    ></ChatMessage>
+    <ChatMessage
+      message="Hello, I would like to know more about the pricing plans of ARTEKK."
+      messageTime="9:21"
+      messageType=""
+    ></ChatMessage>
+    <ChatMessage
+      message="Hello, I would like to know more about the pricing plans of ARTEKK."
+      messageTime="9:21"
+      messageType="user"
+    ></ChatMessage>
+    <ChatMessage
+      message="Hello, I would like to know more about the pricing plans of ARTEKK."
+      messageTime="9:21"
+      messageType="user"
+    ></ChatMessage>
+  </ChatBox>
 </main>
 
 <style lang="scss">

@@ -12,11 +12,4 @@
   <ChatBox {...args} />
 </Template>
 
-<Story
-  name="primary"
-  args={{
-    type: "primary",
-    buttonLabel: "GETTING STARTED",
-    onClick: () => alert("clicked"),
-  }}
-/>
+<Story name="Main" args={{}} />
