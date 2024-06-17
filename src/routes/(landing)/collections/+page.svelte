@@ -14,6 +14,10 @@
         goto("/gettingstarted?load=clothing");
         break;
       }
+      case "cosmetics": {
+        goto("/view?load=makeup");
+        break;
+      }
       default:
         goto("/view?load=" + cardHeading.toLowerCase());
     }
@@ -36,7 +40,7 @@
       imgSrc: "./images/Collections/Billboards.webp",
     },
     {
-      cardHeading: "Makeup",
+      cardHeading: "Cosmetics",
       imgSrc: "./images/Collections/Makeup.webp",
     },
     { cardHeading: "Glasses", imgSrc: "./images/Collections/Glasses.webp" },

@@ -52,7 +52,7 @@
     },
     {
       imgSrc: "./images/Collections/Makeup.webp",
-      title: "Makeup",
+      title: "Cosmetics",
     },
     {
       imgSrc: "./images/Collections/Glasses.webp",
@@ -75,7 +75,7 @@
           "Only pay the difference to upgrade to custom for switching to more complex AR experiences.",
         ]}
         onClick={() => {
-          null;
+            goto(`/contact?plans=builder`);
         }}
         buttonType="primary"
         buttonLabel="Get this plan"
