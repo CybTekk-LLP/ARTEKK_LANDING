@@ -2,26 +2,23 @@
   import InputText from "../InputText/InputText.svelte";
   import Typography from "../Typography/Typography.svelte";
   let value: string;
-  let openChatbox: boolean = false;
-  let chatboxDiv: HTMLDivElement;
+  let openChatbox: boolean | undefined = undefined;
+
   const hideChatbox = () => {
-    chatboxDiv.style.display = "none";
     openChatbox = false;
   };
   $: console.log(openChatbox);
 </script>
 
-<div class="chatbox-icon" class:hideIcon={openChatbox}>
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
-  <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-  <img
-    src="/images/ChatBox/ChatboxIcon.svg"
-    alt=""
-    on:click={() => (openChatbox = true)}
-  />
-</div>
+<button
+  class="chatbox-icon"
+  class:hideIcon={openChatbox}
+  on:click={() => (openChatbox = true)}
+>
+  <img src="/images/ChatBox/ChatboxIcon.svg" alt="" />
+</button>
 
-<div class="chatbox" bind:this={chatboxDiv} class:openChatbox>
+<div class="chatbox" class:openChatbox>
   <div class="chatbox-heading">
     <img src="/images/ChatBox/ChatboxImg.svg" alt="" />
     <Typography>ARTEKK Chatbot</Typography>
@@ -48,8 +45,12 @@
     padding-block-start: 10px;
     padding-block-end: 5px;
     inline-size: max-content;
+    border: none;
     border-radius: 50% 50% 50% 0%;
-    margin: 10px;
+    margin: 15px;
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline-end: 0;
   }
   .hideIcon {
     display: none;
@@ -64,6 +65,10 @@
     border: 1px solid var(--primary-900);
     border-radius: 10px;
     padding: 10px;
+    margin-inline: 15px;
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline-end: 0;
     display: none;
 
     & > .chatbox-heading {
@@ -83,6 +88,6 @@
     }
   }
   .openChatbox {
-    display: block;
+    display: flex;
   }
 </style>
