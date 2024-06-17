@@ -2,7 +2,8 @@
     let query = new URL(window.location.href).searchParams.get("load");
     let isMakeup = false;
 
-    if (query === "makeup") {
+    let brand = new URL(window.location.href).searchParams.get("brand")
+    if (brand === "swati") {
         isMakeup = true;
     }
 </script>
