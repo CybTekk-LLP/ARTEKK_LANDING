@@ -1,7 +1,7 @@
 <script lang="ts">
   import { FeatureCard } from "$lib/project";
   import { onMount } from "svelte";
-  import { Navbar, Typography, Button } from "$lib/ui";
+  import { Navbar, Typography, Button, ChatMessage, ChatBox } from "$lib/ui";
   // @ts-ignore
   import { goto } from "$app/navigation";
 
@@ -172,6 +172,19 @@
       >Copyright © {year} ARTEKK, all rights reserved</Typography
     >
   </footer>
+
+  <ChatBox sendMessage={() => alert("l")}>
+    <ChatMessage
+      message="Hello, I would like to know more about the pricing plans of ARTEKK."
+      messageTime="9:21"
+      messageType=""
+    ></ChatMessage>
+    <ChatMessage
+      message="Hello, I would like to know more about the pricing plans of ARTEKK."
+      messageTime="9:21"
+      messageType="user"
+    ></ChatMessage>
+  </ChatBox>
 </main>
 
 <style lang="scss">
