@@ -62,14 +62,18 @@
         variant="text"
         placeholder="Write a question ?"
         bind:value
-        onKeyDown={() => handleSendMessage()}
+        onKeyDown={() => {
+          if (value) handleSendMessage();
+        }}
       />
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
       <img
         src="/images/ChatBox/Send.svg"
         alt=""
-        on:click={() => handleSendMessage()}
+        on:click={() => {
+          if (value) handleSendMessage();
+        }}
       />
     </div>
   </div>
@@ -131,6 +135,9 @@
       & > .message {
         overflow-y: scroll;
         scrollbar-width: none;
+        -webkit-scrollbar-width: none;
+        -moz-scrollbar-width: none;
+        -o-scrollbar-width: none;
         block-size: 100%;
       }
       & > .input-message-box {
