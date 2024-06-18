@@ -13,14 +13,15 @@
   const emailRegex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-  let name: string;
-  let email: string;
-  let company: string;
-  let budget: number;
-  let comment: string;
+  let name = "";
+  let email = "";
+  let company = "";
+  let budget = "";
+  let comment = "";
   let error = false;
   let negotiationStatus = false;
   let showToast: boolean | undefined = undefined;
+  let showToastTwo: boolean | undefined = undefined;
   let query = new URL($page.url.href.toString()).searchParams
     .get("plans")
     ?.split(",")
@@ -99,15 +100,20 @@
       type="primary"
       buttonLabel="Send a message"
       onClick={() => {
-        showToast = !!apiService.createNewContact({
-          name: name,
-          email: email,
-          companyName: company,
-          remarks: comment,
-          amount: budget.toString(),
-          isNegotiable: negotiationStatus,
-          plans: query,
-        });
+        try {
+          apiService.createNewContact({
+            name: name,
+            email: email,
+            companyName: company,
+            remarks: comment,
+            amount: budget.toString(),
+            isNegotiable: negotiationStatus,
+            plans: query,
+          });
+          showToast = true;
+        } catch (error) {
+          showToastTwo = true;
+        }
       }}
     />
   </form>
@@ -118,6 +124,15 @@
     content={{
       heading: "Success",
       description: "Your query have been sent successfully",
+    }}
+  />
+  <Toast
+    showToast={showToast && !(showToast = undefined)}
+    visibleTime={3000}
+    variant="failure"
+    content={{
+      heading: "Failed",
+      description: "Your query have not been sent due to some reason",
     }}
   />
 </main>
