@@ -15,3 +15,5 @@ export { default as ApexCharts } from "./ApexCharts/ApexCharts.svelte";
 export { default as SummaryCard } from "./SummaryCard/SummaryCard.svelte";
 export { default as Suggestion } from "./Suggestion/Suggestion.svelte";
 export { default as Toast } from "./Toast/Toast.svelte";
+export { default as ChatBox } from "./ChatBox/ChatBox.svelte";
+export { default as ChatMessage } from "./ChatMessage/ChatMessage.svelte";
