@@ -101,9 +101,9 @@
       type="primary"
       buttonType={isSent ? "reset" : "button"}
       buttonLabel="Send a message"
-      onClick={() => {
+      onClick={async () => {
         try {
-          apiService.createNewContact({
+          showToast = !!(await apiService.createNewContact({
             name: name,
             email: email,
             companyName: company,
@@ -111,10 +111,10 @@
             amount: budget.toString(),
             isNegotiable: negotiationStatus,
             plans: query,
-          });
-          showToast = true;
-          isSent = true;
-        } catch (error) {
+          }));
+          if (showToast) isSent = true;
+          else showToastTwo = true;
+        } catch {
           showToastTwo = true;
         }
       }}
@@ -130,7 +130,7 @@
     }}
   />
   <Toast
-    showToast={showToast && !(showToast = undefined)}
+    showToast={showToastTwo && !(showToastTwo = undefined)}
     visibleTime={3000}
     variant="failure"
     content={{
