@@ -65,3 +65,10 @@ export interface ISingleContact {
   isNegotiable?: boolean;
   plans?: string;
 }
+export interface ISingleChat {
+  input: string;
+  output: string;
+}
+export interface IChatResponse {
+  response: string;
+}

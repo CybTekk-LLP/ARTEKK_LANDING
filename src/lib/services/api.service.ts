@@ -5,9 +5,11 @@ import * as storeService from "$lib/services/store.service";
 import { get } from "svelte/store";
 import { PUBLIC_BASE_URI } from "$env/static/public";
 import type {
+  IChatResponse,
   ICreateContact,
   ICreateProject,
   ICreateUser,
+  ISingleChat,
   ISingleContact,
   ISingleDetailedUser,
   ISingleProject,
@@ -293,4 +295,21 @@ export const uploadGallery = async (models: File[]): Promise<string[]> => {
     console.error(error);
   }
   return [];
+};
+// Chat Message
+/**
+ * get chat message reply
+ * @param {string} message
+ * @returns {IChatResponse}
+ */
+
+export const chatboxMessage = async (
+  message: string
+): Promise<IChatResponse> => {
+  const chatboxMessageData = await api
+    .post("/chats", { message })
+    .catch((error) => {
+      catchError(error);
+    });
+  return chatboxMessageData?.data;
 };

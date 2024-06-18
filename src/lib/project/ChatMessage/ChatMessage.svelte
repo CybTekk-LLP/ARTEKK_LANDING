@@ -1,11 +1,16 @@
 <script lang="ts">
-  import Typography from "../Typography/Typography.svelte";
+  import { Typography } from "../../ui";
   export let messageType: string;
   export let message: string;
   export let messageTime: string;
+  export let index: number;
 </script>
 
-<div class="chat-message" class:messageUser={messageType === "user"}>
+<div
+  class="chat-message"
+  class:messageUser={messageType === "user"}
+  id={"chat-" + index}
+>
   <p class="message" class:message-heading-user={messageType === "user"}>
     <Typography type="subtext">{message}</Typography>
   </p>

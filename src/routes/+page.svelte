@@ -1,13 +1,43 @@
 <script lang="ts">
-  import { FeatureCard } from "$lib/project";
+  import { ChatBox, ChatMessage, FeatureCard } from "$lib/project";
   import { onMount } from "svelte";
-  import { Navbar, Typography, Button, ChatMessage, ChatBox } from "$lib/ui";
+  import { Navbar, Typography, Button } from "$lib/ui";
   // @ts-ignore
   import { goto } from "$app/navigation";
-
+  import * as apiService from "$lib/services/api.service";
+  let value: string;
   let isOpen = false;
   let year = new Date().getFullYear();
   let animationData = [false, false, false, false];
+  let chatbox: any = [];
+  let chat = [];
+  let messageEl: HTMLDivElement;
+
+  const handleChatMessage = async () => {
+    chat.push({
+      message: value,
+      messageType: "user",
+      messageTime: new Date(Date.now()).toLocaleTimeString(),
+    });
+    chatbox = chat;
+    const data = await apiService.chatboxMessage(value);
+    chat.push({
+      message: data.response,
+      messageType: "ai",
+      messageTime: new Date(Date.now()).toLocaleTimeString(),
+    });
+    chatbox = chat;
+    setTimeout(() => {
+      const element = messageEl.lastElementChild;
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "end",
+          inline: "nearest",
+        });
+      }
+    }, 800);
+  };
   const handleIntersection = (entries: any) => {
     entries.forEach((entry: any) => {
       if (entry.isIntersecting) {
@@ -15,16 +45,24 @@
       }
     });
   };
+
   onMount(() => {
     const observer = new IntersectionObserver(handleIntersection, {
       root: null,
       rootMargin: "0px",
       threshold: 0.5, // Adjust threshold as needed
     });
+
     const sections = document.querySelectorAll("[data-label]");
     sections.forEach((section) => {
       observer.observe(section);
     });
+
+    chat.push({
+      message: "Hi am your AI assistant for ARTekk, drop me any questions!",
+      messageType: "ai",
+    });
+    chatbox = chat;
     return () => {
       sections.forEach((section) => {
         observer.unobserve(section);
@@ -173,17 +211,21 @@
     >
   </footer>
 
-  <ChatBox sendMessage={() => alert("l")}>
-    <ChatMessage
-      message="Hello, I would like to know more about the pricing plans of ARTEKK."
-      messageTime="9:21"
-      messageType=""
-    ></ChatMessage>
-    <ChatMessage
-      message="Hello, I would like to know more about the pricing plans of ARTEKK."
-      messageTime="9:21"
-      messageType="user"
-    ></ChatMessage>
+  <ChatBox
+    heading="Start Talking"
+    sendMessage={() => handleChatMessage()}
+    bind:value
+    bind:messageEl
+  >
+    {#each Array(chatbox.length) as _, i}
+      <ChatMessage
+        message={chatbox[i].message}
+        messageTime={chatbox[i].messageTime ??
+          new Date(Date.now()).toLocaleTimeString()}
+        messageType={chatbox[i].messageType ?? ""}
+        index={i}
+      ></ChatMessage>
+    {/each}
   </ChatBox>
 </main>
 

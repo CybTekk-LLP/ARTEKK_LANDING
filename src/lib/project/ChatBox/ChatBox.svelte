@@ -1,20 +1,21 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import InputText from "../InputText/InputText.svelte";
-  import Typography from "../Typography/Typography.svelte";
+  import { InputText, Typography } from "../../ui";
   import { clickOutside } from "$lib/utils";
   export let value: string;
-  export let sendMessage: () => void;
-  export let dialog: HTMLDialogElement;
-  export let showBackdrop: boolean;
+  export let sendMessage: () => void = () => null;
+  export let messageEl: HTMLDivElement;
+  export let heading: string;
+
+  let dialog: HTMLDialogElement;
   let openChatbox: boolean | undefined = undefined;
   const hideChatbox = () => {
     openChatbox = false;
     dialog.close();
   };
   const handleSendMessage = () => {
-    value = "";
     sendMessage();
+    value = "";
   };
   const handleClickOutside = () => {
     dialog.close();
@@ -44,7 +45,7 @@
   <div class="chatbox">
     <div class="chatbox-heading">
       <img src="/images/ChatBox/ChatboxImg.svg" alt="" />
-      <Typography type="body">ARTEKK Chatbot</Typography>
+      <Typography type="body">{heading}</Typography>
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
       <img
@@ -53,7 +54,7 @@
         on:click|preventDefault={() => hideChatbox()}
       />
     </div>
-    <div class="message">
+    <div class="message" bind:this={messageEl}>
       <slot />
     </div>
     <div class="input-message-box">
