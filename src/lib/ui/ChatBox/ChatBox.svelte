@@ -19,7 +19,6 @@
   const handleClickOutside = () => {
     dialog.close();
     openChatbox = false;
-    showBackdrop = false;
   };
   onMount(() => {
     dialog.addEventListener("click_outside", () => {
@@ -36,13 +35,12 @@
   on:click={() => {
     openChatbox = true;
     dialog.show();
-    showBackdrop = true;
   }}
 >
   <img src="/images/ChatBox/ChatboxIcon.svg" alt="" />
 </div>
-<div class="modal-bg" class:show-filter={showBackdrop} />
-<dialog bind:this={dialog} open class="dialog" use:clickOutside>
+
+<dialog bind:this={dialog} class="dialog" use:clickOutside>
   <div class="chatbox">
     <div class="chatbox-heading">
       <img src="/images/ChatBox/ChatboxImg.svg" alt="" />
@@ -95,23 +93,7 @@
   .hideIcon {
     display: none;
   }
-  .modal-bg {
-    position: fixed;
-    display: none;
-    block-size: 100%;
-    z-index: 2;
-    inset-inline-start: 0;
-    inset-block-start: 0;
-    inline-size: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    background-blend-mode: saturation;
-    &.show-filter {
-      display: block;
-    }
-  }
+
   .dialog {
     background-color: var(--card-background);
     block-size: 852px;
