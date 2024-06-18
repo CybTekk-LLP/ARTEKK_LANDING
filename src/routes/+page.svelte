@@ -228,7 +228,9 @@
       <ChatMessage
         message={chatbox[i].message}
         messageTime={chatbox[i].messageTime ??
-          new Date(Date.now()).toLocaleTimeString()}
+          new Intl.DateTimeFormat("en-US", {
+            timeStyle: "short",
+          }).format(Date.now())}
         messageType={chatbox[i].messageType ?? ""}
         index={i}
       ></ChatMessage>
