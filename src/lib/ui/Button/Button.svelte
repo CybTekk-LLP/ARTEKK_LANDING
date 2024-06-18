@@ -4,6 +4,7 @@
   export let type: "primary" | "secondary" = "primary";
   export let onClick: () => void;
   export let iconSrc: string | undefined = undefined;
+  export let buttonType: "button" | "reset" | undefined = undefined;
 
   let button: HTMLButtonElement;
 
@@ -39,6 +40,7 @@
 </script>
 
 <button
+  type={buttonType}
   bind:this={button}
   on:click={(e) => {
     onClick();

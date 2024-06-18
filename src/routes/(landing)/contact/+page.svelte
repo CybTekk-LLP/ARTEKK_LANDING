@@ -19,6 +19,7 @@
   let budget = "";
   let comment = "";
   let error = false;
+  let isSent = false;
   let negotiationStatus = false;
   let showToast: boolean | undefined = undefined;
   let showToastTwo: boolean | undefined = undefined;
@@ -98,6 +99,7 @@
     <br /><br />
     <Button
       type="primary"
+      buttonType={isSent ? "reset" : "button"}
       buttonLabel="Send a message"
       onClick={() => {
         try {
@@ -111,6 +113,7 @@
             plans: query,
           });
           showToast = true;
+          isSent = true;
         } catch (error) {
           showToastTwo = true;
         }
