@@ -17,14 +17,18 @@
     chat.push({
       message: value,
       messageType: "user",
-      messageTime: new Date(Date.now()).toLocaleTimeString(),
+      messageTime: new Intl.DateTimeFormat("en-US", {
+        timeStyle: "short",
+      }).format(Date.now()),
     });
     chatbox = chat;
     const data = await apiService.chatboxMessage(value);
     chat.push({
       message: data.response,
       messageType: "ai",
-      messageTime: new Date(Date.now()).toLocaleTimeString(),
+      messageTime: new Intl.DateTimeFormat("en-US", {
+        timeStyle: "short",
+      }).format(Date.now()),
     });
     chatbox = chat;
     setTimeout(() => {
@@ -61,6 +65,9 @@
     chat.push({
       message: "Hi am your AI assistant for ARTekk, drop me any questions!",
       messageType: "ai",
+      messageTime: new Intl.DateTimeFormat("en-US", {
+        timeStyle: "short",
+      }).format(Date.now()),
     });
     chatbox = chat;
     return () => {
