@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from "$app/stores";
+  import { Toast } from "$lib/project";
   import * as apiService from "$lib/services/api.service";
   import {
     Button,
@@ -19,6 +20,7 @@
   let comment: string;
   let error = false;
   let negotiationStatus = false;
+  let showToast: boolean | undefined = undefined;
   let query = new URL($page.url.href.toString()).searchParams
     .get("plans")
     ?.split(",")
@@ -96,8 +98,8 @@
     <Button
       type="primary"
       buttonLabel="Send a message"
-      onClick={() =>
-        apiService.createNewContact({
+      onClick={() => {
+        showToast = !!apiService.createNewContact({
           name: name,
           email: email,
           companyName: company,
@@ -105,9 +107,19 @@
           amount: budget.toString(),
           isNegotiable: negotiationStatus,
           plans: query,
-        })}
+        });
+      }}
     />
   </form>
+  <Toast
+    showToast={showToast && !(showToast = undefined)}
+    visibleTime={3000}
+    variant="success"
+    content={{
+      heading: "Success",
+      description: "Your query have been sent successfully",
+    }}
+  />
 </main>
 
 <style lang="scss">
