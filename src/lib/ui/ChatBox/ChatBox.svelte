@@ -1,17 +1,31 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import InputText from "../InputText/InputText.svelte";
   import Typography from "../Typography/Typography.svelte";
+  import { clickOutside } from "$lib/utils";
   export let value: string;
-  let openChatbox: boolean | undefined = undefined;
   export let sendMessage: () => void;
-
+  export let dialog: HTMLDialogElement;
+  export let showBackdrop: boolean;
+  let openChatbox: boolean | undefined = undefined;
   const hideChatbox = () => {
     openChatbox = false;
+    dialog.close();
   };
   const handleSendMessage = () => {
     value = "";
     sendMessage();
   };
+  const handleClickOutside = () => {
+    dialog.close();
+    openChatbox = false;
+    showBackdrop = false;
+  };
+  onMount(() => {
+    dialog.addEventListener("click_outside", () => {
+      handleClickOutside();
+    });
+  });
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -19,42 +33,48 @@
 <div
   class="chatbox-icon"
   class:hideIcon={openChatbox}
-  on:click={() => (openChatbox = true)}
+  on:click={() => {
+    openChatbox = true;
+    dialog.show();
+    showBackdrop = true;
+  }}
 >
   <img src="/images/ChatBox/ChatboxIcon.svg" alt="" />
 </div>
-
-<div class="chatbox" class:openChatbox>
-  <div class="chatbox-heading">
-    <img src="/images/ChatBox/ChatboxImg.svg" alt="" />
-    <Typography type="body">ARTEKK Chatbot</Typography>
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-    <img
-      src="/images/ChatBox/Close.svg"
-      alt=""
-      on:click|preventDefault={() => hideChatbox()}
-    />
+<div class="modal-bg" class:show-filter={showBackdrop} />
+<dialog bind:this={dialog} open class="dialog" use:clickOutside>
+  <div class="chatbox">
+    <div class="chatbox-heading">
+      <img src="/images/ChatBox/ChatboxImg.svg" alt="" />
+      <Typography type="body">ARTEKK Chatbot</Typography>
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+      <img
+        src="/images/ChatBox/Close.svg"
+        alt=""
+        on:click|preventDefault={() => hideChatbox()}
+      />
+    </div>
+    <div class="message">
+      <slot />
+    </div>
+    <div class="input-message-box">
+      <InputText
+        variant="text"
+        placeholder="Write a question ?"
+        bind:value
+        onKeyDown={() => handleSendMessage()}
+      />
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+      <img
+        src="/images/ChatBox/Send.svg"
+        alt=""
+        on:click={() => handleSendMessage()}
+      />
+    </div>
   </div>
-  <div class="message">
-    <slot />
-  </div>
-  <div class="input-message-box">
-    <InputText
-      variant="text"
-      placeholder="Write a question ?"
-      bind:value
-      onKeyDown={() => handleSendMessage()}
-    />
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-    <img
-      src="/images/ChatBox/Send.svg"
-      alt=""
-      on:click={() => handleSendMessage()}
-    />
-  </div>
-</div>
+</dialog>
 
 <style lang="scss">
   .chatbox-icon {
@@ -75,52 +95,70 @@
   .hideIcon {
     display: none;
   }
-
-  .chatbox {
+  .modal-bg {
+    position: fixed;
+    display: none;
+    block-size: 100%;
+    z-index: 2;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    inline-size: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-blend-mode: saturation;
+    &.show-filter {
+      display: block;
+    }
+  }
+  .dialog {
     background-color: var(--card-background);
     block-size: 852px;
     max-block-size: 70vh;
     inline-size: 400px;
     max-inline-size: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     border: 1px solid var(--primary-900);
     border-radius: 10px;
-    padding: 15px;
-    margin: 5px;
     position: fixed;
     inset-block-end: 0;
     inset-inline-end: 0;
-    display: none;
+    outline: 2px solid var(--transparent);
+    padding: 15px;
+    margin: 5px;
+    margin-inline-start: auto;
     z-index: 4;
-
-    & > .chatbox-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 5px;
-      padding-block: 8px;
-      & > img {
-        cursor: pointer;
-      }
-    }
-    & > .message {
-      overflow-y: scroll;
-      scrollbar-width: none;
+    .chatbox {
+      inline-size: 100%;
       block-size: 100%;
-    }
-    & > .input-message-box {
-      position: relative;
-      & img {
-        position: absolute;
-        inset-block-end: 10px;
-        inset-inline-end: 10px;
-        cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      & > .chatbox-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 5px;
+        padding-block: 8px;
+        & > img {
+          cursor: pointer;
+        }
+      }
+      & > .message {
+        overflow-y: scroll;
+        scrollbar-width: none;
+        block-size: 100%;
+      }
+      & > .input-message-box {
+        position: relative;
+        & img {
+          position: absolute;
+          inset-block-end: 10px;
+          inset-inline-end: 10px;
+          cursor: pointer;
+        }
       }
     }
-  }
-  .openChatbox {
-    display: flex;
   }
 </style>
