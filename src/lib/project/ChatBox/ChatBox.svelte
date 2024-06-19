@@ -32,19 +32,28 @@
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
   class="chatbox-icon"
+  role="button"
+  tabindex="0"
+  aria-label="open chatbot"
+  aria-live="polite"
   class:hideIcon={openChatbox}
   on:click={() => {
     openChatbox = true;
     dialog.show();
   }}
 >
-  <img src="/images/ChatBox/ChatboxIcon.svg" alt="" />
+  <img
+    src="/images/ChatBox/AI.gif"
+    alt="chat bot assistant"
+    height="40px"
+    width="40px"
+  />
 </div>
 
 <dialog bind:this={dialog} class="dialog" use:clickOutside>
   <div class="chatbox">
     <div class="chatbox-heading">
-      <img src="/images/ChatBox/ChatboxImg.svg" alt="" />
+      <img src="/images/ChatBox/AI.gif" alt="" height="40px" width="40px" />
       <Typography type="body">{heading}</Typography>
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
@@ -90,6 +99,13 @@
     inset-inline-end: 0;
     cursor: pointer;
     z-index: 4;
+    & > img {
+      object-fit: cover;
+      border-radius: 50%;
+      @media (prefers-reduced-motion) {
+        content: url("/images/ChatBox/AI.png");
+      }
+    }
   }
   .hideIcon {
     display: none;
@@ -125,7 +141,11 @@
         gap: 5px;
         padding-block: 8px;
         & > img {
-          cursor: pointer;
+          object-fit: cover;
+          border-radius: 50%;
+          @media (prefers-reduced-motion) {
+            content: url("/images/ChatBox/AI.png");
+          }
         }
       }
       & > .message {
