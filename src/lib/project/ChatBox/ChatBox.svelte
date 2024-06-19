@@ -69,7 +69,7 @@
     <div class="input-message-box">
       <InputText
         variant="text"
-        placeholder="Write a question ?"
+        placeholder="Having any doubts ?"
         bind:value
         onKeyDown={() => handleSendMessage()}
       />
