@@ -98,7 +98,7 @@
   .dialog {
     background-color: var(--card-background);
     block-size: 852px;
-    max-block-size: 70vh;
+    max-block-size: 50vh;
     inline-size: 400px;
     max-inline-size: 90%;
     border: 1px solid var(--primary-900);
