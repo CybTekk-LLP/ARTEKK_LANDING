@@ -100,7 +100,7 @@
     block-size: 852px;
     max-block-size: 50vh;
     inline-size: 400px;
-    max-inline-size: 90%;
+    max-inline-size: 70%;
     border: 1px solid var(--primary-900);
     border-radius: 10px;
     position: fixed;
