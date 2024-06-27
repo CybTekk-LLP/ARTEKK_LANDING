@@ -26,6 +26,7 @@ jobs:
         cache: 'npm'
     - run: |
         npm i;
+        cp ~/.env ./;
         npm run build;
         cp -R ./build/* /var/www/artekk_landing/
         
