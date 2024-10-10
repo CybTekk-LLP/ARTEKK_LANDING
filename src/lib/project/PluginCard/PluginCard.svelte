@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Typography, Button } from "./../../ui";
   export let cardHeading: string;
+  export let subHeading: string;
   export let imgSrc: string;
   export let buttonLabel: string;
   export let clickHandler: () => void;
@@ -10,6 +11,8 @@
 <article>
   <Typography type="caption">{cardHeading}</Typography>
   <br />
+  <Typography type="subtext" _fontweight="400">{subHeading}</Typography>
+  <br>
   <img height="196px" src={imgSrc} alt="plugin" />
   <br />
   <br />
