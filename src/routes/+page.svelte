@@ -7,7 +7,6 @@
   import * as apiService from "$lib/services/api.service";
   let value: string;
   let isOpen = false;
-  let year = new Date().getFullYear();
   let animationData = [false, false, false, false];
   let chatbox: any = [];
   let chat = [];
