@@ -118,7 +118,7 @@
       <div class="content">
         <h1 class="heading">
           <Typography type="heading"
-            >“Experience Reality Like Never Before”</Typography
+            >“The No-Code AR Platform Customised For Your Needs ”</Typography
           >
         </h1>
         <p class="description">
