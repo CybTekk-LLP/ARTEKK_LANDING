@@ -1,0 +1,1 @@
+export const env={"PUBLIC_BASE_URI":"http://localhost:1208/api"}
