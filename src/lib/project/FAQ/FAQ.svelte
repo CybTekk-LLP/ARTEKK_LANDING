@@ -22,11 +22,13 @@
   details {
     position: relative;
     margin-inline: 1rem;
-    border: 1px solid var(--transparent);
+    border: 1px solid var(--secondary-300);
     margin-block: 0.8rem;
+    background-color: var(--secondary-700);
+    border-radius: 6px;
     &[open] {
       padding-bottom: 1em;
-      border: 1px solid var(--primary-300);
+      border: 1px solid var(--secondary-300);
       &::after {
         content: url("/images/FAQ/minus.svg");
         position: absolute;
