@@ -1,7 +1,7 @@
 <script lang="ts">
   import { ChatBox, ChatMessage, FeatureCard } from "$lib/project";
   import { onMount } from "svelte";
-  import { Navbar, Typography, Button } from "$lib/ui";
+  import { Navbar, Typography, Button, Footer } from "$lib/ui";
   // @ts-ignore
   import { goto } from "$app/navigation";
   import * as apiService from "$lib/services/api.service";
@@ -105,10 +105,10 @@
     logo={"/images/Logo/Logo.svg"}
     navOptions={[
       { name: "About", href: "/about", target: "" },
-      { name: "Collections", href: "/collections", target: "" },
+      { name: "Products", href: "/products", target: "" },
       { name: "Pricing", href: "/pricing", target: "" },
       { name: "Contact", href: "/contact", target: "" },
-      { name: "Documentation", href: "/docs", target: "" },
+      { name: "FAQ", href: "/faq", target: "" },
     ]}
   />
   <br /><br />
@@ -132,7 +132,7 @@
           <Button
             type="primary"
             buttonLabel="Get Started"
-            onClick={() => goto("/collections")}
+            onClick={() => goto("/products")}
           />
         </div>
       </div>
@@ -212,11 +212,46 @@
       />
     </section>
   </section>
-  <footer>
-    <Typography type="subtext" _fontweight="400" _color="var(--primary-500)"
-      >Copyright © {year} ARTEKK, all rights reserved</Typography
-    >
-  </footer>
+  <Footer
+    i18n={{
+      copyrightLabel: "Copyright © All rights reserved.",
+      productLabel: "is a product of",
+    }}
+    content={{
+      appStoreLink: "/",
+      googlePlayLink: "/",
+      navigationOptions: [
+        {
+          name: "Pages",
+          subOptions: [
+            { name: "About", url: "/about" },
+            { name: "Products", url: "/products" },
+            { name: "Pricing", url: "/pricing" },
+            { name: "FAQ", url: "/faq" },
+          ],
+        },
+        {
+          name: "Contact",
+          subOptions: [
+            {
+              name: "CybTEKK, Plot No. 10, Sector 13,Rajiv Gandhi IT Park, Chandigarh",
+              url: "https://maps.app.goo.gl/6PmTzFpYniaMRe3MA",
+            },
+            { name: "hello@cybtekk.com", url: "mailto:hello@cybtekk.com" },
+            { name: "+919888688244", url: "tel:+919888688244" },
+          ],
+        },
+        {
+          name: "Policies",
+          subOptions: [
+            { name: "Privacy Policy", url: "/" },
+            { name: "Terms of Use", url: "/" },
+            { name: "Legal", url: "/" },
+          ],
+        },
+      ],
+    }}
+  />
 
   <ChatBox
     heading="Start Talking"

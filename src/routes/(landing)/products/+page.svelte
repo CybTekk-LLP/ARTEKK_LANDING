@@ -48,7 +48,7 @@
 </script>
 
 <main>
-  <Typography type="cardTitle">Collections</Typography>
+  <Typography type="cardTitle">Products</Typography>
   <br />
   <div class="plugin-cards">
     {#each pluginContent ?? [] as content}
