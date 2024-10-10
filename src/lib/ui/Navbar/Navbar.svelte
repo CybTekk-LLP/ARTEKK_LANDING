@@ -39,7 +39,12 @@
   </ul>
 
   {#if isSignedIn}
-    <a href="/profile" class="user-avatar">
+    <a
+      href="/profile"
+      class="user-avatar"
+      inert
+      style="opacity: 0; visibility: hidden"
+    >
       <ProfilePic isSmall={true} bind:userName />
     </a>
   {:else}
@@ -71,14 +76,14 @@
           >
         </li>
       {/each}
-      {#if isSignedIn}
+      <!-- {#if isSignedIn}
         <li>
           <a href="/profile" on:click={() => (isOpen = false)}
             ><Typography type="impact" _fontweight="400">{"Profile"}</Typography
             ></a
           >
         </li>
-      {/if}
+      {/if} -->
     </ul>
   </div>
 {/if}
