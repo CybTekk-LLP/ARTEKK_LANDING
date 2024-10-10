@@ -117,7 +117,7 @@
       <div class="content">
         <h1 class="heading">
           <Typography type="heading"
-            >“The No-Code AR Platform Customised For Your Needs ”</Typography
+            >“The No-Code AR Platform Customised For Your Needs”</Typography
           >
         </h1>
         <p class="description">

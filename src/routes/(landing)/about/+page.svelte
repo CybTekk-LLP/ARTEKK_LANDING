@@ -1,5 +1,6 @@
 <script lang="ts">
   import { AboutCard } from "$lib/project";
+  import Typography from "$lib/ui/Typography/Typography.svelte";
 
   let aboutContent = [
     {
@@ -21,6 +22,13 @@
 </script>
 
 <main>
+  <h1 class="heading">
+    <Typography type="caption"
+      >“Artekk, a Cybtekk product, delivers innovative AR and virtual try-on
+      solutions.”</Typography
+    >
+  </h1>
+  <br /><br /><br />
   <div class="about-cards">
     {#each aboutContent as content}
       <AboutCard heading={content.heading} description={content.description} />
@@ -37,5 +45,10 @@
     inline-size: 100vw;
     margin-inline: auto;
     padding-inline: 4rem;
+    & > .heading {
+      max-inline-size: 960px;
+      margin-inline: auto;
+      text-align: center;
+    }
   }
 </style>

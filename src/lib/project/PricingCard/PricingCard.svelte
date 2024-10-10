@@ -30,6 +30,7 @@
 <style lang="scss">
   .pricing {
     inline-size: 100%;
+    block-size: max-content;
     background: var(--secondary-700);
     border-radius: 16px;
     padding-inline: 25px;
