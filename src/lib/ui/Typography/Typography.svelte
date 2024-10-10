@@ -4,6 +4,7 @@
     | "caption"
     | "body"
     | "impact"
+    | "subtext"
     | "disabled"
     | string = "body";
   export let renderInline = false;
@@ -46,7 +47,6 @@
       font-size: 1.25rem;
       font-weight: 400;
     }
-
     &.impact {
       font-size: 1rem;
       font-weight: 400;
@@ -55,7 +55,6 @@
       font-size: 0.75rem;
       font-weight: 600;
     }
-
     &.disabled {
       color: var(--hover);
       pointer-events: none;
