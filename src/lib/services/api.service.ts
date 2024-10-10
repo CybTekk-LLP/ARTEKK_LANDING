@@ -27,7 +27,7 @@ export const api = axios.create({
 const catchError = (error: {
   response: { status: string };
   message: string;
-}) => {
+}) => { 
   throw {
     status: error.response.status,
     title: "Error",
