@@ -237,7 +237,7 @@
               url: "https://maps.app.goo.gl/6PmTzFpYniaMRe3MA",
             },
             { name: "hello@cybtekk.com", url: "mailto:hello@cybtekk.com" },
-            { name: "+919888688244", url: "tel:+919888688244" },
+            { name: "+919872000194", url: "tel:+919872000194" },
           ],
         },
         {
