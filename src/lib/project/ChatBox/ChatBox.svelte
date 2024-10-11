@@ -84,6 +84,7 @@
         on:click={() => {
           if (value) handleSendMessage();
         }}
+        draggable="false"
       />
     </div>
   </div>
