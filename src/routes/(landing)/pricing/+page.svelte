@@ -13,7 +13,7 @@
         planLabel="FREE"
         amount=""
         descriptions={[
-          "AR Setup: Basic setup of AR for products.",
+          "AR Setup: Personalized Setup of AR for Products.",
           "3D Model Integration: Easily integrate 3D models provided by your designer into the AR experience.",
           "Product Display in AR: Display your products in AR FREE of cost.",
           "Platform Integration: Full integration with major e-commerce platforms like Shopify, WordPress, and others.",
