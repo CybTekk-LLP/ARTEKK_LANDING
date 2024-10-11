@@ -82,12 +82,13 @@
 
   h1,
   h2 {
-    color: #727272;
+    color: var(--primary-300);
   }
 
   p {
     margin-bottom: 1rem;
     line-height: 1.5;
+    color: #d6d6d6;
   }
 
   ul {
