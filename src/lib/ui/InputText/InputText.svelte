@@ -66,7 +66,7 @@
     margin-block-end: 5px;
   }
   input:not(input:-webkit-autofill)::-webkit-contacts-auto-fill-button {
-    background-color: #fff;
+    background-color: var(--primary-900);
   }
   input {
     inline-size: 100%;
