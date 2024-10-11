@@ -55,9 +55,9 @@
         {
           name: "Policies",
           subOptions: [
-            { name: "Privacy Policy", url: "/" },
-            { name: "Terms of Use", url: "/" },
-            { name: "Legal", url: "/" },
+            { name: "Privacy Policy", url: "/privacypolicy" },
+            { name: "Terms of Use", url: "/terms" },
+            { name: "Legal", url: "/legal" },
           ],
         },
       ],
