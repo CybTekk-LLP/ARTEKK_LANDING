@@ -47,13 +47,14 @@
     alt="chat bot assistant"
     height="40px"
     width="40px"
+    draggable="false"
   />
 </div>
 
 <dialog bind:this={dialog} class="dialog" use:clickOutside>
   <div class="chatbox">
     <div class="chatbox-heading">
-      <img src="/images/ChatBox/AI.gif" alt="" height="40px" width="40px" />
+      <img src="/images/ChatBox/AI.gif" alt="" height="40px" width="40px" draggable="false" />
       <Typography type="body">{heading}</Typography>
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
