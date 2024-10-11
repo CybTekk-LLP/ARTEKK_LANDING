@@ -180,7 +180,7 @@
         position: absolute;
         block-size: 2px;
         inline-size: 100%;
-        background-color: #ffffff;
+        background-color: var(--primary-900);
         border-radius: 9px;
         inset-inline-start: 0;
         inset-block-start: 0;

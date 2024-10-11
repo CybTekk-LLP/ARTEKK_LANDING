@@ -48,7 +48,7 @@
       background-color: var(--secondary-700);
       border-radius: 10px;
       padding: 5px 10px 10px 10px;
-      inset-block-start: 20px;
+      inset-block-start: 44px;
       inset-inline-start: 10px;
     }
   }
