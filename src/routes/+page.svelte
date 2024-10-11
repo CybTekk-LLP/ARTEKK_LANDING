@@ -285,8 +285,8 @@
         & > .content {
           display: flex;
           flex-direction: column;
-          align-items: center;
           justify-content: center;
+          align-items: center;
           text-align: center;
           & > .heading {
             max-inline-size: 960px;
