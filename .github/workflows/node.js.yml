@@ -23,7 +23,9 @@ jobs:
       - name: Build
         run: |
           npm run build
+          echo 'artekk.io' > build/CNAME 
           touch build/.nojekyll
+          cp build/index.html build/404.html
         env:
           PUBLIC_BASE_URI: ${{ vars.PUBLIC_BASE_URI }} # Access the environment variable set for GitHub Pages
 
