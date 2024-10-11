@@ -342,7 +342,7 @@
 
   .toggle--daynight .toggle--btn {
     border: 5px solid #1c1c1c;
-    background-color: #3c4145;
+    background-color: #4134a2;
   }
   .toggle--daynight .toggle--btn:before {
     background-color: #fff;
@@ -380,7 +380,7 @@
   }
   @keyframes starry_star {
     50% {
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba(51, 50, 81, 0.1);
       box-shadow:
         #fff 30px -3px 0 0,
         #fff 12px 10px 0 -1px,
@@ -444,8 +444,8 @@
     transform-origin: -6px 130%;
   }
   .toggle--daynight .toggle--checkbox:checked + .toggle--btn {
-    background-color: #9ee3fb;
-    border: 5px solid #86c3d7;
+    background-color: #d0d6ff;
+    border: 5px solid #8696d7;
   }
   .toggle--daynight .toggle--checkbox:checked + .toggle--btn:before {
     left: 55px;
