@@ -6,7 +6,6 @@
     IGalleryCardArgs,
   } from "../../types";
   import PinchZoom from "pinch-zoom-js";
-  // import { browser } from "$app/environment";
   import { PUBLIC_BASE_URI } from "$env/static/public";
 
   export let content: IGalleryCardContent;
