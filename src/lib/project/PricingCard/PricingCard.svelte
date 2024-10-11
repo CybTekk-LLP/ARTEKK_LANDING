@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { Typography } from "$lib/ui";
-  import Button from "$lib/ui/Button/Button.svelte";
+  import { Typography, Button } from "$lib/ui";
+
   export let planLabel: string;
   export let amount: string;
   export let descriptions: string[] = [];

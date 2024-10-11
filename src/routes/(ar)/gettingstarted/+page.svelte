@@ -51,10 +51,10 @@
   style:background-image={`url('./images/Ar/${query || "clothing"}.webp')`}
 >
   <section>
-    <Typography type="cardTitle">{title}</Typography>
+    <Typography type="cardTitle" _color="#fff">{title}</Typography>
     <br />
     <p class="description">
-      <Typography type="body">
+      <Typography type="body" _color="#fff">
         {description}
       </Typography>
     </p>

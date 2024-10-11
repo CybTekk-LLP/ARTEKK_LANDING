@@ -9,22 +9,22 @@
     {
       title: "Generating Code: ARTEKK as a Beginner",
       description:
-        "In order to start with ARTEKK, visit our <u><a style='color: #fff' href='/generate'>Builder's Option page</a></u> for a step-by-step setup guide and detailed information on tools and resources. If you'd prefer not to handle any code, our Custom Option offers a personalised solution tailored to your specific needs. Explore the Builder's Option or choose the Custom Option for a hassle-free experience.",
+        "In order to start with ARTEKK, visit our <u><a style='color: var(--primary-900)' href='/generate'>Builder's Option page</a></u> for a step-by-step setup guide and detailed information on tools and resources. If you'd prefer not to handle any code, our Custom Option offers a personalised solution tailored to your specific needs. Explore the Builder's Option or choose the Custom Option for a hassle-free experience.",
     },
     {
       title: "Contacting Sales for Custom plans",
       description:
-        "You can contact our Sales team through the following methods: Email: sales@artekk.com, Contact Form: Fill out the form on our <u><a style='color: #fff' href='/contact'>Contact page</a></u>. Our Sales team is available Monday to Friday, 10:00 AM to 6:00 PM EST.",
+        "You can contact our Sales team through the following methods: Email: sales@artekk.com, Contact Form: Fill out the form on our <u><a style='color: var(--primary-900)' href='/contact'>Contact page</a></u>. Our Sales team is available Monday to Friday, 10:00 AM to 6:00 PM EST.",
     },
     {
       title: "Price Plans to Choose from",
       description:
-        "<h3>Our price plans are designed to be flexible and cater to different needs:</h3><br><ul style=list-style:none><li>Builder Plan: Available to place models on the go. Limited customization. A no-code solution to serve your basic needs.</li><br><li>Custom Plan: Connect with sales to discuss your exact requirements, and we will develop an AR solution for your new or existing projects, curated to meet your needs.</li><br><li>A-la-carte: Add any of the verticals you want with this plan, and we will provide you with the developed solution. A plan made to serve specific needs.</li><br><li>For a detailed breakdown of each plan, please visit our <u><a style='color: #fff' href='/pricing'>Pricing Plans page</a></u>.</li></ul>",
+        "<h3>Our price plans are designed to be flexible and cater to different needs:</h3><br><ul style=list-style:none><li>Builder Plan: Available to place models on the go. Limited customization. A no-code solution to serve your basic needs.</li><br><li>Custom Plan: Connect with sales to discuss your exact requirements, and we will develop an AR solution for your new or existing projects, curated to meet your needs.</li><br><li>A-la-carte: Add any of the verticals you want with this plan, and we will provide you with the developed solution. A plan made to serve specific needs.</li><br><li>For a detailed breakdown of each plan, please visit our <u><a style='color: var(--primary-900)' href='/pricing'>Pricing Plans page</a></u>.</li></ul>",
     },
     {
       title: "Carrying out configuration of projects",
       description:
-        "<ul style=list-style:none><li>Login to your account and set up your builder module by navigating to the Projects tab in the top menu.</li><br><li>Start by creating a new project and adding a name for your project and the authorised domain. When you first create a project, its status will be inactive. This is to ensure your domains can be authorised. We will verify this on our end, and once your project is approved, it will show a status of active. You can then start uploading your 3D models and receive the CDN links for the JavaScript libraries and models to use.</li><br><li>Visit our  <u><a style='color: #fff' href='/generate'>Code Generator page</a></u> to learn how to configure your project. If you prefer not to deal with any code, you can always upgrade to the Custom Plan, where we will develop the solution models for you. You will only be charged the <span style='color:#fff'>difference</span>.</li></ul>",
+        "<ul style=list-style:none><li>Login to your account and set up your builder module by navigating to the Projects tab in the top menu.</li><br><li>Start by creating a new project and adding a name for your project and the authorised domain. When you first create a project, its status will be inactive. This is to ensure your domains can be authorised. We will verify this on our end, and once your project is approved, it will show a status of active. You can then start uploading your 3D models and receive the CDN links for the JavaScript libraries and models to use.</li><br><li>Visit our  <u><a style='color: var(--primary-900)' href='/generate'>Code Generator page</a></u> to learn how to configure your project. If you prefer not to deal with any code, you can always upgrade to the Custom Plan, where we will develop the solution models for you. You will only be charged the <span style='color:var(--primary-900)'>difference</span>.</li></ul>",
     },
     {
       title: "Switch from one Pricing Plan to a Custom Plan",
@@ -39,7 +39,7 @@
     {
       title: "Trying Newspaper and Billboard AR Experiences",
       description:
-        "Using Billboard and Newspaper to display AR content requires a target to put the 3D models on. For our <a style='color: #fff' href='/collections'><u>Collection Page</a></u>'s example, we have used the following images as image targets: <br><br> <img src='/images/Sample/billboard-target.png' width='100%' style='border-radius: 10px' alt='AR Experience Example for Billboard'> <br> <br> <img src='/images/Sample/billboard.png' width='100%' style='border-radius: 10px' alt='AR Experience Example for Billboard'> <br> <br> <img src='/images/Sample/Red_Chief.jpg' width='100%' style='border-radius: 10px' alt='AR Experience Example for Newspaper'> <br> <br> Feel free to scan these when visiting our newspaper and billboards AR experience.",
+        "Using Billboard and Newspaper to display AR content requires a target to put the 3D models on. For our <a style='color: var(--primary-900)' href='/collections'><u>Collection Page</a></u>'s example, we have used the following images as image targets: <br><br> <img src='/images/Sample/billboard-target.png' width='100%' style='border-radius: 10px' alt='AR Experience Example for Billboard'> <br> <br> <img src='/images/Sample/billboard.png' width='100%' style='border-radius: 10px' alt='AR Experience Example for Billboard'> <br> <br> <img src='/images/Sample/Red_Chief.jpg' width='100%' style='border-radius: 10px' alt='AR Experience Example for Newspaper'> <br> <br> Feel free to scan these when visiting our newspaper and billboards AR experience.",
     },
     {
       title: "Fields covered by ARTEKK on the virtual Try On Service",

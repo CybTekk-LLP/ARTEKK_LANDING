@@ -100,7 +100,7 @@
   p {
     margin-bottom: 1rem;
     line-height: 1.5;
-    color: #d6d6d6;
+    color: var(--primary-600);
   }
 
   ul {

@@ -98,7 +98,7 @@
     gap: 50px;
     padding-inline: 30px;
     padding-block: 20px;
-    background-color: #00000065;
+    background-color: var(--primary-translucent);
     z-index: 4;
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);

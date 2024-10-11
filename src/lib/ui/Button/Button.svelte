@@ -64,7 +64,7 @@
     color: var(--primary-900);
     font-weight: 700;
     background-color: #6200ee;
-    background-image: linear-gradient(to right, #0a0030, #2a002e);
+    background-image: linear-gradient(to right, var(--button-gradient-start), var(--button-gradient-end));
     padding: 15px 20px;
     outline: 0;
     border: 0;
