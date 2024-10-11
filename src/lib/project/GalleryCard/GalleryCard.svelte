@@ -1,11 +1,9 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import type {
     IGalleryCardI18n,
     IGalleryCardContent,
     IGalleryCardArgs,
   } from "../../types";
-  import PinchZoom from "pinch-zoom-js";
   import { PUBLIC_BASE_URI } from "$env/static/public";
 
   export let content: IGalleryCardContent;
@@ -17,7 +15,6 @@
   let duration = 0;
   let video: HTMLVideoElement;
   let parentEl: HTMLDivElement;
-  let pinchzoom: any;
 
   function formatTimestamp(seconds: number) {
     if (typeof seconds !== "number" || seconds < 0) {
@@ -32,13 +29,6 @@
 
     return `${formattedMinutes}:${formattedSeconds}`;
   }
-
-  onMount(() => {
-    pinchzoom = new PinchZoom(parentEl, {
-      draggableUnzoomed: false, // Prevent dragging when not zoomed in
-    });
-    pinchzoom.enable();
-  });
 </script>
 
 <div class="parent" bind:this={parentEl}>
