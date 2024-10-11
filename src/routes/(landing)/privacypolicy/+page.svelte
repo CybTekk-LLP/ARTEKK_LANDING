@@ -48,7 +48,7 @@
   <p>
     You have the right to access, modify, or delete your personal information at
     any time. If you have any questions about our Privacy Policy or would like
-    to exercise your rights, please contact us at support@artekk.com.
+    to exercise your rights, please contact us at support@cybtekk.com.
   </p>
 
   <h2>Changes to This Policy</h2>

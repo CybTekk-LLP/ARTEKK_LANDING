@@ -68,7 +68,7 @@
 
   <p>
     If you have any legal concerns or questions, please contact us at
-    legal@artekk.com.
+    legal@cybtekk.com.
   </p>
 </section>
 
