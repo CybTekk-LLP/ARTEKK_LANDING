@@ -24,7 +24,7 @@
 <main>
   <h1 class="heading">
     <Typography type="caption"
-      >“Artekk, a Cybtekk product, delivers innovative AR and virtual try-on
+      >“Artekk, a CybTEKK product, delivers innovative AR and virtual try-on
       solutions.”</Typography
     >
   </h1>
