@@ -17,3 +17,4 @@ export { default as Suggestion } from "./Suggestion/Suggestion.svelte";
 export { default as Toast } from "./Toast/Toast.svelte";
 export { default as ChatBox } from "./ChatBox/ChatBox.svelte";
 export { default as ChatMessage } from "./ChatMessage/ChatMessage.svelte";
+export { default as GalleryCard } from "./GalleryCard/GalleryCard.svelte";
