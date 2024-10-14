@@ -23,7 +23,7 @@
     }
   };
   export let pluginContent = [
-    { cardHeading: "Furniture", subHeading: "Furniture AR lets you visualize furniture in your space through augmented reality before purchase.", imgSrc: "./images/Collections/Furniture.webp" },
+    { cardHeading: "Furniture", subHeading: "Furniture AR lets you visualize furniture in your space through AR before purchase.", imgSrc: "./images/Collections/Furniture.webp" },
     { cardHeading: "Footwear", subHeading: "Footwear AR lets you virtually try on and visualize shoes in real-time before purchase.", imgSrc: "./images/Collections/Shoes.webp" },
     { cardHeading: "Clothing", subHeading:"Clothing AR lets you virtually try on outfits in real-time before purchase.", imgSrc: "./images/Collections/Clothes.webp" },
     { cardHeading: "Watches", subHeading: "Watches AR lets you virtually try on timepieces in real-time before purchase.", imgSrc: "./images/Collections/Watch.webp" },
