@@ -19,6 +19,7 @@
     font-family: var(--font);
     font-weight: 400;
     outline: var(--transparent);
+    resize: vertical;
     &:focus {
       outline: 1px solid var(--primary-900);
     }
