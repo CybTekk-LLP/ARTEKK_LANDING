@@ -20,7 +20,7 @@ import type {
 export const api = axios.create({
   baseURL: PUBLIC_BASE_URI,
   timeout: 5000,
-  withCredentials: true,
+  withCredentials: false,
 });
 
 // ERROR FUNCTION
