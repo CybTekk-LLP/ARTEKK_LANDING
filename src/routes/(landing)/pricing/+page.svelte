@@ -11,7 +11,7 @@
     <div class="pricing-list">
       <PricingCard
         planLabel="FREE"
-        amount=""
+        amount="Limited Time Only"
         descriptions={[
           "AR Setup: Personalized Setup of AR for Products.",
           "3D Model Integration: Easily integrate 3D models provided by your designer into the AR experience.",
