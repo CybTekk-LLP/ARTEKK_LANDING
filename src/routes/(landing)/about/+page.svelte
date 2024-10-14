@@ -1,5 +1,6 @@
 <script lang="ts">
   import { AboutCard } from "$lib/project";
+  import GalleryCard from "$lib/project/GalleryCard/GalleryCard.svelte";
   import Typography from "$lib/ui/Typography/Typography.svelte";
 
   let aboutContent = [
@@ -19,6 +20,18 @@
         "<p>When you choose ARTEKK, you are partnering with a team committed to excellence, innovation, and customer satisfaction. Our proven track record in delivering high-quality VR experiences speaks to our unparalleled technical expertise and creative vision. We are passionate about pushing the boundaries of what's possible in virtual reality, ensuring that every project we undertake meets the highest standards. From initial concept to final execution, we work closely with you to unlock the full potential of VR, creating immersive and impactful experiences that exceed expectations. With ARTEKK, you can be confident in achieving your VR goals with a partner dedicated to your success.</p><br><br><p>Surely, with ARTEKK you will gain many returns for your businesses. You will experience a reduction in the number of the products which are returned. We will help your business attain a competitive edge. It will help in the boosting of the Sales. Also with the maximum increase in AR accessibility through mobile phones, many users are going to experience a new form of engagement and witness instant, realistic as well as personalised product representation. </p>",
     },
   ];
+
+  const urls = [
+    "specs.mp4",
+    "billboard 3d.mp4",
+    "ShoesAR.mp4",
+    "AR Mirror.mp4",
+    "caps.mp4",
+    "cars.mp4",
+    "Furniture.mp4",
+    "shoes2.mp4",
+    "newspaper.mp4",
+  ];
 </script>
 
 <main>
@@ -29,6 +42,29 @@
     >
   </h1>
   <br /><br /><br />
+  <div class="samples">
+    <Typography type="heading">ARTekk Reality Labs</Typography>
+    <br />
+    <Typography type="body"
+      >At ARTekk, our lab samples demonstrate the power of augmented reality in
+      creating immersive virtual try-on experiences. With a focus on precision
+      fitting, our solutions are designed to enhance customer satisfaction by
+      providing accurate and seamless integration into the retail space. Each
+      sample is a testament to our commitment to innovation, pushing the
+      boundaries of AR technology to deliver cutting-edge results tailored for
+      modern retail challenges.
+    </Typography>
+    <br /><br />
+    <div class="gallery-cards">
+      {#each urls as url}
+        <GalleryCard
+          args={{ variant: "video" }}
+          content={{ urls: [`images/Gallery/${url}`] }}
+          i18n={{ alt: ["sample ar video"] }}
+        />
+      {/each}
+    </div>
+  </div>
   <div class="about-cards">
     {#each aboutContent as content}
       <AboutCard heading={content.heading} description={content.description} />
@@ -49,6 +85,14 @@
       max-inline-size: 960px;
       margin-inline: auto;
       text-align: center;
+    }
+    & > .samples {
+      margin-block-end: 2rem;
+      & > .gallery-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
     }
   }
 </style>

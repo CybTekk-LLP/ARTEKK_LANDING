@@ -33,11 +33,7 @@
 
 <div class="parent" bind:this={parentEl}>
   {#if args.variant === "photo"}
-    <img
-      class={args.variant}
-      src={new URL(content.urls[0], PUBLIC_BASE_URI).toString()}
-      alt={i18n.alt[0]}
-    />
+    <img class={args.variant} src={content.urls[0]} alt={i18n.alt[0]} />
   {/if}
 
   {#if args.variant === "video"}
@@ -53,7 +49,7 @@
       tabindex="0"
     >
       <video
-        src={new URL(content.urls[0], PUBLIC_BASE_URI).toString()}
+        src={content.urls[0]}
         muted={isMuted}
         autoplay
         playsinline
