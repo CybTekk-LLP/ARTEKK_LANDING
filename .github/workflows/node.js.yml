@@ -27,7 +27,7 @@ jobs:
           touch build/.nojekyll
           cp build/index.html build/404.html
         env:
-          PUBLIC_BASE_URI: ${{ vars.PUBLIC_BASE_URI }} # Access the environment variable set for GitHub Pages
+          PUBLIC_BASE_URI: https://api.artekk.io/api # Access the environment variable set for GitHub Pages
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v1
