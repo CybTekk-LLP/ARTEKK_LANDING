@@ -56,7 +56,8 @@
 
 <style lang="scss">
   footer {
-    inline-size: 100%;
+    inline-size: 90%;
+    margin-inline: auto;
     padding-inline: 20px;
     padding-block: 50px;
     margin-block-start: 50px;
@@ -86,7 +87,6 @@
         }
         & > ul {
           list-style: none;
-
           & > li {
             margin-block-end: 10px;
             line-height: 1.3;

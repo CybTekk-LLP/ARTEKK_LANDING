@@ -89,28 +89,16 @@
     overflow: auto;
   }
   img.photo {
-    inline-size: 100vw;
+    inline-size: 100%;
     block-size: 500px;
     object-fit: cover;
   }
   div {
     position: relative;
   }
-  img.dual {
-    inline-size: 100vw;
-    block-size: 500px;
-    object-fit: cover;
-    &:last-of-type {
-      position: absolute;
-      inset-block-start: 10px;
-      inset-inline-start: 10px;
-      block-size: 120px;
-      inline-size: 100px;
-      border-radius: 15px;
-    }
-  }
+
   video {
-    inline-size: 100vw;
+    inline-size: 100%;
     object-fit: cover;
     block-size: 500px;
   }
