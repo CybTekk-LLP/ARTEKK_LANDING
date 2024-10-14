@@ -24,12 +24,12 @@
   const urls = [
     "specs.mp4",
     "billboard 3d.mp4",
-    "ShoesAR.mp4",
+    "shoes2.mp4",
     "AR Mirror.mp4",
     "caps.mp4",
     "cars.mp4",
     "Furniture.mp4",
-    "shoes2.mp4",
+    "ShoesAR.mp4",
     "newspaper.mp4",
   ];
 </script>
