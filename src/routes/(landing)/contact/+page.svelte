@@ -99,7 +99,7 @@
     <br /><br />
     <Button
       type="primary"
-      buttonType={isSent ? "reset" : "button"}
+      buttonType="reset"
       buttonLabel="Send a message"
       onClick={async () => {
         try {
