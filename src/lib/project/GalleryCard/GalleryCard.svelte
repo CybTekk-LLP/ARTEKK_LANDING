@@ -5,6 +5,7 @@
     IGalleryCardArgs,
   } from "../../types";
   import { PUBLIC_BASE_URI } from "$env/static/public";
+  import Typography from "$lib/ui/Typography/Typography.svelte";
 
   export let content: IGalleryCardContent;
   export let args: IGalleryCardArgs;
@@ -74,6 +75,9 @@
       </p>
     </div>
   {/if}
+  <p class="bottom-band">
+    <Typography type="body">{i18n.alt[0]}</Typography>
+  </p>
 </div>
 
 <style lang="scss">
@@ -97,6 +101,7 @@
     inline-size: 100%;
     object-fit: cover;
     block-size: 500px;
+    border-radius: 10px 10px 0 0;
   }
   img.video {
     position: absolute;
@@ -122,5 +127,12 @@
   }
   video::-webkit-media-controls-overlay-play-button {
     display: none;
+  }
+  .bottom-band {
+    background-color: var(--secondary-700);
+    padding: 15px 10px;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+    translate: 0 -10px;
   }
 </style>

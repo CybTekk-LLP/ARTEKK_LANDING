@@ -32,6 +32,18 @@
     "ShoesAR.mp4",
     "newspaper.mp4",
   ];
+
+  const alts = [
+    "Glasses Try-on",
+    "3D Billboard",
+    "Shoes Try-on",
+    "Clothing Mirror",
+    "Cap Try-on",
+    "3D Car Model",
+    "Virtual Furniture",
+    "Shoes Try-on",
+    "Mixed Reality Newspaper",
+  ];
 </script>
 
 <main>
@@ -56,11 +68,11 @@
     </Typography>
     <br /><br />
     <div class="gallery-cards">
-      {#each urls as url}
+      {#each urls as url, i}
         <GalleryCard
           args={{ variant: "video" }}
           content={{ urls: [`images/Gallery/${url}`] }}
-          i18n={{ alt: ["sample ar video"] }}
+          i18n={{ alt: [alts[i]] }}
         />
       {/each}
     </div>
