@@ -136,7 +136,7 @@
     variant="failure"
     content={{
       heading: "Failed",
-      description: "Your query have not been sent due to missing information or bad network, please try again",
+      description: "Your query have not been sent due to missing info or bad network",
     }}
   />
 </main>
