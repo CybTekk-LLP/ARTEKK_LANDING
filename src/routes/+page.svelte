@@ -117,20 +117,20 @@
       <div class="content">
         <h1 class="heading">
           <Typography type="heading"
-            >“The No-Code AR Platform customized to align with your needs”</Typography
+            >“The No-Code AR Platform customized to align with your B2B needs”</Typography
           >
         </h1>
         <p class="description">
           <Typography type="body" _color="var(--primary-700)">
             At ARTekk, we redefine what's possible with Augmented Reality (AR).
             Explore immersive experiences, engage your audience, and unlock new
-            dimensions of creativity with our cutting-edge AR solutions.
+            dimensions of creativity with our cutting-edge AI powered solutions.
           </Typography>
         </p>
         <div class="btn">
           <Button
             type="primary"
-            buttonLabel="Get Started"
+            buttonLabel="Check the Demo"
             onClick={() => goto("/products")}
           />
         </div>
@@ -172,9 +172,7 @@
       <FeatureCard
         direction="left"
         heading="Virtual Cosmetics Magic Awaits!"
-        description="Transform your look instantly with our virtual try-on.
-        All the Girlies! It's time to Glam up with just a click!
-       "
+        description="Transform makeup shopping with our virtual try-on. Let customers try products instantly and boost sales with just a click."
         img="./images/FeatureCard/Makeup.webp"
         isAnimated={animationData[0]}
         onClick={() => goto("/view?load=makeup")}
@@ -184,7 +182,7 @@
       <FeatureCard
         direction="right"
         heading="Perfect Fit, Virtually Tried!"
-        description="Discover your perfect pair of Glasses instantly with our virtual technique. Style made simple!"
+        description="Enhance eyewear shopping with our virtual try-on solution. Let customers discover their perfect pair instantly, driving engagement and simplifying the buying process."
         img="./images/FeatureCard/Glasses.webp"
         isAnimated={animationData[1]}
         onClick={() => goto("/view?load=glasses")}
@@ -194,7 +192,7 @@
       <FeatureCard
         direction="left"
         heading="Jewellery"
-        description="Choosing the best jewellery for you was never so easy! Make your online shopping a one-click tap! Adorn yourself with digital elegance – 3D jewellery!"
+        description="Make online jewellery shopping effortless with our virtual try-on solution. Empower customers to adorn themselves with digital elegance and discover their perfect pieces with just one click!"
         img="./images/FeatureCard/jwellery.webp"
         isAnimated={animationData[2]}
         onClick={() => goto("/view?load=jewellery")}
@@ -204,7 +202,7 @@
       <FeatureCard
         direction="right"
         heading="Cars"
-        description="Drive into the virtual fast lane – 3D cars that put you in the driver's seat of innovation!"
+        description="Accelerate your automotive sales with our 3D virtual car experience. Put customers in the driver's seat of innovation, allowing them to explore and customize vehicles like never before!"
         img="./images/FeatureCard/cars.webp"
         isAnimated={animationData[3]}
         onClick={() => goto("/view?load=cars")}
