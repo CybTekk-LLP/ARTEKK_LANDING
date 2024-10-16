@@ -117,8 +117,8 @@
       <div class="content">
         <h1 class="heading">
           <Typography type="heading"
-            >“The <span class="color">No-Code</span> AR Platform customized to align
-            with your B2B needs”</Typography
+            >“The <span class="color">No-Code</span> AR Platform customized for your
+            B2B needs”</Typography
           >
         </h1>
         <p class="description">
