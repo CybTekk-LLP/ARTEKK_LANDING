@@ -11,6 +11,23 @@
   <loc>https://artekk.io</loc>
   <lastmod>2024-04-27T18:09:36+00:00</lastmod>
 </url>
-
+<url>
+  <loc>https://artekk.io/products</loc>
+  <lastmod>2024-10-14</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://artekk.io/product</loc>
+  <lastmod>2024-10-14</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://artekk.io/pricing</loc>
+  <lastmod>2024-10-14</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.7</priority>
+</url>
 
 </urlset>
