@@ -100,7 +100,7 @@
     <Button
       type="primary"
       buttonType="reset"
-      buttonLabel="Send a message"
+      buttonLabel="Send a quick message"
       onClick={async () => {
         try {
           showToast = !!(await apiService.createNewContact({
@@ -119,6 +119,7 @@
         }
       }}
     />
+    <p class="bottom-label"><Typography type="subtext">We reply within 24 hours!</Typography></p>
   </form>
   <Toast
     showToast={showToast && !(showToast = undefined)}
@@ -135,7 +136,7 @@
     variant="failure"
     content={{
       heading: "Failed",
-      description: "Your query have not been sent due to some reason",
+      description: "Your query have not been sent due to missing info or bad network",
     }}
   />
 </main>
@@ -171,6 +172,10 @@
           block-size: 16px;
           accent-color: var(--primary-900);
         }
+      }
+      &> .bottom-label{
+        text-align: center;
+        margin-block-start: 15px;
       }
     }
   }

@@ -67,7 +67,7 @@
     max-inline-size: 378px;
     inline-size: 100%;
     block-size: 90px;
-    background-color: #1f2a37;
+    background-color: var(--secondary-700);
     border-radius: 8px;
     border-inline-start: 10px solid #16ad25;
     line-height: 1.5;

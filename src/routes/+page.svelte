@@ -117,7 +117,8 @@
       <div class="content">
         <h1 class="heading">
           <Typography type="heading"
-            >“The No-Code AR Platform customized to align with your B2B needs”</Typography
+            >“The <span class="color">No-Code</span> AR Platform customized to align
+            with your B2B needs”</Typography
           >
         </h1>
         <p class="description">
@@ -354,6 +355,11 @@
     & > footer {
       text-align: center;
       margin-block: 2rem;
+    }
+    & .color {
+      background-color: var(--brand-300);
+      padding-inline: 10px;
+      border-inline-end: 3px solid var(--primary-700);
     }
   }
 </style>
