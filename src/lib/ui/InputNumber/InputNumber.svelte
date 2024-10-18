@@ -45,7 +45,7 @@
     color: var(--primary-900);
     font-family: var(--font);
     font-weight: 400;
-    outline: var(--transparent);
+    outline: 1px solid var(--secondary-300);
     &:focus {
       outline: 1px solid var(--primary-900);
     }

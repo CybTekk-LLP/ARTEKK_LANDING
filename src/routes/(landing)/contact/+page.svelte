@@ -119,7 +119,20 @@
         }
       }}
     />
-    <p class="bottom-label"><Typography type="subtext">We reply within 24 hours!</Typography></p>
+    <p class="bottom-label">
+      <Typography type="subtext">We reply within 24 hours!</Typography>
+    </p>
+    <br />
+    {#if showToastTwo}
+      <a
+        class="google-form"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSdVyTLZPnZehwjBK5GY_T6hEO9EhXT0i9B0CbNhPmy5vtdbJw/viewform?vc=0&c=0&w=1&flr=0"
+        target="_blank"
+        ><Typography type="body" _color="var(--button-gradient-start)"
+          >Fill this Google form instead</Typography
+        ></a
+      >
+    {/if}
   </form>
   <Toast
     showToast={showToast && !(showToast = undefined)}
@@ -136,7 +149,8 @@
     variant="failure"
     content={{
       heading: "Failed",
-      description: "Your query have not been sent due to missing info or bad network",
+      description:
+        "Your query have not been sent due to missing info or bad network",
     }}
   />
 </main>
@@ -173,9 +187,14 @@
           accent-color: var(--primary-900);
         }
       }
-      &> .bottom-label{
+      & > .bottom-label {
         text-align: center;
         margin-block-start: 15px;
+      }
+      & > .google-form {
+        inline-size: 100%;
+        text-align: center;
+        text-underline-offset: 5px;
       }
     }
   }
