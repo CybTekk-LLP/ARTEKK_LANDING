@@ -20,7 +20,15 @@
       }).format(Date.now()),
     });
     chatbox = chat;
-    const data = await apiService.chatboxMessage(value);
+    let data;
+    try {
+      data = await apiService.chatboxMessage(value);
+    } catch {
+      data = {
+        response:
+          "Oh, that's unfortunate. The Chatbot might be down at the moment, you can send us a contact message in the meanwhile.",
+      };
+    }
     chat.push({
       message: data.response,
       messageType: "ai",
