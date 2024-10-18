@@ -114,6 +114,7 @@
     navOptions={[
       { name: "About", href: "/about", target: "" },
       { name: "Products", href: "/products", target: "" },
+      { name: "Samples", href: "/samples", target: "" },
       { name: "Pricing", href: "/pricing", target: "" },
       { name: "Pitch", href: "/pitch", target: "" },
       { name: "FAQ", href: "/faq", target: "" },
