@@ -128,7 +128,7 @@
         class="google-form"
         href="https://docs.google.com/forms/d/e/1FAIpQLSdVyTLZPnZehwjBK5GY_T6hEO9EhXT0i9B0CbNhPmy5vtdbJw/viewform?vc=0&c=0&w=1&flr=0"
         target="_blank"
-        ><Typography type="body" _color="var(--button-gradient-start)"
+        ><Typography type="body" _color="var(--button-gradient-end)"
           >Fill this Google form instead</Typography
         ></a
       >
@@ -192,9 +192,15 @@
         margin-block-start: 15px;
       }
       & > .google-form {
+        display: inline-block;
+        padding: 10px;
         inline-size: 100%;
+        border-radius: 5px;
         text-align: center;
         text-underline-offset: 5px;
+        text-decoration-color: var(--brand-300);
+        background-color: var(--primary-500);
+       
       }
     }
   }

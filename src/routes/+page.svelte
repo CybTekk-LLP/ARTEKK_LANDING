@@ -24,6 +24,7 @@
     let data;
     try {
       data = await apiService.chatboxMessage(value);
+      if (!data) throw new Error("failed to generate message");
     } catch {
       data = {
         response:
