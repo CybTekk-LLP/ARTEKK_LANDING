@@ -64,8 +64,9 @@
         { name: "About", href: "/about", target: "" },
         { name: "Products", href: "/products", target: "" },
         { name: "Pricing", href: "/pricing", target: "" },
-        { name: "Contact", href: "/contact", target: "" },
+        { name: "Pitch", href: "/pitch", target: "" },
         { name: "FAQ", href: "/faq", target: "" },
+        { name: "Contact", href: "/contact", target: "" },
       ]}
     />
   </div>
