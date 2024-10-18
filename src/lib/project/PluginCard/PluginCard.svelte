@@ -28,6 +28,7 @@
     border-radius: 16px;
     padding-block-start: 25px;
     box-shadow: inset 0 1px var(--secondary-500);
+
     & :global(.caption) {
       line-height: 0.7;
     }

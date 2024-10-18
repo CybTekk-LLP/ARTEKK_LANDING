@@ -124,7 +124,7 @@
     & > .plugin-cards {
       margin-block: 15px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
       gap: 1.5rem;
     }
   }
