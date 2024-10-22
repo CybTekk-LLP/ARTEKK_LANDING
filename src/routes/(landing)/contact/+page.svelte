@@ -103,7 +103,7 @@
     <br />
     <TextArea
       bind:value={comment}
-      label="Please write the exact requirements needed for your project."
+      label="Please write the exact requirements needed for your project"
       labelNeeded={true}
       placeholder=""
     />
