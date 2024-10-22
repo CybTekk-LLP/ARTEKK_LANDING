@@ -1,9 +1,13 @@
 <script lang="ts">
+  import { Typography } from "..";
+
   export let placeholder: string;
   export let inputField: HTMLInputElement | undefined = undefined;
   export let value: number | undefined;
   export let uniqueId = "inputText" + Math.random().toString().split(".")[1];
   export let autocomplete = "";
+  export let label: string | undefined = undefined;
+  export let labelNeeded: boolean | undefined = false;
 
   const handleInput = (inputField: HTMLInputElement) => {
     if (inputField.value) {
@@ -12,6 +16,13 @@
   };
 </script>
 
+{#if labelNeeded}
+  <label class="label" for={uniqueId}>
+    <Typography type="subtext" _fontweight="400">
+      {label}
+    </Typography>
+  </label>
+{/if}
 <input
   bind:this={inputField}
   type="number"
@@ -23,6 +34,10 @@
 />
 
 <style lang="scss">
+  .label {
+    display: inline-block;
+    margin-block-end: 5px;
+  }
   input:is([type="number"])::-webkit-outer-spin-button,
   input:is([type="number"])::-webkit-inner-spin-button {
     -webkit-appearance: none;

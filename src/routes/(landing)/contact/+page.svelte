@@ -35,15 +35,19 @@
   <form>
     <InputText
       bind:value={name}
+      labelNeeded={true}
       variant="text"
-      placeholder="Please enter your name"
+      placeholder=""
+      label="Please enter your name"
     />
     <br />
     <br />
     <InputText
       bind:value={email}
       variant="email"
-      placeholder="Please enter your email"
+      labelNeeded={true}
+      label="Please enter your email"
+      placeholder=""
     />
     <p class="error-msg" class:show={error}>
       <Typography type="subtext" _color="var(--danger)" _fontweight="400"
@@ -54,13 +58,17 @@
     <InputText
       bind:value={company}
       variant="text"
-      placeholder="Please enter company name"
+      labelNeeded={true}
+      label="Please enter company name"
+      placeholder=""
     />
     <br />
     <br />
     <InputNumber
       bind:value={budget}
-      placeholder="Please enter the budget for your project"
+      labelNeeded={true}
+      label="Please enter the budget for your project"
+      placeholder=""
     />
     <br />
     <br />
@@ -71,12 +79,13 @@
           : "Your chosen plans are: " +
             query.replace(/(.*)\s+(\S+)/, "$1 and $2")}
         variant="text"
-        placeholder="Please enter plans for your project"
+        labelNeeded={true}
+        label="Please enter plans for your project"
+        placeholder=""
         readonly={true}
       />
       <br />
       <br />{/if}
-
     <div class="optional">
       <input
         class="negotiation"
@@ -94,7 +103,9 @@
     <br />
     <TextArea
       bind:value={comment}
-      placeholder="Please write the exact requirements needed for your project."
+      label="Please write the exact requirements needed for your project."
+      labelNeeded={true}
+      placeholder=""
     />
     <br /><br />
     <Button
@@ -200,7 +211,6 @@
         text-underline-offset: 5px;
         text-decoration-color: var(--brand-300);
         background-color: var(--primary-500);
-       
       }
     }
   }
