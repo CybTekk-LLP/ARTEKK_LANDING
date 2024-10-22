@@ -129,7 +129,7 @@
         <h1 class="heading">
           <Typography type="heading"
             >“The <span class="color">No-Code</span> AR Platform customized for your
-            B2B needs”</Typography
+            business needs”</Typography
           >
         </h1>
         <p class="description">
