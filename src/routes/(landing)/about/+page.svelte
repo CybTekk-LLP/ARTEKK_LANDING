@@ -57,6 +57,7 @@
           team.</Typography
         >
       </article>
+      <br />
       <article class="team-card">
         <!-- <img height="400px" src="./images/About/Lovely.png" alt="" /> -->
         <br />
@@ -74,6 +75,7 @@
           project meets the highest standards.</Typography
         >
       </article>
+      <br />
       <article class="team-card">
         <!-- <img height="400px" src="./images/About/Lovely.png" alt="" /> -->
         <br />
@@ -110,14 +112,8 @@
     }
     & > .team-section {
       & > .team {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 20px;
         & > .team-card {
           inline-size: 100%;
-          max-inline-size: 360px;
-          padding: 10px;
           & > img {
             inline-size: 100%;
             object-fit: cover;
