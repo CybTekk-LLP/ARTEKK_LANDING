@@ -83,6 +83,7 @@
       margin-block-end: 4rem;
       & > .pricing-list {
         display: grid;
+        block-size: auto;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 25px;
         margin-block-start: 2rem;

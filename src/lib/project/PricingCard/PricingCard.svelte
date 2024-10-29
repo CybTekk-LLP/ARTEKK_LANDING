@@ -24,22 +24,26 @@
       </li>
     {/each}
   </ul>
+
   <Button type={buttonType} {buttonLabel} {onClick}></Button>
 </div>
 
 <style lang="scss">
   .pricing {
+    position: relative;
     inline-size: 100%;
-    block-size: max-content;
+    block-size: 100%;
     background: var(--secondary-700);
     border-radius: 16px;
     padding-inline: 25px;
     padding-block: 20px;
     margin-inline: auto;
     line-height: 1.4;
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     gap: 24px;
-    box-shadow: inset 0 2px var(--secondary-500);
+    // box-shadow: inset 0 2px var(--secondary-500);
     & > .card-header {
       white-space: nowrap;
     }
