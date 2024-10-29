@@ -37,7 +37,7 @@
   <br />
 
   <p class="product-line">
-    <Typography type="body">ARTekk</Typography>
+    <Typography type="body">ARTEKK</Typography>
     <Typography type="body">{i18n.productLabel}</Typography><a
       href="https://cybtekk.com/"
       target="_blank"

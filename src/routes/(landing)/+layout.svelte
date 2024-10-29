@@ -52,7 +52,7 @@
 
   onMount(() => {
     chat.push({
-      message: "Hi am your AI assistant for ARTekk, drop me any questions!",
+      message: "Hi am your AI assistant for ARTEKK, drop me any questions!",
       messageType: "ai",
       messageTime: new Intl.DateTimeFormat("en-US", {
         timeStyle: "short",

@@ -7,11 +7,11 @@
     "billboard 3d.mp4",
     "shoes2.mp4",
     "AR Mirror.mp4",
-    "caps.mp4",
     "cars.mp4",
     "Furniture.mp4",
     "ShoesAR.mp4",
     "newspaper.mp4",
+    "caps.mp4",
   ];
 
   const alts = [
@@ -19,20 +19,20 @@
     "3D Billboard",
     "Shoes Try-on",
     "Clothing Mirror",
-    "Cap Try-on",
     "3D Car Model",
     "Virtual Furniture",
     "Shoes Try-on",
     "Mixed Reality Newspaper",
+    "Cap Try-on",
   ];
 </script>
 
 <main>
   <div class="samples">
-    <Typography type="heading">ARTekk Reality Labs</Typography>
+    <Typography type="heading">ARTEKK Reality Labs</Typography>
     <br />
     <Typography type="body"
-      >At ARTekk, our lab samples demonstrate the power of augmented reality in
+      >At ARTEKK, our lab samples demonstrate the power of augmented reality in
       creating immersive virtual try-on experiences. With a focus on precision
       fitting, our solutions are designed to enhance customer satisfaction by
       providing accurate and seamless integration into the retail space. Each

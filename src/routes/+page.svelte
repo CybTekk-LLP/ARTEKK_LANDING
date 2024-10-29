@@ -71,7 +71,7 @@
     });
 
     chat.push({
-      message: "Hi am your AI assistant for ARTekk, drop me any questions!",
+      message: "Hi am your AI assistant for ARTEKK, drop me any questions!",
       messageType: "ai",
       messageTime: new Intl.DateTimeFormat("en-US", {
         timeStyle: "short",
@@ -134,7 +134,7 @@
         </h1>
         <p class="description">
           <Typography type="body" _color="var(--primary-700)">
-            At ARTekk, we redefine what's possible with Augmented Reality (AR).
+            At ARTEKK, we redefine what's possible with Augmented Reality (AR).
             Explore immersive experiences, engage your audience, and unlock new
             dimensions of creativity with our cutting-edge AI powered solutions.
           </Typography>
