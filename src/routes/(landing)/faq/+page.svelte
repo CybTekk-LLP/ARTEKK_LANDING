@@ -2,14 +2,9 @@
   import { FAQ } from "$lib/project";
   let content = [
     {
-      title: "Getting Started with ARTEKK: A Beginner's Guide",
+      title: " What is ARTEKK, and what does it offer?",
       description:
-        "Start your ARTEKK journey as a beginner with this comprehensive documentation. Learn the fundamentals of navigating our platform, from setting up your account to exploring basic functionalities. Gain insights into creating and viewing AR models using our intuitive Builder Section, tailored for ease of use. Follow step-by-step instructions to integrate AutoCAD models converted to glTF seamlessly and utilise our customised solutions for scaling products. Dive into key features such as face tracking for caps, real-space interaction, and QR code scanning for AR videos to enhance customer engagement. With this guide, beginners can gain the ARTEKK experience with confidence and proficiency.",
-    },
-    {
-      title: "Generating Code: ARTEKK as a Beginner",
-      description:
-        "In order to start with ARTEKK, visit our <u><a style='color: var(--primary-900)' href='/generate'>Builder's Option page</a></u> for a step-by-step setup guide and detailed information on tools and resources. If you'd prefer not to handle any code, our Custom Option offers a personalised solution tailored to your specific needs. Explore the Builder's Option or choose the Custom Option for a hassle-free experience.",
+        "ARTEKK is a platform dedicated to creating and integrating augmented reality (AR) models for industries like fashion, furniture, and accessories. It offers tools for AR project setup, AutoCAD model conversion, and custom solutions to deliver immersive, engaging experiences. Operating as a B2B platform, ARTEKK facilitates partnerships that empower businesses to leverage AR for marketing, product demonstrations, and enhanced customer interaction, ultimately helping them stand out in competitive markets.",
     },
     {
       title: "Contacting Sales for Custom plans",
@@ -27,15 +22,26 @@
         "<ul style=list-style:none><li>Login to your account and set up your builder module by navigating to the Projects tab in the top menu.</li><br><li>Start by creating a new project and adding a name for your project and the authorised domain. When you first create a project, its status will be inactive. This is to ensure your domains can be authorised. We will verify this on our end, and once your project is approved, it will show a status of active. You can then start uploading your 3D models and receive the CDN links for the JavaScript libraries and models to use.</li><br><li>Visit our  <u><a style='color: var(--primary-900)' href='/generate'>Code Generator page</a></u> to learn how to configure your project. If you prefer not to deal with any code, you can always upgrade to the Custom Plan, where we will develop the solution models for you. You will only be charged the <span style='color:var(--primary-900)'>difference</span>.</li></ul>",
     },
     {
-      title: "Switch from one Pricing Plan to a Custom Plan",
+      title: "What is the ARTEKK Free Plan, and what does it include?",
       description:
-        "<p>Yes, you can switch from any Pricing Plan to the Custom Plan. This will make your work hassle-free, offering greater customizations and solutions tailored to meet your exact needs. Whether for new or existing projects, our service ensures everything is precisely aligned with your requirements. Enjoy seamless integration and enhanced functionality with our expert support.</p>",
+        "<h3>The Free Plan is a limited-time offering that provides essential tools to get started with AR for your products at no cost. It includes personalized AR setup for products, easy integration of designer-provided 3D models into the AR experience, free AR product displays, and full platform integration with major e-commerce systems like Shopify and WordPress. Basic support is also included to help you integrate AR smoothly.</p>",
     },
     {
-      title: "KMS (Knowledge Management System) – Go to a Custom Plan",
+      title: "What benefits does the ARTEKK Pro Plan offer?",
       description:
-        "<h3>Cars, Furniture & more– Builder Section</h3><br><p>The Builder Section facilitates the creation and viewing of detailed AR models for not just cars and furniture but any model you can think of!, enabling users to virtually place vehicles in various interior settings and glTF converted from AutoCAD models for accurate representation.</p><br><h3>Customised Solutions – Hassle-Free Expertise</h3><br><p>Tailored AR solutions provided by ARTEKK simplify product scaling and integration, backed by expert support for a seamless experience.</p><br><h3>Criteria for AR Solutions</h3><br><p>AR solutions include face tracking for caps, offering a realistic fit and interaction, while furniture models enhance customer visualisation in real-world contexts.</p><br><h3>Existing Business Applications</h3><br><p>Incorporating AR-based videos via QR code scans enriches newspaper content, while the shoe solution eliminates size constraints, aiding informed purchasing decisions. Face tracking technology ensures virtual try-ons for caps, reducing returns and enhancing customer satisfaction.<p/><br><h3>Key Benefits</h3><br><p>ARTEKK's user-friendly interfaces, accurate sizing, realistic visualisation, interactive engagement features, and expert support empower businesses to optimise product presentations and customer engagement with innovative AR technology.</p>",
+        "<h3>The Pro Plan is designed for businesses seeking advanced AR capabilities. It includes personalized AR integration tailored to your codebase, initial setup with full 3D model integration, and priority support for faster troubleshooting and updates. Additional features include advanced analytics for AR interactions, creation of custom 3D models, tailored designs for accuracy, quick delivery times, and compatibility with multiple platforms like Shopify and WordPress, all at a minimal cost to maximize ROI.</p>",
     },
+    {
+      title: "Can I switch from the Free Plan to the Pro Plan?",
+      description:
+        "<p>Yes, you can upgrade from the Free Plan to the Pro Plan at any time. This will grant you access to more comprehensive features, such as priority support, custom 3D models, advanced analytics, and faster model delivery times.</p>",
+    },
+     {
+      title: "Is the Free Plan actually free, or are there hidden fees?",
+      description:
+        "<p>The Free Plan is genuinely free for a limited time with no hidden fees. It offers core AR tools and e-commerce integration without any cost. For advanced features and enhanced support, the Pro Plan is available.</p>",
+    },
+    
     {
       title: "Trying Newspaper and Billboard AR Experiences",
       description:
