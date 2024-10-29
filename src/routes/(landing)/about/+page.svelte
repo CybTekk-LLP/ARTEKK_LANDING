@@ -1,6 +1,5 @@
 <script lang="ts">
   import { AboutCard } from "$lib/project";
-  import GalleryCard from "$lib/project/GalleryCard/GalleryCard.svelte";
   import Typography from "$lib/ui/Typography/Typography.svelte";
 
   let aboutContent = [
@@ -37,6 +36,64 @@
       <br /><br />
     {/each}
   </div>
+  <section class="team-section">
+    <Typography type="heading">Our Team</Typography>
+    <br />
+    <div class="team">
+      <article class="team-card">
+        <!-- <img height="400px" src="./images/About/Lovely.png" alt="" /> -->
+        <br />
+        <br />
+        <Typography type="cardTitle">Yash Raj Bharti</Typography>
+        <br />
+        <Typography type="body"
+          >Yash is a creative designer and developer at Artekk, specializing in
+          augmented reality experiences. With extensive experience in Blender,
+          he excels at crafting intricate 3D models that bring ideas to life.
+          Yash is also skilled in UI/UX design, utilizing Figma to create
+          intuitive interfaces that enhance user engagement. His proficiency in
+          JavaScript allows him to seamlessly integrate design with
+          functionality on our AR platform, making him a vital asset to our
+          team.</Typography
+        >
+      </article>
+      <article class="team-card">
+        <!-- <img height="400px" src="./images/About/Lovely.png" alt="" /> -->
+        <br />
+        <br />
+        <Typography type="cardTitle">Lovely Sehotra</Typography>
+        <br />
+        <Typography type="body"
+          >Lovely is a talented fullstack developer with a diverse skill set
+          that spans testing, DevOps, and research. His expertise in both
+          frontend and backend development allows him to create robust
+          applications that are efficient and user-friendly. With a passion for
+          problem-solving, Lovely conducts thorough research to implement
+          innovative solutions that enhance performance and scalability. His
+          collaborative approach and dedication to quality ensure that every
+          project meets the highest standards.</Typography
+        >
+      </article>
+      <article class="team-card">
+        <!-- <img height="400px" src="./images/About/Lovely.png" alt="" /> -->
+        <br />
+        <br />
+        <Typography type="cardTitle">Gourav Saini</Typography>
+        <br />
+        <Typography type="body"
+          >Gourav is a skilled frontend developer at Artekk, dedicated to
+          building intuitive user interfaces and enhancing our augmented reality
+          platform. He specializes in creating platform-independent code,
+          ensuring that our solutions seamlessly integrate across various
+          frameworks, including React, Vue, Angular, and Svelte. Gourav also has
+          expertise in CMS engines like WordPress, Shopify, Webflow, and Wix,
+          allowing him to develop versatile applications that meet diverse
+          client needs. His commitment to delivering high-quality code and
+          user-centric designs makes him an invaluable part of our team.
+        </Typography>
+      </article>
+    </div>
+  </section>
 </main>
 
 <style lang="scss">
@@ -50,6 +107,24 @@
       max-inline-size: 960px;
       margin-inline: auto;
       text-align: center;
+    }
+    & > .team-section {
+      & > .team {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+        & > .team-card {
+          inline-size: 100%;
+          max-inline-size: 360px;
+          padding: 10px;
+          & > img {
+            inline-size: 100%;
+            object-fit: cover;
+            image-rendering: optimizeSpeed;
+          }
+        }
+      }
     }
   }
 </style>
