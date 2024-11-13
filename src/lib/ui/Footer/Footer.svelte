@@ -58,8 +58,8 @@
   footer {
     inline-size: 90%;
     margin-inline: auto;
-    padding-inline: 20px;
     padding-block: 50px;
+    padding-inline: 20px;
     margin-block-start: 50px;
     border-block-start: 1px solid var(--hover);
     & > .footer-links {

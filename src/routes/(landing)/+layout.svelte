@@ -125,7 +125,7 @@
               name: "CybTEKK, Plot No. 10, Sector 13,Rajiv Gandhi IT Park, Chandigarh",
               url: "https://maps.app.goo.gl/6PmTzFpYniaMRe3MA",
             },
-            { name: "hello@cybtekk.com", url: "mailto:hello@cybtekk.com" },
+            { name: "socials@cybtekk.com", url: "mailto:socials@cybtekk.com" },
             { name: "+917233029581", url: "tel:+917233029581" },
           ],
         },
