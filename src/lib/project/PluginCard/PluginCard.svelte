@@ -12,8 +12,8 @@
   <Typography type="caption">{cardHeading}</Typography>
   <br />
   <Typography type="subtext" _fontweight="400">{subHeading}</Typography>
-  <br>
-  <img height="196px" src={imgSrc} alt="plugin" />
+  <br />
+  <img src={imgSrc} alt="plugin" />
   <br />
   <br />
   <div class="btn">
@@ -23,6 +23,8 @@
 
 <style lang="scss">
   article {
+    inline-size: 100%;
+    block-size: 100%;
     background-color: var(--secondary-700);
     padding: 20px;
     border-radius: 16px;
@@ -37,6 +39,7 @@
       inline-size: 100%;
       object-fit: cover;
       image-rendering: optimizeSpeed;
+      aspect-ratio: 16/9;
       border-radius: 6px;
     }
     & > .btn {

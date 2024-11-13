@@ -123,9 +123,11 @@
     // padding-inline: 2rem;
     & > .plugin-cards {
       margin-block: 15px;
+      block-size: 100%;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-      gap: 1.5rem;
+      // grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      grid-template-columns: 1fr;
+      gap: 50px;
     }
   }
 </style>
