@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { goto } from "$app/navigation";
   import { page } from "$app/stores";
   import { Toast } from "$lib/project";
   import * as apiService from "$lib/services/api.service";
@@ -32,7 +33,21 @@
 
 <main class="sales">
   <Typography type="cardTitle">Contact Sales</Typography>
+  <br />
   <form>
+    <Button
+      type="primary"
+      buttonType="reset"
+      buttonLabel="Book a Meeting with us"
+      onClick={() =>
+        window.open("https://calendar.app.google/tzvBWpzhMMzmrY1v6")}
+    />
+    <br /><br />
+    <br />
+    <div class="or-divider">
+      <span><Typography type="body">Or</Typography></span>
+    </div>
+    <br /><br /><br />
     <InputText
       bind:value={name}
       labelNeeded={true}
@@ -175,6 +190,26 @@
       max-inline-size: 600px;
       margin-inline: auto;
       margin-block-start: 2rem;
+      & > .or-divider {
+        position: relative;
+        text-align: center;
+        &::after {
+          position: absolute;
+          inset-inline-start: 0;
+          inset-block-start: 0;
+          content: "";
+          inline-size: 100%;
+          display: inline-block;
+          block-size: 12px;
+          border-block-end: 2px dashed var(--secondary-500);
+          z-index: -1;
+        }
+        & > span {
+          display: inline-block;
+          background-color: var(--secondary-900);
+          padding-inline: 15px;
+        }
+      }
       & > .error-msg {
         block-size: 5px;
         margin-block-start: 5px;

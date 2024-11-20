@@ -9,4 +9,5 @@ export { default as Status } from "./Status/Status.svelte";
 export { default as InputRadio } from "./InputRadio/InputRadio.svelte";
 export { default as Accordion } from "./Accordion/Accordion.svelte";
 export { default as InputCheckboxSecondary } from "./InputCheckboxSecondary/InputCheckboxSecondary.svelte";
-export { default as Footer} from "./Footer/Footer.svelte";
+export { default as Footer } from "./Footer/Footer.svelte";
+export { default as TopBanner } from "./TopBanner/TopBanner.svelte";

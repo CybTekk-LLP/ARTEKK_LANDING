@@ -4,6 +4,7 @@
   import { clickOutside } from "./../../utils";
   import { onMount } from "svelte";
   import { ProfilePic } from "$lib/project";
+  import TopBanner from "../TopBanner/TopBanner.svelte";
   export let isOpen = false;
   export let navOptions: { name: string; href: string; target?: string }[];
   export let logo: string;
@@ -40,86 +41,101 @@
   });
 </script>
 
-<nav bind:this={nav} use:clickOutside>
-  <a href="/">
-    <img class="logo" src={logo} alt="logo" />
-  </a>
-  <ul class="nav-options">
-    {#each navOptions ?? [] as option}
-      <li>
-        <a href={option.href} target={option?.target}
-          ><Typography type="impact" _fontweight="400">{option.name}</Typography
-          ></a
-        >
-      </li>
-    {/each}
-  </ul>
-  <div class="toggle toggle--daynight">
-    <input
-      type="checkbox"
-      id="toggle--daynight"
-      class="toggle--checkbox"
-      bind:this={themeToggle}
-    />
-    <label class="toggle--btn" for="toggle--daynight"
-      ><span class="toggle--feature"></span></label
-    >
-  </div>
-  {#if isSignedIn}
-    <a
-      href="/profile"
-      class="user-avatar"
-      inert
-      style="opacity: 0; visibility: hidden"
-    >
-      <ProfilePic isSmall={true} bind:userName />
+<header>
+  <TopBanner
+    bannerText="Got questions?"
+    bannerTextTwo="Book an appointment"
+    bannerTextThree="—we're here to help!"
+  />
+  <nav bind:this={nav} use:clickOutside>
+    <a href="/">
+      <img class="logo" src={logo} alt="logo" />
     </a>
-    {:else}
-   
-    <div aria-hidden="true" />
-  {/if}
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
-  <!-- svelte-ignore a11y-no-static-element-interactions -->
-  <div class="nav-icon" class:open={isOpen} on:click={() => (isOpen = !isOpen)}>
-    <span></span>
-    <span></span>
-  </div>
-</nav>
-{#if isOpen}
-  <div
-    class="ham-menu"
-    in:fly={{ duration: 400, x: 50 }}
-    out:fly={{ duration: 200, x: 50 }}
-  >
-    <ul class="hamburger-menu">
+    <ul class="nav-options">
       {#each navOptions ?? [] as option}
         <li>
-          <a
-            href={option.href}
-            on:click={() => (isOpen = false)}
-            target={option?.target}
+          <a href={option.href} target={option?.target}
             ><Typography type="impact" _fontweight="400"
               >{option.name}</Typography
             ></a
           >
         </li>
       {/each}
-      <!-- {#if isSignedIn}
-        <li>
-          <a href="/profile" on:click={() => (isOpen = false)}
-            ><Typography type="impact" _fontweight="400">{"Profile"}</Typography
-            ></a
-          >
-        </li>
-      {/if} -->
     </ul>
-  </div>
-{/if}
+    <div class="toggle toggle--daynight">
+      <input
+        type="checkbox"
+        id="toggle--daynight"
+        class="toggle--checkbox"
+        bind:this={themeToggle}
+      />
+      <label class="toggle--btn" for="toggle--daynight"
+        ><span class="toggle--feature"></span></label
+      >
+    </div>
+    {#if isSignedIn}
+      <a
+        href="/profile"
+        class="user-avatar"
+        inert
+        style="opacity: 0; visibility: hidden"
+      >
+        <ProfilePic isSmall={true} bind:userName />
+      </a>
+    {:else}
+      <div aria-hidden="true" />
+    {/if}
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
+    <div
+      class="nav-icon"
+      class:open={isOpen}
+      on:click={() => (isOpen = !isOpen)}
+    >
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+  {#if isOpen}
+    <div
+      class="ham-menu"
+      in:fly={{ duration: 400, x: 50 }}
+      out:fly={{ duration: 200, x: 50 }}
+    >
+      <ul class="hamburger-menu">
+        {#each navOptions ?? [] as option}
+          <li>
+            <a
+              href={option.href}
+              on:click={() => (isOpen = false)}
+              target={option?.target}
+              ><Typography type="impact" _fontweight="400"
+                >{option.name}</Typography
+              ></a
+            >
+          </li>
+        {/each}
+        <!-- {#if isSignedIn}
+      <li>
+        <a href="/profile" on:click={() => (isOpen = false)}
+          ><Typography type="impact" _fontweight="400">{"Profile"}</Typography
+            ></a
+            >
+          </li>
+          {/if} -->
+      </ul>
+    </div>
+  {/if}
+</header>
 
 <style lang="scss">
+  header {
+    position: fixed;
+    inline-size: 100%;
+    z-index: 4;
+  }
   nav {
     inline-size: 100%;
-    position: fixed;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -127,7 +143,6 @@
     padding-inline: 30px;
     padding-block: 20px;
     background-color: var(--primary-translucent);
-    z-index: 4;
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     & > a {
