@@ -29,7 +29,7 @@
 
 <style lang="scss">
   header {
-    height: 50px;
+    block-size: 50px;
     position: relative;
     background-color: var(--brand-300);
     -webkit-backdrop-filter: blur(5px);
@@ -40,14 +40,14 @@
     justify-content: center;
     align-items: center;
     @media screen and (width < 768px) {
-      height: 100px;
+      block-size: 100px;
     }
     &.hide {
       animation: hide 0.7s ease-in-out forwards;
     }
     @keyframes hide {
       to {
-        height: 0;
+        block-size: 0;
         padding-block: 0;
       }
     }
@@ -64,7 +64,6 @@
       position: absolute;
       inset-inline-end: 10px;
       inset-block-start: 0;
-      appearance: none;
       padding: 15px;
       cursor: pointer;
     }

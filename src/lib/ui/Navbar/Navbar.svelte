@@ -1,10 +1,9 @@
 <script lang="ts">
-  import { Typography } from "..";
+  import { Typography, TopBanner } from "..";
   import { fly } from "svelte/transition";
   import { clickOutside } from "./../../utils";
   import { onMount } from "svelte";
   import { ProfilePic } from "$lib/project";
-  import TopBanner from "../TopBanner/TopBanner.svelte";
   export let isOpen = false;
   export let navOptions: { name: string; href: string; target?: string }[];
   export let logo: string;
