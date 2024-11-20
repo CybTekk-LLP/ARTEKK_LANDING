@@ -220,6 +220,19 @@
         onClick={() => goto("/view?load=cars")}
       />
     </section>
+    <p class="cta-line">
+      <Typography type="body"
+        >"Have questions? Schedule a meeting—we're here for you!"</Typography
+      >
+    </p>
+    <div class="cta-btn">
+      <Button
+        type="primary"
+        buttonLabel="Book a Meeting"
+        onClick={() =>
+          window.open("https://calendar.app.google/tzvBWpzhMMzmrY1v6")}
+      />
+    </div>
   </section>
   <Footer
     i18n={{
@@ -361,6 +374,17 @@
         @media screen and (orientation: portrait) and (width <= 568px) {
           block-size: auto;
         }
+      }
+      & > .cta-line {
+        margin-block-end: 2rem;
+        text-align: center;
+        padding-inline: 10px;
+      }
+      & > .cta-btn {
+        margin-block-end: 8rem;
+        max-inline-size: 500px;
+        margin-inline: auto;
+        padding-inline: 10px;
       }
     }
     & > footer {
