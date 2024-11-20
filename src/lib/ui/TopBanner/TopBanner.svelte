@@ -1,18 +1,24 @@
 <script lang="ts">
+  import { hideTopBanner } from "$lib/stores/store";
+  import { onMount } from "svelte";
   import { Typography } from "..";
 
   export let bannerText: String;
   export let bannerTextTwo: string;
   export let bannerTextThree: string;
 
-  let hideBanner = false;
+  let header: HTMLElement;
+
+  onMount(() => {
+    if ($hideTopBanner) header.style.display = "none";
+  });
 
   const handleCancel = () => {
-    hideBanner = true;
+    $hideTopBanner = true;
   };
 </script>
 
-<header class:hide={hideBanner}>
+<header class:hide={$hideTopBanner} bind:this={header}>
   <div>
     <Typography type="body" renderInline={true}>{bannerText}</Typography>
     <Typography type="body" renderInline={true}
