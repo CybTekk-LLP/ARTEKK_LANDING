@@ -125,8 +125,8 @@
       margin-block: 15px;
       block-size: 100%;
       display: grid;
-      // grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      // grid-template-columns: 1fr;
       gap: 50px;
     }
   }
