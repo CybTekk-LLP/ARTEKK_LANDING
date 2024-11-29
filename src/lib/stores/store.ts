@@ -6,3 +6,4 @@ export type UserTokens = {
 };
 export const userTokens = persisted<UserTokens | null>("userToken", null);
 export const accessToken = persisted<string | null>("accessToken", null);
+export const hideTopBanner = persisted<boolean>("hideBanner", false);
